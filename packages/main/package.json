@@ -1,0 +1,17 @@
+{
+  "name": "@pro/main",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./build/index.cjs",
+    "build": "rollup -c",
+    "auth": "dotenv -e .env -- npm start -- --session"
+  },
+  "devDependencies": {
+    "@types/qrcode-terminal": "0.12.2"
+  },
+  "dependencies": {
+    "qrcode-terminal": "0.12.0",
+    "telegram": "2.26.22"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "ignoreDeprecations": "6.0",
+    "lib": [
+      "esnext",
+      "dom"
+    ],
+    "types": [
+      "node"
+    ],
+    "paths": {
+      "@pro/core": ["./packages/core/types.d.ts"],
+      "@pro/main": ["./packages/main/types.d.ts"]
+    }
+  },
+  "include": [
+    "./config",
+    "./content",
+  ],
+}

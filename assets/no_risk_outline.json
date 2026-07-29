@@ -1,0 +1,1718 @@
+[
+  {
+    "id": "6a19c607f20d896ad6188c40",
+    "cost": 100,
+    "priceOpen": 0.2894832780536788,
+    "position": "short",
+    "priceStopLoss": 0.3013,
+    "priceTakeProfit": 0.2825,
+    "minuteEstimatedTime": null,
+    "note": "СИГНАЛ #TRX/USDT\n\n🔑 Откройте ШОРТ в зоне $0.2886 - $0.2918 с плечом X25.\n\n🍒 Цели:\n\n🔘 Закрыть ордер по цене $0.2863\n🔘 Закрыть ордер по цене $0.2851\n🔘 Закрыть ордер по цене $0.2825\n🔘 Закрыть ордер по цене $0.2796\n🔘 Закрыть ордер по цене $0.2752\n\n❗️ СТОП-ЛОСС: $0.3013\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+    "symbol": "TRXUSDT",
+    "exchangeName": "ccxt-exchange",
+    "strategyName": "jan_2026_strategy",
+    "frameName": "jan_2026_frame",
+    "scheduledAt": 1769775540000,
+    "pendingAt": 1769775540000,
+    "timestamp": 1769775540000,
+    "_isScheduled": false,
+    "_entry": [
+      {
+        "price": 0.2894832780536788,
+        "cost": 100,
+        "timestamp": 1769775540000
+      }
+    ],
+    "_peak": {
+      "price": 0.2846060509721212,
+      "timestamp": 1769892240000,
+      "pnlCost": 1.2894651849727083,
+      "pnlPercentage": 1.2894651849727083,
+      "pnlEntries": 100,
+      "priceOpen": 0.2894832780536788,
+      "priceClose": 0.2846060509721212
+    },
+    "_fall": {
+      "price": 0.2953623230455408,
+      "timestamp": 1769804220000,
+      "pnlCost": -2.437376665904683,
+      "pnlPercentage": -2.437376665904683,
+      "pnlEntries": 100,
+      "priceOpen": 0.2894832780536788,
+      "priceClose": 0.2953623230455408
+    },
+    "originalPriceOpen": 0.2894832780536788,
+    "originalPriceStopLoss": 0.3013,
+    "originalPriceTakeProfit": 0.2825,
+    "maxDrawdown": {
+      "price": 0.2953623230455408,
+      "timestamp": 1769804220000,
+      "pnlCost": -2.437376665904683,
+      "pnlPercentage": -2.437376665904683,
+      "pnlEntries": 100,
+      "priceOpen": 0.2894832780536788,
+      "priceClose": 0.2953623230455408
+    },
+    "peakProfit": {
+      "price": 0.2846060509721212,
+      "timestamp": 1769892240000,
+      "pnlCost": 1.2894651849727083,
+      "pnlPercentage": 1.2894651849727083,
+      "pnlEntries": 100,
+      "priceOpen": 0.2894832780536788,
+      "priceClose": 0.2846060509721212
+    },
+    "partialExecuted": 0,
+    "totalEntries": 1,
+    "totalPartials": 0,
+    "pnl": {
+      "pnlPercentage": 0.578898228105307,
+      "priceOpen": 0.2894832780536788,
+      "priceClose": 0.286656862844551,
+      "pnlCost": 0.578898228105307,
+      "pnlEntries": 100
+    },
+    "status": "closed",
+    "priority": 1780168869249,
+    "createdAt": 1769775540000,
+    "updatedAt": 1769904000000
+  },
+  {
+    "id": "6a19c607f20d896ad6188c3e",
+    "cost": 100,
+    "priceOpen": 125.45850696996867,
+    "position": "long",
+    "priceStopLoss": 120.5,
+    "priceTakeProfit": 128.6,
+    "minuteEstimatedTime": null,
+    "note": "СИГНАЛ #SOL/USDT\n\n🔑 Откройте ЛОНГ в зоне $124.6 - $126 с плечом X25.\n\n🍒 Цели:\n\n🔘 Закрыть ордер по цене $127\n🔘 Закрыть ордер по цене $127.5\n🔘 Закрыть ордер по цене $128.6\n🔘 Закрыть ордер по цене $129.9\n🔘 Закрыть ордер по цене $131.8\n\n❗️ СТОП-ЛОСС: $120.5\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+    "symbol": "SOLUSDT",
+    "exchangeName": "ccxt-exchange",
+    "strategyName": "jan_2026_strategy",
+    "frameName": "jan_2026_frame",
+    "scheduledAt": 1769638500000,
+    "pendingAt": 1769638500000,
+    "timestamp": 1769638500000,
+    "_isScheduled": false,
+    "_entry": [
+      {
+        "price": 125.45850696996867,
+        "cost": 100,
+        "timestamp": 1769638500000
+      }
+    ],
+    "_peak": {
+      "price": 125.7945989730357,
+      "timestamp": 1769640540000,
+      "pnlCost": -0.13251203853528762,
+      "pnlPercentage": -0.13251203853528762,
+      "pnlEntries": 100,
+      "priceOpen": 125.45850696996867,
+      "priceClose": 125.7945989730357
+    },
+    "_fall": {
+      "price": 120.66962641441567,
+      "timestamp": 1769698740000,
+      "pnlCost": -4.205267440907562,
+      "pnlPercentage": -4.205267440907562,
+      "pnlEntries": 100,
+      "priceOpen": 125.45850696996867,
+      "priceClose": 120.66962641441567
+    },
+    "originalPriceOpen": 125.45850696996867,
+    "originalPriceStopLoss": 120.5,
+    "originalPriceTakeProfit": 128.6,
+    "maxDrawdown": {
+      "price": 120.66962641441567,
+      "timestamp": 1769698740000,
+      "pnlCost": -4.205267440907562,
+      "pnlPercentage": -4.205267440907562,
+      "pnlEntries": 100,
+      "priceOpen": 125.45850696996867,
+      "priceClose": 120.66962641441567
+    },
+    "peakProfit": {
+      "price": 125.7945989730357,
+      "timestamp": 1769640540000,
+      "pnlCost": -0.13251203853528762,
+      "pnlPercentage": -0.13251203853528762,
+      "pnlEntries": 100,
+      "priceOpen": 125.45850696996867,
+      "priceClose": 125.7945989730357
+    },
+    "partialExecuted": 0,
+    "totalEntries": 1,
+    "totalPartials": 0,
+    "pnl": {
+      "pnlPercentage": -4.340067556965655,
+      "priceOpen": 125.45850696996867,
+      "priceClose": 120.5,
+      "pnlCost": -4.340067556965655,
+      "pnlEntries": 100
+    },
+    "status": "closed",
+    "priority": 1780168676354,
+    "createdAt": 1769638500000,
+    "updatedAt": 1769698800000
+  },
+  {
+    "id": "6a19c607f20d896ad6188c3b",
+    "cost": 100,
+    "priceOpen": 0.28237598757125937,
+    "position": "short",
+    "priceStopLoss": 0.335,
+    "priceTakeProfit": 0.23,
+    "minuteEstimatedTime": null,
+    "note": "СИГНАЛ #FARTCOIN/USDT\n\n📛 Риск сигнала: 6/10\n\n🔑 Откройте ШОРТ в зоне $0.283 - $0.310, используя 4% от депозита с плечом x5\n\n🉐 Цели:\n\n🔘 Закрыть ордер по цене $0.27\n🔘 Закрыть ордер по цене $0.25\n🔘 Закрыть ордер по цене $0.23\n🔘 Закрыть ордер по цене $0.21\n🔘 Закрыть ордер по цене $0.19\n\n❗️ СТОП-ЛОСС: $0.335\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+    "symbol": "FARTCOINUSDT",
+    "exchangeName": "ccxt-exchange",
+    "strategyName": "jan_2026_strategy",
+    "frameName": "jan_2026_frame",
+    "scheduledAt": 1769444460000,
+    "pendingAt": 1769444460000,
+    "timestamp": 1769444460000,
+    "_isScheduled": false,
+    "_entry": [
+      {
+        "price": 0.28237598757125937,
+        "cost": 100,
+        "timestamp": 1769444460000
+      }
+    ],
+    "_peak": {
+      "price": 0.23065084895270127,
+      "timestamp": 1769869680000,
+      "pnlCost": 17.972451196615637,
+      "pnlPercentage": 17.972451196615637,
+      "pnlEntries": 100,
+      "priceOpen": 0.28237598757125937,
+      "priceClose": 0.23065084895270127
+    },
+    "_fall": {
+      "price": 0.31499659143745135,
+      "timestamp": 1769593260000,
+      "pnlCost": -11.98729083405041,
+      "pnlPercentage": -11.98729083405041,
+      "pnlEntries": 100,
+      "priceOpen": 0.28237598757125937,
+      "priceClose": 0.31499659143745135
+    },
+    "originalPriceOpen": 0.28237598757125937,
+    "originalPriceStopLoss": 0.335,
+    "originalPriceTakeProfit": 0.23,
+    "maxDrawdown": {
+      "price": 0.31499659143745135,
+      "timestamp": 1769593260000,
+      "pnlCost": -11.98729083405041,
+      "pnlPercentage": -11.98729083405041,
+      "pnlEntries": 100,
+      "priceOpen": 0.28237598757125937,
+      "priceClose": 0.31499659143745135
+    },
+    "peakProfit": {
+      "price": 0.23065084895270127,
+      "timestamp": 1769869680000,
+      "pnlCost": 17.972451196615637,
+      "pnlPercentage": 17.972451196615637,
+      "pnlEntries": 100,
+      "priceOpen": 0.28237598757125937,
+      "priceClose": 0.23065084895270127
+    },
+    "partialExecuted": 0,
+    "totalEntries": 1,
+    "totalPartials": 0,
+    "pnl": {
+      "pnlPercentage": 18.203633780933803,
+      "priceOpen": 0.28237598757125937,
+      "priceClose": 0.23,
+      "pnlCost": 18.203633780933803,
+      "pnlEntries": 100
+    },
+    "status": "closed",
+    "priority": 1780168833803,
+    "createdAt": 1769444460000,
+    "updatedAt": 1769869740000
+  },
+  {
+    "id": "6a19c607f20d896ad6188c37",
+    "cost": 100,
+    "priceOpen": 0.13404692681461666,
+    "position": "long",
+    "priceStopLoss": 0.129,
+    "priceTakeProfit": 0.1377,
+    "minuteEstimatedTime": null,
+    "note": "СИГНАЛ #POL/USDT\n\n🔑 Откройте ЛОНГ в зоне $0.1335 - $0.1349 с плечом X25.\n\n🍒 Цели для фиксации прибыли:\n\n🔘 Закрыть ордер по цене $0.136\n🔘 Закрыть ордер по цене $0.1366\n🔘 Закрыть ордер по цене $0.1377\n🔘 Закрыть ордер по цене $0.1391\n🔘 Закрыть ордер по цене $0.1411\n\n❗️ СТОП-ЛОСС: $0.129\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+    "symbol": "POLUSDT",
+    "exchangeName": "ccxt-exchange",
+    "strategyName": "jan_2026_strategy",
+    "frameName": "jan_2026_frame",
+    "scheduledAt": 1769084760000,
+    "pendingAt": 1769084760000,
+    "timestamp": 1769084760000,
+    "_isScheduled": false,
+    "_entry": [
+      {
+        "price": 0.13404692681461666,
+        "cost": 100,
+        "timestamp": 1769084760000
+      }
+    ],
+    "_peak": {
+      "price": 0.13478510678367187,
+      "timestamp": 1769143800000,
+      "pnlCost": 0.14943746080202258,
+      "pnlPercentage": 0.14943746080202258,
+      "pnlEntries": 100,
+      "priceOpen": 0.13404692681461666,
+      "priceClose": 0.13478510678367187
+    },
+    "_fall": {
+      "price": 0.12905503437399582,
+      "timestamp": 1769176980000,
+      "pnlCost": -4.112432039376871,
+      "pnlPercentage": -4.112432039376871,
+      "pnlEntries": 100,
+      "priceOpen": 0.13404692681461666,
+      "priceClose": 0.12905503437399582
+    },
+    "originalPriceOpen": 0.13404692681461666,
+    "originalPriceStopLoss": 0.129,
+    "originalPriceTakeProfit": 0.1377,
+    "maxDrawdown": {
+      "price": 0.12905503437399582,
+      "timestamp": 1769176980000,
+      "pnlCost": -4.112432039376871,
+      "pnlPercentage": -4.112432039376871,
+      "pnlEntries": 100,
+      "priceOpen": 0.13404692681461666,
+      "priceClose": 0.12905503437399582
+    },
+    "peakProfit": {
+      "price": 0.13478510678367187,
+      "timestamp": 1769143800000,
+      "pnlCost": 0.14943746080202258,
+      "pnlPercentage": 0.14943746080202258,
+      "pnlEntries": 100,
+      "priceOpen": 0.13404692681461666,
+      "priceClose": 0.13478510678367187
+    },
+    "partialExecuted": 0,
+    "totalEntries": 1,
+    "totalPartials": 0,
+    "pnl": {
+      "pnlPercentage": -4.153365085807158,
+      "priceOpen": 0.13404692681461666,
+      "priceClose": 0.129,
+      "pnlCost": -4.153365085807158,
+      "pnlEntries": 100
+    },
+    "status": "closed",
+    "priority": 1780168186501,
+    "createdAt": 1769084760000,
+    "updatedAt": 1769177040000
+  },
+  {
+    "id": "6a19c607f20d896ad6188c38",
+    "cost": 100,
+    "priceOpen": 129.89892317016356,
+    "position": "long",
+    "priceStopLoss": 125.1,
+    "priceTakeProfit": 133.6,
+    "minuteEstimatedTime": null,
+    "note": "СИГНАЛ #SOL/USDT\n\n🔑 Откройте ЛОНГ в зоне $129.4 - $130.9 с плечом X25.\n\n🍒 Цели для фиксации прибыли:\n\n🔘 Закрыть ордер по цене $131.9\n🔘 Закрыть ордер по цене $132.4\n🔘 Закрыть ордер по цене $133.6\n🔘 Закрыть ордер по цене $134.9\n🔘 Закрыть ордер по цене $136.9\n\n❗️ СТОП-ЛОСС: $125.1\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+    "symbol": "SOLUSDT",
+    "exchangeName": "ccxt-exchange",
+    "strategyName": "jan_2026_strategy",
+    "frameName": "jan_2026_frame",
+    "scheduledAt": 1769074320000,
+    "pendingAt": 1769074320000,
+    "timestamp": 1769074320000,
+    "_isScheduled": false,
+    "_entry": [
+      {
+        "price": 129.89892317016356,
+        "cost": 100,
+        "timestamp": 1769074320000
+      }
+    ],
+    "_peak": {
+      "price": 130.68348085958908,
+      "timestamp": 1769088660000,
+      "pnlCost": 0.20256560175147403,
+      "pnlPercentage": 0.20256560175147403,
+      "pnlEntries": 100,
+      "priceOpen": 129.89892317016356,
+      "priceClose": 130.68348085958908
+    },
+    "_fall": {
+      "price": 125.14453025461856,
+      "timestamp": 1769356860000,
+      "pnlCost": -4.0487058884595974,
+      "pnlPercentage": -4.0487058884595974,
+      "pnlEntries": 100,
+      "priceOpen": 129.89892317016356,
+      "priceClose": 125.14453025461856
+    },
+    "originalPriceOpen": 129.89892317016356,
+    "originalPriceStopLoss": 125.1,
+    "originalPriceTakeProfit": 133.6,
+    "maxDrawdown": {
+      "price": 125.14453025461856,
+      "timestamp": 1769356860000,
+      "pnlCost": -4.0487058884595974,
+      "pnlPercentage": -4.0487058884595974,
+      "pnlEntries": 100,
+      "priceOpen": 129.89892317016356,
+      "priceClose": 125.14453025461856
+    },
+    "peakProfit": {
+      "price": 130.68348085958908,
+      "timestamp": 1769088660000,
+      "pnlCost": 0.20256560175147403,
+      "pnlPercentage": 0.20256560175147403,
+      "pnlEntries": 100,
+      "priceOpen": 129.89892317016356,
+      "priceClose": 130.68348085958908
+    },
+    "partialExecuted": 0,
+    "totalEntries": 1,
+    "totalPartials": 0,
+    "pnl": {
+      "pnlPercentage": -4.0828838790959265,
+      "priceOpen": 129.89892317016356,
+      "priceClose": 125.1,
+      "pnlCost": -4.0828838790959265,
+      "pnlEntries": 100
+    },
+    "status": "closed",
+    "priority": 1780168349543,
+    "createdAt": 1769074320000,
+    "updatedAt": 1769356920000
+  },
+  {
+    "id": "6a19c607f20d896ad6188c39",
+    "cost": 100,
+    "priceOpen": 0.29985929662680566,
+    "position": "short",
+    "priceStopLoss": 0.3125,
+    "priceTakeProfit": 0.293,
+    "minuteEstimatedTime": null,
+    "note": "СИГНАЛ #TRX/USDT\n\n🔑 Откройте ШОРТ в зоне $0.2993 - $0.3026 с плечом X25.\n\n🍒 Цели для фиксации прибыли:\n\n🔘 Закрыть ордер по цене $0.2969\n🔘 Закрыть ордер по цене $0.2957\n🔘 Закрыть ордер по цене $0.293\n🔘 Закрыть ордер по цене $0.29\n🔘 Закрыть ордер по цене $0.2854\n\n❗️ СТОП-ЛОСС: $0.3125\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+    "symbol": "TRXUSDT",
+    "exchangeName": "ccxt-exchange",
+    "strategyName": "jan_2026_strategy",
+    "frameName": "jan_2026_frame",
+    "scheduledAt": 1769073360000,
+    "pendingAt": 1769073360000,
+    "timestamp": 1769073360000,
+    "_isScheduled": false,
+    "_entry": [
+      {
+        "price": 0.29985929662680566,
+        "cost": 100,
+        "timestamp": 1769073360000
+      }
+    ],
+    "_peak": {
+      "price": 0.29300881254500155,
+      "timestamp": 1769589960000,
+      "pnlCost": 1.8910286267165253,
+      "pnlPercentage": 1.8910286267165253,
+      "pnlEntries": 100,
+      "priceOpen": 0.29985929662680566,
+      "priceClose": 0.29300881254500155
+    },
+    "_fall": {
+      "price": 0.31063471176366164,
+      "timestamp": 1769148780000,
+      "pnlCost": -4.004685693086469,
+      "pnlPercentage": -4.004685693086469,
+      "pnlEntries": 100,
+      "priceOpen": 0.29985929662680566,
+      "priceClose": 0.31063471176366164
+    },
+    "originalPriceOpen": 0.29985929662680566,
+    "originalPriceStopLoss": 0.3125,
+    "originalPriceTakeProfit": 0.293,
+    "maxDrawdown": {
+      "price": 0.31063471176366164,
+      "timestamp": 1769148780000,
+      "pnlCost": -4.004685693086469,
+      "pnlPercentage": -4.004685693086469,
+      "pnlEntries": 100,
+      "priceOpen": 0.29985929662680566,
+      "priceClose": 0.31063471176366164
+    },
+    "peakProfit": {
+      "price": 0.29300881254500155,
+      "timestamp": 1769589960000,
+      "pnlCost": 1.8910286267165253,
+      "pnlPercentage": 1.8910286267165253,
+      "pnlEntries": 100,
+      "priceOpen": 0.29985929662680566,
+      "priceClose": 0.29300881254500155
+    },
+    "partialExecuted": 0,
+    "totalEntries": 1,
+    "totalPartials": 0,
+    "pnl": {
+      "pnlPercentage": 1.8939763485385404,
+      "priceOpen": 0.29985929662680566,
+      "priceClose": 0.293,
+      "pnlCost": 1.8939763485385404,
+      "pnlEntries": 100
+    },
+    "status": "closed",
+    "priority": 1780168570248,
+    "createdAt": 1769073360000,
+    "updatedAt": 1769590020000
+  },
+  {
+    "id": "6a19c607f20d896ad6188c36",
+    "cost": 100,
+    "priceOpen": 0.13290752513004758,
+    "position": "long",
+    "priceStopLoss": 0.1289,
+    "priceTakeProfit": 0.1376,
+    "minuteEstimatedTime": null,
+    "note": "СИГНАЛ #POL/USDT\n\n🔑 Откройте ЛОНГ в зоне $0.1334 - $0.1348 с плечом X25.\n\n🍒 Цели для фиксации прибыли:\n\n🔘 Закрыть ордер по цене $0.1359\n🔘 Закрыть ордер по цене $0.1364\n🔘 Закрыть ордер по цене $0.1376\n🔘 Закрыть ордер по цене $0.139\n🔘 Закрыть ордер по цене $0.141\n\n❗️ СТОП-ЛОСС: $0.1289\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+    "symbol": "POLUSDT",
+    "exchangeName": "ccxt-exchange",
+    "strategyName": "jan_2026_strategy",
+    "frameName": "jan_2026_frame",
+    "scheduledAt": 1769017260000,
+    "pendingAt": 1769017260000,
+    "timestamp": 1769017260000,
+    "_isScheduled": false,
+    "_entry": [
+      {
+        "price": 0.13290752513004758,
+        "cost": 100,
+        "timestamp": 1769017260000
+      }
+    ],
+    "_peak": {
+      "price": 0.13758806073710475,
+      "timestamp": 1769025540000,
+      "pnlCost": 3.1114970338285195,
+      "pnlPercentage": 3.1114970338285195,
+      "pnlEntries": 100,
+      "priceOpen": 0.13290752513004758,
+      "priceClose": 0.13758806073710475
+    },
+    "_fall": {
+      "price": 0.13290752513004758,
+      "timestamp": 1769017260000,
+      "pnlPercentage": -0.3996003996003856,
+      "pnlCost": -0.3996003996003856,
+      "priceClose": 0.13290752513004758,
+      "priceOpen": 0.13290752513004758,
+      "pnlEntries": 100
+    },
+    "originalPriceOpen": 0.13290752513004758,
+    "originalPriceStopLoss": 0.1289,
+    "originalPriceTakeProfit": 0.1376,
+    "maxDrawdown": {
+      "price": 0.13290752513004758,
+      "timestamp": 1769017260000,
+      "pnlPercentage": -0.3996003996003856,
+      "pnlCost": -0.3996003996003856,
+      "priceClose": 0.13290752513004758,
+      "priceOpen": 0.13290752513004758,
+      "pnlEntries": 100
+    },
+    "peakProfit": {
+      "price": 0.13758806073710475,
+      "timestamp": 1769025540000,
+      "pnlCost": 3.1114970338285195,
+      "pnlPercentage": 3.1114970338285195,
+      "pnlEntries": 100,
+      "priceOpen": 0.13290752513004758,
+      "priceClose": 0.13758806073710475
+    },
+    "partialExecuted": 0,
+    "totalEntries": 1,
+    "totalPartials": 0,
+    "pnl": {
+      "pnlPercentage": 3.1204532556859874,
+      "priceOpen": 0.13290752513004758,
+      "priceClose": 0.1376,
+      "pnlCost": 3.1204532556859874,
+      "pnlEntries": 100
+    },
+    "status": "closed",
+    "priority": 1780168041388,
+    "createdAt": 1769017260000,
+    "updatedAt": 1769025600000
+  },
+  {
+    "id": "6a19c607f20d896ad6188c35",
+    "cost": 100,
+    "priceOpen": 133.5028251910307,
+    "position": "short",
+    "priceStopLoss": 139.1,
+    "priceTakeProfit": 130.4,
+    "minuteEstimatedTime": null,
+    "note": "СИГНАЛ #SOL/USDT\n\n🔑 Откройте ШОРТ в зоне $133.2 - $134.6 с кредитным плечом X25.\n\n🍒 Цели для фиксации прибыли:\n\n🔘 Закрыть ордер по цене $132.1\n🔘 Закрыть ордер по цене $131.6\n🔘 Закрыть ордер по цене $130.4\n🔘 Закрыть ордер по цене $129.1\n🔘 Закрыть ордер по цене $127\n\n❗️ СТОП-ЛОСС: $139.1\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+    "symbol": "SOLUSDT",
+    "exchangeName": "ccxt-exchange",
+    "strategyName": "jan_2026_strategy",
+    "frameName": "jan_2026_frame",
+    "scheduledAt": 1768800360000,
+    "pendingAt": 1768800360000,
+    "timestamp": 1768800360000,
+    "_isScheduled": false,
+    "_entry": [
+      {
+        "price": 133.5028251910307,
+        "cost": 100,
+        "timestamp": 1768800360000
+      }
+    ],
+    "_peak": {
+      "price": 130.46156566377581,
+      "timestamp": 1768896420000,
+      "pnlCost": 1.8844916823604962,
+      "pnlPercentage": 1.8844916823604962,
+      "pnlEntries": 100,
+      "priceOpen": 133.5028251910307,
+      "priceClose": 130.46156566377581
+    },
+    "_fall": {
+      "price": 135.04808437158968,
+      "timestamp": 1768854720000,
+      "pnlCost": -1.5613504725107277,
+      "pnlPercentage": -1.5613504725107277,
+      "pnlEntries": 100,
+      "priceOpen": 133.5028251910307,
+      "priceClose": 135.04808437158968
+    },
+    "originalPriceOpen": 133.5028251910307,
+    "originalPriceStopLoss": 139.1,
+    "originalPriceTakeProfit": 130.4,
+    "maxDrawdown": {
+      "price": 135.04808437158968,
+      "timestamp": 1768854720000,
+      "pnlCost": -1.5613504725107277,
+      "pnlPercentage": -1.5613504725107277,
+      "pnlEntries": 100,
+      "priceOpen": 133.5028251910307,
+      "priceClose": 135.04808437158968
+    },
+    "peakProfit": {
+      "price": 130.46156566377581,
+      "timestamp": 1768896420000,
+      "pnlCost": 1.8844916823604962,
+      "pnlPercentage": 1.8844916823604962,
+      "pnlEntries": 100,
+      "priceOpen": 133.5028251910307,
+      "priceClose": 130.46156566377581
+    },
+    "partialExecuted": 0,
+    "totalEntries": 1,
+    "totalPartials": 0,
+    "pnl": {
+      "pnlPercentage": 1.9307458400443775,
+      "priceOpen": 133.5028251910307,
+      "priceClose": 130.4,
+      "pnlCost": 1.9307458400443775,
+      "pnlEntries": 100
+    },
+    "status": "closed",
+    "priority": 1780167916533,
+    "createdAt": 1768800360000,
+    "updatedAt": 1768896780000
+  },
+  {
+    "id": "6a19c607f20d896ad6188c34",
+    "cost": 100,
+    "priceOpen": 0.3080322282900302,
+    "position": "long",
+    "priceStopLoss": 0.2945,
+    "priceTakeProfit": 0.3144,
+    "minuteEstimatedTime": null,
+    "note": "СИГНАЛ #TRX/USDT\n\n🔑 Откройте ЛОНГ в зоне $0.3046 - $0.308 с плечом X25.\n\n🍒 Цели для фиксации прибыли:\n\n🔘 Закрыть ордер по цене $0.3105\n🔘 Закрыть ордер по цене $0.3117\n🔘 Закрыть ордер по цене $0.3144\n🔘 Закрыть ордер по цене $0.3174\n🔘 Закрыть ордер по цене $0.3221\n\n❗️ СТОП-ЛОСС: $0.2945\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+    "symbol": "TRXUSDT",
+    "exchangeName": "ccxt-exchange",
+    "strategyName": "jan_2026_strategy",
+    "frameName": "jan_2026_frame",
+    "scheduledAt": 1768586340000,
+    "pendingAt": 1768586340000,
+    "timestamp": 1768586340000,
+    "_isScheduled": false,
+    "_entry": [
+      {
+        "price": 0.3080322282900302,
+        "cost": 100,
+        "timestamp": 1768586340000
+      }
+    ],
+    "_peak": {
+      "price": 0.3143995993566951,
+      "timestamp": 1768659300000,
+      "pnlCost": 1.6613184960444642,
+      "pnlPercentage": 1.6613184960444642,
+      "pnlEntries": 100,
+      "priceOpen": 0.3080322282900302,
+      "priceClose": 0.3143995993566951
+    },
+    "_fall": {
+      "price": 0.307381933283417,
+      "timestamp": 1768590060000,
+      "pnlCost": -0.610080557398785,
+      "pnlPercentage": -0.610080557398785,
+      "pnlEntries": 100,
+      "priceOpen": 0.3080322282900302,
+      "priceClose": 0.307381933283417
+    },
+    "originalPriceOpen": 0.3080322282900302,
+    "originalPriceStopLoss": 0.2945,
+    "originalPriceTakeProfit": 0.3144,
+    "maxDrawdown": {
+      "price": 0.307381933283417,
+      "timestamp": 1768590060000,
+      "pnlCost": -0.610080557398785,
+      "pnlPercentage": -0.610080557398785,
+      "pnlEntries": 100,
+      "priceOpen": 0.3080322282900302,
+      "priceClose": 0.307381933283417
+    },
+    "peakProfit": {
+      "price": 0.3143995993566951,
+      "timestamp": 1768659300000,
+      "pnlCost": 1.6613184960444642,
+      "pnlPercentage": 1.6613184960444642,
+      "pnlEntries": 100,
+      "priceOpen": 0.3080322282900302,
+      "priceClose": 0.3143995993566951
+    },
+    "partialExecuted": 0,
+    "totalEntries": 1,
+    "totalPartials": 0,
+    "pnl": {
+      "pnlPercentage": 1.6614481717534653,
+      "priceOpen": 0.3080322282900302,
+      "priceClose": 0.3144,
+      "pnlCost": 1.6614481717534653,
+      "pnlEntries": 100
+    },
+    "status": "closed",
+    "priority": 1780167697980,
+    "createdAt": 1768586340000,
+    "updatedAt": 1768659360000
+  },
+  {
+    "id": "6a19c607f20d896ad6188c31",
+    "cost": 100,
+    "priceOpen": 145.19945767506928,
+    "position": "long",
+    "priceStopLoss": 139.1,
+    "priceTakeProfit": 148.5,
+    "minuteEstimatedTime": null,
+    "note": "СИГНАЛ #SOL/USDT\n\n🔑 Откройте ЛОНГ в зоне $143.9 - $145.5 с плечом X25.\n\n🍒 Цели для фиксации прибыли:\n\n🔘 Закрыть ордер по цене $146.7\n🔘 Закрыть ордер по цене $147.2\n🔘 Закрыть ордер по цене $148.5\n🔘 Закрыть ордер по цене $150\n🔘 Закрыть ордер по цене $152.2\n\n❗️ СТОП-ЛОСС: $139.1\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+    "symbol": "SOLUSDT",
+    "exchangeName": "ccxt-exchange",
+    "strategyName": "jan_2026_strategy",
+    "frameName": "jan_2026_frame",
+    "scheduledAt": 1768485300000,
+    "pendingAt": 1768485300000,
+    "timestamp": 1768485300000,
+    "_isScheduled": false,
+    "_entry": [
+      {
+        "price": 145.19945767506928,
+        "cost": 100,
+        "timestamp": 1768485300000
+      }
+    ],
+    "_peak": {
+      "price": 145.5759291274979,
+      "timestamp": 1768486560000,
+      "pnlCost": -0.14109837179481735,
+      "pnlPercentage": -0.14109837179481735,
+      "pnlEntries": 100,
+      "priceOpen": 145.19945767506928,
+      "priceClose": 145.5759291274979
+    },
+    "_fall": {
+      "price": 139.11651255289362,
+      "timestamp": 1768779960000,
+      "pnlCost": -4.57642081710769,
+      "pnlPercentage": -4.57642081710769,
+      "pnlEntries": 100,
+      "priceOpen": 145.19945767506928,
+      "priceClose": 139.11651255289362
+    },
+    "originalPriceOpen": 145.19945767506928,
+    "originalPriceStopLoss": 139.1,
+    "originalPriceTakeProfit": 148.5,
+    "maxDrawdown": {
+      "price": 139.11651255289362,
+      "timestamp": 1768779960000,
+      "pnlCost": -4.57642081710769,
+      "pnlPercentage": -4.57642081710769,
+      "pnlEntries": 100,
+      "priceOpen": 145.19945767506928,
+      "priceClose": 139.11651255289362
+    },
+    "peakProfit": {
+      "price": 145.5759291274979,
+      "timestamp": 1768486560000,
+      "pnlCost": -0.14109837179481735,
+      "pnlPercentage": -0.14109837179481735,
+      "pnlEntries": 100,
+      "priceOpen": 145.19945767506928,
+      "priceClose": 145.5759291274979
+    },
+    "partialExecuted": 0,
+    "totalEntries": 1,
+    "totalPartials": 0,
+    "pnl": {
+      "pnlPercentage": -4.58775906966234,
+      "priceOpen": 145.19945767506928,
+      "priceClose": 139.1,
+      "pnlCost": -4.58775906966234,
+      "pnlEntries": 100
+    },
+    "status": "closed",
+    "priority": 1780167805722,
+    "createdAt": 1768485300000,
+    "updatedAt": 1768780020000
+  },
+  {
+    "id": "6a19c607f20d896ad6188c2e",
+    "cost": 100,
+    "priceOpen": 24.456574816167002,
+    "position": "long",
+    "priceStopLoss": 23.6,
+    "priceTakeProfit": 25.19,
+    "minuteEstimatedTime": null,
+    "note": "СИГНАЛ #HYPE/USDT\n\n🔑 Откройте ЛОНГ в зоне $24.41 - $24.68 с плечом X25.\n\n🍒 Цели для фиксации прибыли:\n\n🔘 Закрыть ордер по цене $24.87\n🔘 Закрыть ордер по цене $24.97\n🔘 Закрыть ордер по цене $25.19\n🔘 Закрыть ордер по цене $25.43\n🔘 Закрыть ордер по цене $25.81\n\n❗️ СТОП-ЛОСС: $23.6\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+    "symbol": "HYPEUSDT",
+    "exchangeName": "ccxt-exchange",
+    "strategyName": "jan_2026_strategy",
+    "frameName": "jan_2026_frame",
+    "scheduledAt": 1768324860000,
+    "pendingAt": 1768324860000,
+    "timestamp": 1768324860000,
+    "_isScheduled": false,
+    "_entry": [
+      {
+        "price": 24.456574816167002,
+        "cost": 100,
+        "timestamp": 1768324860000
+      }
+    ],
+    "_peak": {
+      "price": 25.153439400353413,
+      "timestamp": 1768342440000,
+      "pnlCost": 2.4412584709894354,
+      "pnlPercentage": 2.4412584709894354,
+      "pnlEntries": 100,
+      "priceOpen": 24.456574816167002,
+      "priceClose": 25.153439400353413
+    },
+    "_fall": {
+      "price": 24.456574816167002,
+      "timestamp": 1768324860000,
+      "pnlPercentage": -0.3996003996003845,
+      "pnlCost": -0.3996003996003845,
+      "priceClose": 24.456574816167002,
+      "priceOpen": 24.456574816167002,
+      "pnlEntries": 100
+    },
+    "originalPriceOpen": 24.456574816167002,
+    "originalPriceStopLoss": 23.6,
+    "originalPriceTakeProfit": 25.19,
+    "maxDrawdown": {
+      "price": 24.456574816167002,
+      "timestamp": 1768324860000,
+      "pnlPercentage": -0.3996003996003845,
+      "pnlCost": -0.3996003996003845,
+      "priceClose": 24.456574816167002,
+      "priceOpen": 24.456574816167002,
+      "pnlEntries": 100
+    },
+    "peakProfit": {
+      "price": 25.153439400353413,
+      "timestamp": 1768342440000,
+      "pnlCost": 2.4412584709894354,
+      "pnlPercentage": 2.4412584709894354,
+      "pnlEntries": 100,
+      "priceOpen": 24.456574816167002,
+      "priceClose": 25.153439400353413
+    },
+    "partialExecuted": 0,
+    "totalEntries": 1,
+    "totalPartials": 0,
+    "pnl": {
+      "pnlPercentage": 2.5903024978735876,
+      "priceOpen": 24.456574816167002,
+      "priceClose": 25.19,
+      "pnlCost": 2.5903024978735876,
+      "pnlEntries": 100
+    },
+    "status": "closed",
+    "priority": 1780167394162,
+    "createdAt": 1768324860000,
+    "updatedAt": 1768342860000
+  },
+  {
+    "id": "6a19c607f20d896ad6188c2f",
+    "cost": 100,
+    "priceOpen": 92202.21928560369,
+    "position": "long",
+    "priceStopLoss": 90700,
+    "priceTakeProfit": 93400,
+    "minuteEstimatedTime": null,
+    "note": "СИГНАЛ #BTC/USDT\n\n📛 Риск сигнала: 7/10\n\n🔑 Откройте ЛОНГ в зоне $91400 - $92200, используя 4% от депозита с плечом x25\n\n🉐 Цели для фиксации прибыли:\n\n🔘 Закрыть ордер по цене $92600\n🔘 Закрыть ордер по цене $93000\n🔘 Закрыть ордер по цене $93400\n🔘 Закрыть ордер по цене $93900\n🔘 Закрыть ордер по цене $94500\n\n❗️ СТОП-ЛОСС: $90700\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+    "symbol": "BTCUSDT",
+    "exchangeName": "ccxt-exchange",
+    "strategyName": "jan_2026_strategy",
+    "frameName": "jan_2026_frame",
+    "scheduledAt": 1768303860000,
+    "pendingAt": 1768303860000,
+    "timestamp": 1768303860000,
+    "_isScheduled": false,
+    "_entry": [
+      {
+        "price": 92202.21928560369,
+        "cost": 100,
+        "timestamp": 1768303860000
+      }
+    ],
+    "_peak": {
+      "price": 93322.15161850043,
+      "timestamp": 1768319940000,
+      "pnlCost": 0.8114084240521574,
+      "pnlPercentage": 0.8114084240521574,
+      "pnlEntries": 100,
+      "priceOpen": 92202.21928560369,
+      "priceClose": 93322.15161850043
+    },
+    "_fall": {
+      "price": 91917.55854674109,
+      "timestamp": 1768313100000,
+      "pnlCost": -0.7074106631173115,
+      "pnlPercentage": -0.7074106631173115,
+      "pnlEntries": 100,
+      "priceOpen": 92202.21928560369,
+      "priceClose": 91917.55854674109
+    },
+    "originalPriceOpen": 92202.21928560369,
+    "originalPriceStopLoss": 90700,
+    "originalPriceTakeProfit": 93400,
+    "maxDrawdown": {
+      "price": 91917.55854674109,
+      "timestamp": 1768313100000,
+      "pnlCost": -0.7074106631173115,
+      "pnlPercentage": -0.7074106631173115,
+      "pnlEntries": 100,
+      "priceOpen": 92202.21928560369,
+      "priceClose": 91917.55854674109
+    },
+    "peakProfit": {
+      "price": 93322.15161850043,
+      "timestamp": 1768319940000,
+      "pnlCost": 0.8114084240521574,
+      "pnlPercentage": 0.8114084240521574,
+      "pnlEntries": 100,
+      "priceOpen": 92202.21928560369,
+      "priceClose": 93322.15161850043
+    },
+    "partialExecuted": 0,
+    "totalEntries": 1,
+    "totalPartials": 0,
+    "pnl": {
+      "pnlPercentage": 0.8955876857216646,
+      "priceOpen": 92202.21928560369,
+      "priceClose": 93400,
+      "pnlCost": 0.8955876857216647,
+      "pnlEntries": 100
+    },
+    "status": "closed",
+    "priority": 1780167370633,
+    "createdAt": 1768303860000,
+    "updatedAt": 1768320000000
+  },
+  {
+    "id": "6a19c607f20d896ad6188c2d",
+    "cost": 100,
+    "priceOpen": 0.297866898779523,
+    "position": "short",
+    "priceStopLoss": 0.3099,
+    "priceTakeProfit": 0.2906,
+    "minuteEstimatedTime": null,
+    "note": "СИГНАЛ #TRX/USDT\n\n🔑 Откройте ШОРТ в зоне $0.2968 - $0.3001 с плечом X25.\n\n🍒 Цели для фиксации прибыли:\n\n🔘 Закрыть ордер по цене $0.2944\n🔘 Закрыть ордер по цене $0.2932\n🔘 Закрыть ордер по цене $0.2906\n🔘 Закрыть ордер по цене $0.2876\n🔘 Закрыть ордер по цене $0.2831\n\n❗️ СТОП-ЛОСС: $0.3099\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+    "symbol": "TRXUSDT",
+    "exchangeName": "ccxt-exchange",
+    "strategyName": "jan_2026_strategy",
+    "frameName": "jan_2026_frame",
+    "scheduledAt": 1768223340000,
+    "pendingAt": 1768223340000,
+    "timestamp": 1768223340000,
+    "_isScheduled": false,
+    "_entry": [
+      {
+        "price": 0.297866898779523,
+        "cost": 100,
+        "timestamp": 1768223340000
+      }
+    ],
+    "_peak": {
+      "price": 0.29753655445369936,
+      "timestamp": 1768230360000,
+      "pnlCost": -0.2891639109285197,
+      "pnlPercentage": -0.2891639109285197,
+      "pnlEntries": 100,
+      "priceOpen": 0.297866898779523,
+      "priceClose": 0.29753655445369936
+    },
+    "_fall": {
+      "price": 0.30982877168452255,
+      "timestamp": 1768496820000,
+      "pnlCost": -4.428308995904384,
+      "pnlPercentage": -4.428308995904384,
+      "pnlEntries": 100,
+      "priceOpen": 0.297866898779523,
+      "priceClose": 0.30982877168452255
+    },
+    "originalPriceOpen": 0.297866898779523,
+    "originalPriceStopLoss": 0.3099,
+    "originalPriceTakeProfit": 0.2906,
+    "maxDrawdown": {
+      "price": 0.30982877168452255,
+      "timestamp": 1768496820000,
+      "pnlCost": -4.428308995904384,
+      "pnlPercentage": -4.428308995904384,
+      "pnlEntries": 100,
+      "priceOpen": 0.297866898779523,
+      "priceClose": 0.30982877168452255
+    },
+    "peakProfit": {
+      "price": 0.29753655445369936,
+      "timestamp": 1768230360000,
+      "pnlCost": -0.2891639109285197,
+      "pnlPercentage": -0.2891639109285197,
+      "pnlEntries": 100,
+      "priceOpen": 0.297866898779523,
+      "priceClose": 0.29753655445369936
+    },
+    "partialExecuted": 0,
+    "totalEntries": 1,
+    "totalPartials": 0,
+    "pnl": {
+      "pnlPercentage": -4.452293629952365,
+      "priceOpen": 0.297866898779523,
+      "priceClose": 0.3099,
+      "pnlCost": -4.452293629952365,
+      "pnlEntries": 100
+    },
+    "status": "closed",
+    "priority": 1780167548430,
+    "createdAt": 1768223340000,
+    "updatedAt": 1768506780000
+  },
+  {
+    "id": "6a19c607f20d896ad6188c2c",
+    "cost": 100,
+    "priceOpen": 0.0023810789271327074,
+    "position": "long",
+    "priceStopLoss": 0.00215,
+    "priceTakeProfit": 0.00293,
+    "minuteEstimatedTime": null,
+    "note": "СИГНАЛ #PUMP/USDT\n\n📛 Риск сигнала: 6/10\n\n🔑 Откройте ЛОНГ в зоне $0.0023 - $0.0024, используя 4% от депозита с кредитным плечом x5\n\n🉐 Цели для фиксации прибыли:\n\n🔘 Закрыть ордер по цене $0.00255\n🔘 Закрыть ордер по цене $0.00275\n🔘 Закрыть ордер по цене $0.00293\n🔘 Закрыть ордер по цене $0.00315\n🔘 Закрыть ордер по цене $0.00335\n\n❗️ СТОП-ЛОСС: $0.00215\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+    "symbol": "PUMPUSDT",
+    "exchangeName": "ccxt-exchange",
+    "strategyName": "jan_2026_strategy",
+    "frameName": "jan_2026_frame",
+    "scheduledAt": 1768054380000,
+    "pendingAt": 1768054380000,
+    "timestamp": 1768054380000,
+    "_isScheduled": false,
+    "_entry": [
+      {
+        "price": 0.0023810789271327074,
+        "cost": 100,
+        "timestamp": 1768054380000
+      }
+    ],
+    "_peak": {
+      "price": 0.0028944724328305756,
+      "timestamp": 1768407120000,
+      "pnlCost": 21.097182880895517,
+      "pnlPercentage": 21.097182880895517,
+      "pnlEntries": 100,
+      "priceOpen": 0.0023810789271327074,
+      "priceClose": 0.0028944724328305756
+    },
+    "_fall": {
+      "price": 0.0022612628222670114,
+      "timestamp": 1768086000000,
+      "pnlCost": -5.416533436783774,
+      "pnlPercentage": -5.416533436783774,
+      "pnlEntries": 100,
+      "priceOpen": 0.0023810789271327074,
+      "priceClose": 0.0022612628222670114
+    },
+    "originalPriceOpen": 0.0023810789271327074,
+    "originalPriceStopLoss": 0.00215,
+    "originalPriceTakeProfit": 0.00293,
+    "maxDrawdown": {
+      "price": 0.0022612628222670114,
+      "timestamp": 1768086000000,
+      "pnlCost": -5.416533436783774,
+      "pnlPercentage": -5.416533436783774,
+      "pnlEntries": 100,
+      "priceOpen": 0.0023810789271327074,
+      "priceClose": 0.0022612628222670114
+    },
+    "peakProfit": {
+      "price": 0.0028944724328305756,
+      "timestamp": 1768407120000,
+      "pnlCost": 21.097182880895517,
+      "pnlPercentage": 21.097182880895517,
+      "pnlEntries": 100,
+      "priceOpen": 0.0023810789271327074,
+      "priceClose": 0.0028944724328305756
+    },
+    "partialExecuted": 0,
+    "totalEntries": 1,
+    "totalPartials": 0,
+    "pnl": {
+      "pnlPercentage": 22.5847911257373,
+      "priceOpen": 0.0023810789271327074,
+      "priceClose": 0.00293,
+      "pnlCost": 22.5847911257373,
+      "pnlEntries": 100
+    },
+    "status": "closed",
+    "priority": 1780167459415,
+    "createdAt": 1768054380000,
+    "updatedAt": 1768407180000
+  },
+  {
+    "id": "6a19c607f20d896ad6188c2a",
+    "cost": 100,
+    "priceOpen": 1.6904020693110415,
+    "position": "short",
+    "priceStopLoss": 1.772,
+    "priceTakeProfit": 1.662,
+    "minuteEstimatedTime": null,
+    "note": "СИГНАЛ #NEAR/USDT\n\n🔑 Откройте ШОРТ в зоне $1.697 - $1.716 с кредитным плечом X25.\n\n🍒 Цели для фиксации прибыли:\n\n🔘 Закрыть ордер по цене $1.684\n🔘 Закрыть ордер по цене $1.677\n🔘 Закрыть ордер по цене $1.662\n🔘 Закрыть ордер по цене $1.645\n🔘 Закрыть ордер по цене $1.619\n\n❗️ СТОП-ЛОСС: $1.772\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+    "symbol": "NEARUSDT",
+    "exchangeName": "ccxt-exchange",
+    "strategyName": "jan_2026_strategy",
+    "frameName": "jan_2026_frame",
+    "scheduledAt": 1767972180000,
+    "pendingAt": 1767972180000,
+    "timestamp": 1767972180000,
+    "_isScheduled": false,
+    "_entry": [
+      {
+        "price": 1.6904020693110415,
+        "cost": 100,
+        "timestamp": 1767972180000
+      }
+    ],
+    "_peak": {
+      "price": 1.6636137346415025,
+      "timestamp": 1768225500000,
+      "pnlCost": 1.1890916750025797,
+      "pnlPercentage": 1.1890916750025797,
+      "pnlEntries": 100,
+      "priceOpen": 1.6904020693110415,
+      "priceClose": 1.6636137346415025
+    },
+    "_fall": {
+      "price": 1.7666960452558154,
+      "timestamp": 1768188660000,
+      "pnlCost": -4.927321228483733,
+      "pnlPercentage": -4.927321228483733,
+      "pnlEntries": 100,
+      "priceOpen": 1.6904020693110415,
+      "priceClose": 1.7666960452558154
+    },
+    "originalPriceOpen": 1.6904020693110415,
+    "originalPriceStopLoss": 1.772,
+    "originalPriceTakeProfit": 1.662,
+    "maxDrawdown": {
+      "price": 1.7666960452558154,
+      "timestamp": 1768188660000,
+      "pnlCost": -4.927321228483733,
+      "pnlPercentage": -4.927321228483733,
+      "pnlEntries": 100,
+      "priceOpen": 1.6904020693110415,
+      "priceClose": 1.7666960452558154
+    },
+    "peakProfit": {
+      "price": 1.6636137346415025,
+      "timestamp": 1768225500000,
+      "pnlCost": 1.1890916750025797,
+      "pnlPercentage": 1.1890916750025797,
+      "pnlEntries": 100,
+      "priceOpen": 1.6904020693110415,
+      "priceClose": 1.6636137346415025
+    },
+    "partialExecuted": 0,
+    "totalEntries": 1,
+    "totalPartials": 0,
+    "pnl": {
+      "pnlPercentage": 1.2848429957216045,
+      "priceOpen": 1.6904020693110415,
+      "priceClose": 1.662,
+      "pnlCost": 1.2848429957216045,
+      "pnlEntries": 100
+    },
+    "status": "closed",
+    "priority": 1780167297173,
+    "createdAt": 1767972180000,
+    "updatedAt": 1768225560000
+  },
+  {
+    "id": "6a19c607f20d896ad6188c28",
+    "cost": 100,
+    "priceOpen": 1.7601606912149692,
+    "position": "long",
+    "priceStopLoss": 1.692,
+    "priceTakeProfit": 1.806,
+    "minuteEstimatedTime": null,
+    "note": "СИГНАЛ #NEAR/USDT\n\n🔑 Откройте ЛОНГ в зоне $1.75 - $1.769 с плечом X25.\n\n🍒 Цели для фиксации прибыли:\n\n🔘 Закрыть ордер по цене $1.783\n🔘 Закрыть ордер по цене $1.79\n🔘 Закрыть ордер по цене $1.806\n🔘 Закрыть ордер по цене $1.823\n🔘 Закрыть ордер по цене $1.85\n\n❗️ СТОП-ЛОСС: $1.692\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+    "symbol": "NEARUSDT",
+    "exchangeName": "ccxt-exchange",
+    "strategyName": "jan_2026_strategy",
+    "frameName": "jan_2026_frame",
+    "scheduledAt": 1767792480000,
+    "pendingAt": 1767792480000,
+    "timestamp": 1767792480000,
+    "_isScheduled": false,
+    "_entry": [
+      {
+        "price": 1.7601606912149692,
+        "cost": 100,
+        "timestamp": 1767792480000
+      }
+    ],
+    "_peak": {
+      "price": 1.760451507328481,
+      "timestamp": 1767792540000,
+      "pnlCost": -0.3831277656686788,
+      "pnlPercentage": -0.3831277656686788,
+      "pnlEntries": 100,
+      "priceOpen": 1.7601606912149692,
+      "priceClose": 1.760451507328481
+    },
+    "_fall": {
+      "price": 1.6949240251055335,
+      "timestamp": 1767852900000,
+      "pnlCost": -4.094786703993458,
+      "pnlPercentage": -4.094786703993458,
+      "pnlEntries": 100,
+      "priceOpen": 1.7601606912149692,
+      "priceClose": 1.6949240251055335
+    },
+    "originalPriceOpen": 1.7601606912149692,
+    "originalPriceStopLoss": 1.692,
+    "originalPriceTakeProfit": 1.806,
+    "maxDrawdown": {
+      "price": 1.6949240251055335,
+      "timestamp": 1767852900000,
+      "pnlCost": -4.094786703993458,
+      "pnlPercentage": -4.094786703993458,
+      "pnlEntries": 100,
+      "priceOpen": 1.7601606912149692,
+      "priceClose": 1.6949240251055335
+    },
+    "peakProfit": {
+      "price": 1.760451507328481,
+      "timestamp": 1767792540000,
+      "pnlCost": -0.3831277656686788,
+      "pnlPercentage": -0.3831277656686788,
+      "pnlEntries": 100,
+      "priceOpen": 1.7601606912149692,
+      "priceClose": 1.760451507328481
+    },
+    "partialExecuted": 0,
+    "totalEntries": 1,
+    "totalPartials": 0,
+    "pnl": {
+      "pnlPercentage": -4.260411622739974,
+      "priceOpen": 1.7601606912149692,
+      "priceClose": 1.692,
+      "pnlCost": -4.260411622739974,
+      "pnlEntries": 100
+    },
+    "status": "closed",
+    "priority": 1780166974983,
+    "createdAt": 1767792480000,
+    "updatedAt": 1767853020000
+  },
+  {
+    "id": "6a19c607f20d896ad6188c22",
+    "cost": 100,
+    "priceOpen": 1.7570195404884918,
+    "position": "long",
+    "priceStopLoss": 1.683,
+    "priceTakeProfit": 1.796,
+    "minuteEstimatedTime": null,
+    "note": "СИГНАЛ #NEAR/USDT\n\n🔑 Откройте ЛОНГ в зоне $1.741 - $1.76 с кредитным плечом X25.\n\n🍒 Цели для фиксации прибыли:\n\n🔘 Закрыть ордер по цене $1.774\n🔘 Закрыть ордер по цене $1.781\n🔘 Закрыть ордер по цене $1.796\n🔘 Закрыть ордер по цене $1.814\n🔘 Закрыть ордер по цене $1.841\n\n❗️ СТОП-ЛОСС: $1.683\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+    "symbol": "NEARUSDT",
+    "exchangeName": "ccxt-exchange",
+    "strategyName": "jan_2026_strategy",
+    "frameName": "jan_2026_frame",
+    "scheduledAt": 1767726600000,
+    "pendingAt": 1767726600000,
+    "timestamp": 1767726600000,
+    "_isScheduled": false,
+    "_entry": [
+      {
+        "price": 1.7570195404884918,
+        "cost": 100,
+        "timestamp": 1767726600000
+      }
+    ],
+    "_peak": {
+      "price": 1.7933955307007214,
+      "timestamp": 1767732420000,
+      "pnlCost": 1.6645205031251422,
+      "pnlPercentage": 1.6645205031251422,
+      "pnlEntries": 100,
+      "priceOpen": 1.7570195404884918,
+      "priceClose": 1.7933955307007214
+    },
+    "_fall": {
+      "price": 1.7515519861102749,
+      "timestamp": 1767728640000,
+      "pnlCost": -0.7098515628820403,
+      "pnlPercentage": -0.7098515628820403,
+      "pnlEntries": 100,
+      "priceOpen": 1.7570195404884918,
+      "priceClose": 1.7515519861102749
+    },
+    "originalPriceOpen": 1.7570195404884918,
+    "originalPriceStopLoss": 1.683,
+    "originalPriceTakeProfit": 1.796,
+    "maxDrawdown": {
+      "price": 1.7515519861102749,
+      "timestamp": 1767728640000,
+      "pnlCost": -0.7098515628820403,
+      "pnlPercentage": -0.7098515628820403,
+      "pnlEntries": 100,
+      "priceOpen": 1.7570195404884918,
+      "priceClose": 1.7515519861102749
+    },
+    "peakProfit": {
+      "price": 1.7933955307007214,
+      "timestamp": 1767732420000,
+      "pnlCost": 1.6645205031251422,
+      "pnlPercentage": 1.6645205031251422,
+      "pnlEntries": 100,
+      "priceOpen": 1.7570195404884918,
+      "priceClose": 1.7933955307007214
+    },
+    "partialExecuted": 0,
+    "totalEntries": 1,
+    "totalPartials": 0,
+    "pnl": {
+      "pnlPercentage": 1.8123086317721764,
+      "priceOpen": 1.7570195404884918,
+      "priceClose": 1.796,
+      "pnlCost": 1.8123086317721762,
+      "pnlEntries": 100
+    },
+    "status": "closed",
+    "priority": 1780166869039,
+    "createdAt": 1767726600000,
+    "updatedAt": 1767734100000
+  },
+  {
+    "id": "6a19c607f20d896ad6188c24",
+    "cost": 100,
+    "priceOpen": 0.4400835931415322,
+    "position": "short",
+    "priceStopLoss": 0.48,
+    "priceTakeProfit": 0.35,
+    "minuteEstimatedTime": null,
+    "note": "СИГНАЛ #FARTCOIN/USDT\n\n📛 Риск сигнала: 8/10\n\n🔑 Откройте ШОРТ в зоне $0.44 - $0.46, используя 4% от депозита с кредитным плечом x10\n\n🉐 Цели для фиксации прибыли:\n\n🔘 Закрыть ордер по цене $0.43\n🔘 Закрыть ордер по цене $0.39\n🔘 Закрыть ордер по цене $0.35\n🔘 Закрыть ордер по цене $0.32\n🔘 Закрыть ордер по цене $0.29\n\n❗️ СТОП-ЛОСС: $0.48\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+    "symbol": "FARTCOINUSDT",
+    "exchangeName": "ccxt-exchange",
+    "strategyName": "jan_2026_strategy",
+    "frameName": "jan_2026_frame",
+    "scheduledAt": 1767696180000,
+    "pendingAt": 1767696180000,
+    "timestamp": 1767696180000,
+    "_isScheduled": false,
+    "_entry": [
+      {
+        "price": 0.4400835931415322,
+        "cost": 100,
+        "timestamp": 1767696180000
+      }
+    ],
+    "_peak": {
+      "price": 0.3534708277582084,
+      "timestamp": 1768693800000,
+      "pnlCost": 19.339701669115897,
+      "pnlPercentage": 19.339701669115897,
+      "pnlEntries": 100,
+      "priceOpen": 0.4400835931415322,
+      "priceClose": 0.3534708277582084
+    },
+    "_fall": {
+      "price": 0.4718452106437094,
+      "timestamp": 1767742620000,
+      "pnlCost": -7.639259113790775,
+      "pnlPercentage": -7.639259113790775,
+      "pnlEntries": 100,
+      "priceOpen": 0.4400835931415322,
+      "priceClose": 0.4718452106437094
+    },
+    "originalPriceOpen": 0.4400835931415322,
+    "originalPriceStopLoss": 0.48,
+    "originalPriceTakeProfit": 0.35,
+    "maxDrawdown": {
+      "price": 0.4718452106437094,
+      "timestamp": 1767742620000,
+      "pnlCost": -7.639259113790775,
+      "pnlPercentage": -7.639259113790775,
+      "pnlEntries": 100,
+      "priceOpen": 0.4400835931415322,
+      "priceClose": 0.4718452106437094
+    },
+    "peakProfit": {
+      "price": 0.3534708277582084,
+      "timestamp": 1768693800000,
+      "pnlCost": 19.339701669115897,
+      "pnlPercentage": 19.339701669115897,
+      "pnlEntries": 100,
+      "priceOpen": 0.4400835931415322,
+      "priceClose": 0.3534708277582084
+    },
+    "partialExecuted": 0,
+    "totalEntries": 1,
+    "totalPartials": 0,
+    "pnl": {
+      "pnlPercentage": 20.130745505547143,
+      "priceOpen": 0.4400835931415322,
+      "priceClose": 0.35,
+      "pnlCost": 20.130745505547143,
+      "pnlEntries": 100
+    },
+    "status": "closed",
+    "priority": 1780167733733,
+    "createdAt": 1767696180000,
+    "updatedAt": 1768696800000
+  },
+  {
+    "id": "6a19c607f20d896ad6188c25",
+    "cost": 100,
+    "priceOpen": 0.2915374490152228,
+    "position": "short",
+    "priceStopLoss": 0.3027,
+    "priceTakeProfit": 0.2838,
+    "minuteEstimatedTime": null,
+    "note": "СИГНАЛ #TRX/USDT\n\n🔑 Откройте ШОРТ в зоне $0.2898 - $0.293 с кредитным плечом X25.\n\n🍒 Цели для фиксации прибыли:\n\n🔘 Закрыть ордер по цене $0.2875\n🔘 Закрыть ордер по цене $0.2864\n🔘 Закрыть ордер по цене $0.2838\n🔘 Закрыть ордер по цене $0.2809\n🔘 Закрыть ордер по цене $0.2765\n\n❗️ СТОП-ЛОСС: $0.3027\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+    "symbol": "TRXUSDT",
+    "exchangeName": "ccxt-exchange",
+    "strategyName": "jan_2026_strategy",
+    "frameName": "jan_2026_frame",
+    "scheduledAt": 1767694620000,
+    "pendingAt": 1767694620000,
+    "timestamp": 1767694620000,
+    "_isScheduled": false,
+    "_entry": [
+      {
+        "price": 0.2915374490152228,
+        "cost": 100,
+        "timestamp": 1767694620000
+      }
+    ],
+    "_peak": {
+      "price": 0.29130132175529133,
+      "timestamp": 1767696660000,
+      "pnlCost": -0.31916329416728156,
+      "pnlPercentage": -0.31916329416728156,
+      "pnlEntries": 100,
+      "priceOpen": 0.2915374490152228,
+      "priceClose": 0.29130132175529133
+    },
+    "_fall": {
+      "price": 0.30259662989140346,
+      "timestamp": 1768089960000,
+      "pnlCost": -4.2051955432825165,
+      "pnlPercentage": -4.2051955432825165,
+      "pnlEntries": 100,
+      "priceOpen": 0.2915374490152228,
+      "priceClose": 0.30259662989140346
+    },
+    "originalPriceOpen": 0.2915374490152228,
+    "originalPriceStopLoss": 0.3027,
+    "originalPriceTakeProfit": 0.2838,
+    "maxDrawdown": {
+      "price": 0.30259662989140346,
+      "timestamp": 1768089960000,
+      "pnlCost": -4.2051955432825165,
+      "pnlPercentage": -4.2051955432825165,
+      "pnlEntries": 100,
+      "priceOpen": 0.2915374490152228,
+      "priceClose": 0.30259662989140346
+    },
+    "peakProfit": {
+      "price": 0.29130132175529133,
+      "timestamp": 1767696660000,
+      "pnlCost": -0.31916329416728156,
+      "pnlPercentage": -0.31916329416728156,
+      "pnlEntries": 100,
+      "priceOpen": 0.2915374490152228,
+      "priceClose": 0.29130132175529133
+    },
+    "partialExecuted": 0,
+    "totalEntries": 1,
+    "totalPartials": 0,
+    "pnl": {
+      "pnlPercentage": -4.240758944542613,
+      "priceOpen": 0.2915374490152228,
+      "priceClose": 0.3027,
+      "pnlCost": -4.240758944542613,
+      "pnlEntries": 100
+    },
+    "status": "closed",
+    "priority": 1780167173507,
+    "createdAt": 1767694620000,
+    "updatedAt": 1768090020000
+  },
+  {
+    "id": "6a19c607f20d896ad6188c27",
+    "cost": 100,
+    "priceOpen": 26.519289214312682,
+    "position": "long",
+    "priceStopLoss": 25.33,
+    "priceTakeProfit": 27.04,
+    "minuteEstimatedTime": null,
+    "note": "СИГНАЛ #HYPE/USDT\n\n🔑 Откройте ЛОНГ в зоне $26.2 - $26.49 с кредитным плечом X25.\n\n🍒 Цели для фиксации прибыли:\n\n🔘 Закрыть ордер по цене $26.7\n🔘 Закрыть ордер по цене $26.8\n🔘 Закрыть ордер по цене $27.04\n🔘 Закрыть ордер по цене $27.3\n🔘 Закрыть ордер по цене $27.7\n\n❗️ СТОП-ЛОСС: $25.33\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+    "symbol": "HYPEUSDT",
+    "exchangeName": "ccxt-exchange",
+    "strategyName": "jan_2026_strategy",
+    "frameName": "jan_2026_frame",
+    "scheduledAt": 1767693540000,
+    "pendingAt": 1767693540000,
+    "timestamp": 1767693540000,
+    "_isScheduled": false,
+    "_entry": [
+      {
+        "price": 26.519289214312682,
+        "cost": 100,
+        "timestamp": 1767693540000
+      }
+    ],
+    "_peak": {
+      "price": 27.03875346221553,
+      "timestamp": 1767701580000,
+      "pnlCost": 1.5533476102611772,
+      "pnlPercentage": 1.5533476102611772,
+      "pnlEntries": 100,
+      "priceOpen": 26.519289214312682,
+      "priceClose": 27.03875346221553
+    },
+    "_fall": {
+      "price": 26.25061120659863,
+      "timestamp": 1767695040000,
+      "pnlCost": -1.4097068363322178,
+      "pnlPercentage": -1.4097068363322178,
+      "pnlEntries": 100,
+      "priceOpen": 26.519289214312682,
+      "priceClose": 26.25061120659863
+    },
+    "originalPriceOpen": 26.519289214312682,
+    "originalPriceStopLoss": 25.33,
+    "originalPriceTakeProfit": 27.04,
+    "maxDrawdown": {
+      "price": 26.25061120659863,
+      "timestamp": 1767695040000,
+      "pnlCost": -1.4097068363322178,
+      "pnlPercentage": -1.4097068363322178,
+      "pnlEntries": 100,
+      "priceOpen": 26.519289214312682,
+      "priceClose": 26.25061120659863
+    },
+    "peakProfit": {
+      "price": 27.03875346221553,
+      "timestamp": 1767701580000,
+      "pnlCost": 1.5533476102611772,
+      "pnlPercentage": 1.5533476102611772,
+      "pnlEntries": 100,
+      "priceOpen": 26.519289214312682,
+      "priceClose": 27.03875346221553
+    },
+    "partialExecuted": 0,
+    "totalEntries": 1,
+    "totalPartials": 0,
+    "pnl": {
+      "pnlPercentage": 1.5580340222620426,
+      "priceOpen": 26.519289214312682,
+      "priceClose": 27.04,
+      "pnlCost": 1.5580340222620426,
+      "pnlEntries": 100
+    },
+    "status": "closed",
+    "priority": 1780166839998,
+    "createdAt": 1767693540000,
+    "updatedAt": 1767701640000
+  },
+  {
+    "id": "6a19c607f20d896ad6188c26",
+    "cost": 100,
+    "priceOpen": 1.7659197956351644,
+    "position": "long",
+    "priceStopLoss": 1.688,
+    "priceTakeProfit": 1.802,
+    "minuteEstimatedTime": null,
+    "note": "СИГНАЛ #NEAR/USDT\n\n🔑 Откройте ЛОНГ в зоне $1.746 - $1.765 с кредитным плечом X25.\n\n🍒 Цели для фиксации прибыли:\n\n🔘 Закрыть ордер по цене $1.779\n🔘 Закрыть ордер по цене $1.786\n🔘 Закрыть ордер по цене $1.802\n🔘 Закрыть ордер по цене $1.819\n🔘 Закрыть ордер по цене $1.846\n\n❗️ СТОП-ЛОСС: $1.688\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+    "symbol": "NEARUSDT",
+    "exchangeName": "ccxt-exchange",
+    "strategyName": "jan_2026_strategy",
+    "frameName": "jan_2026_frame",
+    "scheduledAt": 1767689160000,
+    "pendingAt": 1767689160000,
+    "timestamp": 1767689160000,
+    "_isScheduled": false,
+    "_entry": [
+      {
+        "price": 1.7659197956351644,
+        "cost": 100,
+        "timestamp": 1767689160000
+      }
+    ],
+    "_peak": {
+      "price": 1.8008241927121542,
+      "timestamp": 1767699840000,
+      "pnlCost": 1.5710340227490283,
+      "pnlPercentage": 1.5710340227490283,
+      "pnlEntries": 100,
+      "priceOpen": 1.7659197956351644,
+      "priceClose": 1.8008241927121542
+    },
+    "_fall": {
+      "price": 1.7625899009183217,
+      "timestamp": 1767690000000,
+      "pnlCost": -0.5875997836704225,
+      "pnlPercentage": -0.5875997836704225,
+      "pnlEntries": 100,
+      "priceOpen": 1.7659197956351644,
+      "priceClose": 1.7625899009183217
+    },
+    "originalPriceOpen": 1.7659197956351644,
+    "originalPriceStopLoss": 1.688,
+    "originalPriceTakeProfit": 1.802,
+    "maxDrawdown": {
+      "price": 1.7625899009183217,
+      "timestamp": 1767690000000,
+      "pnlCost": -0.5875997836704225,
+      "pnlPercentage": -0.5875997836704225,
+      "pnlEntries": 100,
+      "priceOpen": 1.7659197956351644,
+      "priceClose": 1.7625899009183217
+    },
+    "peakProfit": {
+      "price": 1.8008241927121542,
+      "timestamp": 1767699840000,
+      "pnlCost": 1.5710340227490283,
+      "pnlPercentage": 1.5710340227490283,
+      "pnlEntries": 100,
+      "priceOpen": 1.7659197956351644,
+      "priceClose": 1.8008241927121542
+    },
+    "partialExecuted": 0,
+    "totalEntries": 1,
+    "totalPartials": 0,
+    "pnl": {
+      "pnlPercentage": 1.6374178170419698,
+      "priceOpen": 1.7659197956351644,
+      "priceClose": 1.802,
+      "pnlCost": 1.63741781704197,
+      "pnlEntries": 100
+    },
+    "status": "closed",
+    "priority": 1780166837392,
+    "createdAt": 1767689160000,
+    "updatedAt": 1767699900000
+  },
+  {
+    "id": "6a19c607f20d896ad6188c21",
+    "cost": 100,
+    "priceOpen": 135.22906454456813,
+    "position": "long",
+    "priceStopLoss": 130.3,
+    "priceTakeProfit": 139.1,
+    "minuteEstimatedTime": null,
+    "note": "СИГНАЛ #SOL/USDT\n\n🔑 Откройте ЛОНГ в зоне $134.7 - $136.2 с плечом X25.\n\n🍒 Цели для фиксации прибыли:\n\n🔘 Закрыть ордер по цене $137.3\n🔘 Закрыть ордер по цене $137.9\n🔘 Закрыть ордер по цене $139.1\n🔘 Закрыть ордер по цене $140.4\n🔘 Закрыть ордер по цене $142.5\n\n❗️ СТОП-ЛОСС: $130.3\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+    "symbol": "SOLUSDT",
+    "exchangeName": "ccxt-exchange",
+    "strategyName": "jan_2026_strategy",
+    "frameName": "jan_2026_frame",
+    "scheduledAt": 1767597180000,
+    "pendingAt": 1767597180000,
+    "timestamp": 1767597180000,
+    "_isScheduled": false,
+    "_entry": [
+      {
+        "price": 135.22906454456813,
+        "cost": 100,
+        "timestamp": 1767597180000
+      }
+    ],
+    "_peak": {
+      "price": 139.05164018591245,
+      "timestamp": 1767643740000,
+      "pnlCost": 2.418671842600742,
+      "pnlPercentage": 2.418671842600742,
+      "pnlEntries": 100,
+      "priceOpen": 135.22906454456813,
+      "priceClose": 139.05164018591245
+    },
+    "_fall": {
+      "price": 133.43610742343077,
+      "timestamp": 1767622440000,
+      "pnlCost": -1.721494787066636,
+      "pnlPercentage": -1.721494787066636,
+      "pnlEntries": 100,
+      "priceOpen": 135.22906454456813,
+      "priceClose": 133.43610742343077
+    },
+    "originalPriceOpen": 135.22906454456813,
+    "originalPriceStopLoss": 130.3,
+    "originalPriceTakeProfit": 139.1,
+    "maxDrawdown": {
+      "price": 133.43610742343077,
+      "timestamp": 1767622440000,
+      "pnlCost": -1.721494787066636,
+      "pnlPercentage": -1.721494787066636,
+      "pnlEntries": 100,
+      "priceOpen": 135.22906454456813,
+      "priceClose": 133.43610742343077
+    },
+    "peakProfit": {
+      "price": 139.05164018591245,
+      "timestamp": 1767643740000,
+      "pnlCost": 2.418671842600742,
+      "pnlPercentage": 2.418671842600742,
+      "pnlEntries": 100,
+      "priceOpen": 135.22906454456813,
+      "priceClose": 139.05164018591245
+    },
+    "partialExecuted": 0,
+    "totalEntries": 1,
+    "totalPartials": 0,
+    "pnl": {
+      "pnlPercentage": 2.4543261067588764,
+      "priceOpen": 135.22906454456813,
+      "priceClose": 139.1,
+      "pnlCost": 2.4543261067588764,
+      "pnlEntries": 100
+    },
+    "status": "closed",
+    "priority": 1780166793475,
+    "createdAt": 1767597180000,
+    "updatedAt": 1767644880000
+  }
+]

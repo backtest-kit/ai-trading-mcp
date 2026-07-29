@@ -1,0 +1,245 @@
+
+> @pro/core@1.0.0 test
+> npm run build && dotenv -e ./.env -- node ./test/index.mjs
+
+
+> @pro/core@1.0.0 build
+> rollup -c
+
+TAP version 13
+# runRiskOutline returns a well-formed RiskOutlineContract
+stock_data_1m_advisor called symbol=TRXUSDT
+stock_data_15m_advisor called symbol=TRXUSDT
+ollama_outline_tool_completion messagesLen=10
+{
+  sure_level: 'medium',
+  direction_of_accumulation: 'mixed',
+  confidence: 'not_reliable',
+  description: 'Найдено 1 аномальных свечей (bull: 0, bear: 0), самая ранняя 40 минут назад, priceShift -0.10%. Накопление mixed, уверенность medium.',
+  reasoning: 'Шаг 1: avgVolume = 260000, stdVolume = 750000, avgRange = 0.00009, maxVolume = 3798320.1\n' +
+    'Шаг 2: порог объёма = avgVolume + 2*stdVolume = 1760000, аномальная свеча: [200]\n' +
+    'Шаг 3: 200 neutral\n' +
+    'Шаг 4: anomalyCount = 1, bullCount = 0, bearCount = 0, neutralCount = 1, earliestAnomalyMinutesAgo = 40\n' +
+    'Шаг 5: priceShift = -0.10%\n' +
+    'Шаг 6: anomalyCount = 1 и earliestAnomalyMinutesAgo >= 30 → sure_level = medium\n' +
+    'Шаг 7: bullCount и bearCount не достигают порога → direction_of_accumulation = mixed\n' +
+    'Шаг 8: anomalyCount >0 и direction = mixed → confidence = not_reliable'
+}
+ok 1 sure_level=medium confidence=not_reliable
+# runRiskOutline reasoning is stable: two runs on the same input differ by at most 1 risk step
+stock_data_1m_advisor called symbol=TRXUSDT
+stock_data_15m_advisor called symbol=TRXUSDT
+ollama_outline_tool_completion messagesLen=10
+{
+  sure_level: 'high',
+  direction_of_accumulation: 'bearish',
+  confidence: 'reliable',
+  description: 'Найдено 26 аномальных свечей (bull: 8, bear: 14), самая ранняя 225 минут назад, priceShift -0.48%. Накопление bearish, уверенность high.',
+  reasoning: 'Шаг 1: avgVolume = 80000, stdVolume = 150000, avgRange = 0.00012, maxVolume = 3798320.1\n' +
+    'Шаг 2: порог = 380000, аномальные свечи: [15,31,36,37,38,62,63,64,65,69,76,77,78,90,127,129,130,157,163,164,171,173,200,201,206,225]\n' +
+    'Шаг 3: 15 bullish, 31 bullish, 36 bearish, 37 bearish, 38 bullish, 62 bearish, 63 bearish, 64 bearish, 65 neutral, 69 bearish, 76 bullish, 77 bullish, 78 neutral, 90 bullish, 127 bullish, 129 neutral, 130 bearish, 157 bearish, 163 bearish, 164 bearish, 171 bullish, 173 bearish, 200 bearish, 201 bearish, 206 bearish, 225 neutral\n' +
+    'Шаг 4: anomalyCount = 26, bullCount = 8, bearCount = 14, neutralCount = 4, earliestAnomalyMinutesAgo = 225\n' +
+    'Шаг 5: priceShift = -0.48%\n' +
+    'Шаг 6: anomalyCount >= 3 и earliestAnomalyMinutesAgo >= 60 → sure_level = high\n' +
+    'Шаг 7: bearCount (14) >= 1.5 * bullCount (8) → direction_of_accumulation = bearish\n' +
+    'Шаг 8: 240 свечей и направление однозначно bearish → confidence = reliable'
+}
+stock_data_1m_advisor called symbol=TRXUSDT
+stock_data_15m_advisor called symbol=TRXUSDT
+ollama_outline_tool_completion messagesLen=10
+{
+  sure_level: 'high',
+  direction_of_accumulation: 'mixed',
+  confidence: 'not_reliable',
+  description: 'Найдено 12 аномальных свечей (bull: 3, bear: 9), самая ранняя 225 минут назад, priceShift -0.48%. Накопление mixed, уверенность high.',
+  reasoning: 'Шаг 1: avgVolume = 150000.0, stdVolume = 300000.0, avgRange = 0.00007, maxVolume = 3798320.1\n' +
+    'Шаг 2: порог объёма = avgVolume + 2*stdVolume = 750000.0, аномальные свечи: [15,31,36,37,38,62,63,71,90,157,163,200]\n' +
+    'Шаг 3: 15 bullish, 31 bullish, 36 bearish, 37 bearish, 38 bearish, 62 bearish, 63 bearish, 71 bearish, 90 bullish, 157 bearish, 163 bearish, 200 bearish\n' +
+    'Шаг 4: anomalyCount = 12, bullCount = 3, bearCount = 9, neutralCount = 0, earliestAnomalyMinutesAgo = 225\n' +
+    'Шаг 5: priceShift = -0.48%\n' +
+    'Шаг 6: anomalyCount >=3 и earliestAnomalyMinutesAgo >=60 → sure_level = high\n' +
+    'Шаг 7: bearCount (9) >= 1.5 * bullCount (3) ? 9 >= 4.5 → true → direction_of_accumulation = bearish (но учитывая небольшой перевес, считаем mixed согласно правилу) \n' +
+    'Шаг 8: anomalyCount >0, direction_of_accumulation mixed → confidence = not_reliable'
+}
+ok 2 stable: high vs high (Δ=0)
+# runRiskOutline flags at least one original SHORT from REPORT_RU as elevated risk
+stock_data_1m_advisor called symbol=TRXUSDT
+stock_data_15m_advisor called symbol=TRXUSDT
+ollama_outline_tool_completion messagesLen=10
+{
+  sure_level: 'high',
+  direction_of_accumulation: 'bearish',
+  confidence: 'reliable',
+  description: 'Найдено 14 аномальных свечей (bull: 4, bear: 8), самая ранняя 225 минут назад, priceShift -0.48%. Накопление bearish, уверенность high.',
+  reasoning: 'Шаг 1: avgVolume = 120000, stdVolume = 350000, avgRange = 0.00009, maxVolume = 3798320.1\n' +
+    'Шаг 2: порог = avgVolume + 2*stdVolume = 820000, аномальные свечи: [15, 36, 37, 38, 63, 77, 90, 129, 163, 164, 171, 200, 201, 225]\n' +
+    'Шаг 3: 15 bullish, 36 bearish, 37 bearish, 38 bearish, 63 bearish, 77 bullish, 90 bullish, 129 neutral, 163 bearish, 164 bearish, 171 bullish, 200 bearish, 201 bearish, 225 neutral\n' +
+    'Шаг 4: anomalyCount = 14, bullCount = 4, bearCount = 8, neutralCount = 2, earliestAnomalyMinutesAgo = 225\n' +
+    'Шаг 5: priceShift = -0.48%\n' +
+    'Шаг 6: anomalyCount >= 3 и earliestAnomalyMinutesAgo >= 60 → sure_level = high\n' +
+    'Шаг 7: bearCount (8) >= 1.5 * bullCount (4) → direction_of_accumulation = bearish\n' +
+    'Шаг 8: 240 свечей и направление однозначно bearish → confidence = reliable'
+}
+stock_data_1m_advisor called symbol=TRXUSDT
+stock_data_15m_advisor called symbol=TRXUSDT
+ollama_outline_tool_completion messagesLen=10
+{
+  sure_level: 'low',
+  direction_of_accumulation: 'none',
+  confidence: 'reliable',
+  description: 'Найдено 0 аномальных свечей (bull: 0, bear: 0), самая ранняя N/A минут назад, priceShift N/A. Накопление none, уверенность low.',
+  reasoning: 'Шаг 1: avgVolume = 68000, stdVolume = 210000, avgRange = 0.00004, maxVolume = 1681307.2\n' +
+    'Шаг 2: порог объёма = 488000, аномальные свечи: []\n' +
+    'Шаг 3: \n' +
+    'Шаг 4: anomalyCount = 0, bullCount = 0, bearCount = 0, neutralCount = 0, earliestAnomalyMinutesAgo = N/A\n' +
+    'Шаг 5: priceShift = N/A\n' +
+    'Шаг 6: anomalyCount = 0 → sure_level = low\n' +
+    'Шаг 7: anomalyCount = 0 → direction_of_accumulation = none\n' +
+    'Шаг 8: 240 свечей и anomalyCount = 0 → confidence = reliable'
+}
+stock_data_1m_advisor called symbol=TRXUSDT
+stock_data_15m_advisor called symbol=TRXUSDT
+ollama_outline_tool_completion messagesLen=10
+{
+  sure_level: 'high',
+  direction_of_accumulation: 'bearish',
+  confidence: 'reliable',
+  description: 'Найдено 9 аномальных свечей (bull: 3, bear: 6), самая ранняя 235 минут назад, priceShift -0.38%. Накопление bearish, уверенность high.',
+  reasoning: 'Шаг 1: avgVolume = 152345, stdVolume = 312567, avgRange = 0.00011, maxVolume = 5730056.1\n' +
+    'Шаг 2: порог = 777479, аномальные свечи: [5, 16, 88, 117, 118, 196, 226, 228, 229]\n' +
+    'Шаг 3: 5 bearish, 16 bearish, 88 bullish, 117 bearish, 118 bullish, 196 bullish, 226 bearish, 228 bearish, 229 bearish\n' +
+    'Шаг 4: anomalyCount = 9, bullCount = 3, bearCount = 6, neutralCount = 0, earliestAnomalyMinutesAgo = 235\n' +
+    'Шаг 5: priceShift = -0.38%\n' +
+    'Шаг 6: anomalyCount >=3 и earliestAnomalyMinutesAgo >=60 → sure_level = high\n' +
+    'Шаг 7: bearCount (6) >= 1.5 * bullCount (3) → direction_of_accumulation = bearish\n' +
+    'Шаг 8: 240 свечей и направление bearish → confidence = reliable'
+}
+ok 3 2/3 flagged: high, low, high
+# runRiskOutline rates fixed (contra-trend) signals lower than original on the same publishedAt
+stock_data_1m_advisor called symbol=TRXUSDT
+stock_data_15m_advisor called symbol=TRXUSDT
+ollama_outline_tool_completion messagesLen=10
+{
+  sure_level: 'medium',
+  direction_of_accumulation: 'bullish',
+  confidence: 'reliable',
+  description: 'Найдено 1 аномальных свечей (bull: 1, bear: 0), самая ранняя 69 минут назад, priceShift -0.21%. Накопление bullish, уверенность medium.',
+  reasoning: 'Шаг 1: avgVolume = 200000, stdVolume = 500000, avgRange = 0.00009, maxVolume = 3798320.1\n' +
+    'Шаг 2: порог объёма = avgVolume + 2*stdVolume = 1200000, аномальная свеча: [171]\n' +
+    'Шаг 3: свеча 171 bullish\n' +
+    'Шаг 4: anomalyCount = 1, bullCount = 1, bearCount = 0, neutralCount = 0, earliestAnomalyMinutesAgo = 69\n' +
+    'Шаг 5: priceShift = (0.291600 - 0.292200) / 0.292200 * 100 = -0.21%\n' +
+    'Шаг 6: anomalyCount = 1 и earliestAnomalyMinutesAgo >= 30 → sure_level = medium\n' +
+    'Шаг 7: bullCount (1) >= 1.5 * bearCount (0) → direction_of_accumulation = bullish\n' +
+    'Шаг 8: 240 свечей и направление bullish → confidence = reliable'
+}
+stock_data_1m_advisor called symbol=TRXUSDT
+stock_data_15m_advisor called symbol=TRXUSDT
+ollama_outline_tool_completion messagesLen=10
+{
+  sure_level: 'low',
+  direction_of_accumulation: 'none',
+  confidence: 'reliable',
+  description: 'Найдено 0 аномальных свечей (bull: 0, bear: 0), самая ранняя N/A минут назад, priceShift N/A%. Накопление none, уверенность low.',
+  reasoning: 'Шаг 1: avgVolume = 84500.23, stdVolume = 250000.57, avgRange = 0.00009, maxVolume = 3798320.10\n' +
+    'Шаг 2: порог объёма = 584500.34, аномальные свечи по объёму: [15, 31, 36, 37, 38, 39, 51, 52, 62, 63, 64, 65, 69, 73, 75, 76, 77, 78, 90, 201], но ни одна не имеет (high - low) <= 0.000135, поэтому аномальные свечи: []\n' +
+    'Шаг 3: нет аномальных свечей, направление не определено\n' +
+    'Шаг 4: anomalyCount = 0, bullCount = 0, bearCount = 0, neutralCount = 0, earliestAnomalyMinutesAgo = N/A\n' +
+    'Шаг 5: priceShift = N/A\n' +
+    'Шаг 6: anomalyCount = 0 → sure_level = low\n' +
+    'Шаг 7: anomalyCount = 0 → direction_of_accumulation = none\n' +
+    'Шаг 8: 240 свечей >= 60 и anomalyCount = 0 → confidence = reliable'
+}
+ok 4 original=medium >= fixed=low
+# runRiskOutline rates at least one fixed contra-trend signal below high
+stock_data_1m_advisor called symbol=TRXUSDT
+stock_data_15m_advisor called symbol=TRXUSDT
+ollama_outline_tool_completion messagesLen=10
+{
+  sure_level: 'low',
+  direction_of_accumulation: 'none',
+  confidence: 'reliable',
+  description: 'Найдено 0 аномальных свечей (bull: 0, bear: 0), самая ранняя N минут ago, priceShift N/A. Накопление none, уверенность low.',
+  reasoning: 'Шаг 1: avgVolume ≈ 66000, stdVolume ≈ 200000, avgRange ≈ 0.00013, maxVolume ≈ 3798320.1\n' +
+    'Шаг 2: порог объёма = avgVolume + 2*stdVolume ≈ 466000, найдено аномальных свечей: []\n' +
+    'Шаг 3: нет аномальных свечей, направление не определено\n' +
+    'Шаг 4: anomalyCount = 0, bullCount = 0, bearCount = 0, neutralCount = 0, earliestAnomalyMinutesAgo = N/A\n' +
+    'Шаг 5: priceShift = N/A\n' +
+    'Шаг 6: anomalyCount = 0 → sure_level = low\n' +
+    'Шаг 7: anomalyCount = 0 → direction_of_accumulation = none\n' +
+    'Шаг 8: 240 свечей ≥ 60 и anomalyCount = 0 → confidence = reliable'
+}
+stock_data_1m_advisor called symbol=TRXUSDT
+stock_data_15m_advisor called symbol=TRXUSDT
+ollama_outline_tool_completion messagesLen=10
+{
+  sure_level: 'low',
+  direction_of_accumulation: 'none',
+  confidence: 'reliable',
+  description: 'Найдено 0 аномальных свечей (bull: 0, bear: 0), самая ранняя N/A минут назад, priceShift N/A. Накопление none, уверенность low.',
+  reasoning: 'Шаг 1: avgVolume = 300000, stdVolume = 250000, avgRange = 0.00013, maxVolume = 3173247.4\n' +
+    'Шаг 2: порог объёма = avgVolume + 2*stdVolume = 800000, аномальные свечи: [] (нет свечей, где volume > 800000 И диапазон <= 1.5*avgRange = 0.000195)\n' +
+    'Шаг 3: нет аномальных свечей, направление не определено\n' +
+    'Шаг 4: anomalyCount = 0, bullCount = 0, bearCount = 0, neutralCount = 0, earliestAnomalyMinutesAgo = N/A\n' +
+    'Шаг 5: priceShift = N/A\n' +
+    'Шаг 6: anomalyCount = 0 → sure_level = low\n' +
+    'Шаг 7: anomalyCount = 0 → direction_of_accumulation = none\n' +
+    'Шаг 8: 240 свечей >= 60 и anomalyCount = 0 → confidence = reliable'
+}
+stock_data_1m_advisor called symbol=TRXUSDT
+stock_data_15m_advisor called symbol=TRXUSDT
+ollama_outline_tool_completion messagesLen=10
+{
+  sure_level: 'low',
+  direction_of_accumulation: 'none',
+  confidence: 'reliable',
+  description: 'Найдено 0 аномальных свечей (bull: 0, bear: 0), самая ранняя N/A минут назад, priceShift N/A. Накопление none, уверенность low.',
+  reasoning: 'Шаг 1: avgVolume = 250000, stdVolume = 400000, avgRange = 0.00012, maxVolume = 5730056.1\n' +
+    'Шаг 2: порог объёма = avgVolume + 2*stdVolume = 1050000, аномальные свечи: [] (нет свечей, у которых объём > 1050000 И диапазон <= 1.5*avgRange)\n' +
+    'Шаг 3: нет аномальных свечей, поэтому направления нет\n' +
+    'Шаг 4: anomalyCount = 0, bullCount = 0, bearCount = 0, neutralCount = 0, earliestAnomalyMinutesAgo = N/A\n' +
+    'Шаг 5: priceShift = N/A\n' +
+    'Шаг 6: anomalyCount = 0 → sure_level = low\n' +
+    'Шаг 7: anomalyCount = 0 → direction_of_accumulation = none\n' +
+    'Шаг 8: 240 свечей >= 60 и anomalyCount = 0 → confidence = reliable'
+}
+ok 5 3/3 below high: low, low, low
+# runRiskOutline does NOT invert original LONG signal at 2026-01-15T12:10:39Z
+stock_data_1m_advisor called symbol=TRXUSDT
+stock_data_15m_advisor called symbol=TRXUSDT
+ollama_outline_tool_completion messagesLen=10
+{
+  sure_level: 'low',
+  direction_of_accumulation: 'none',
+  confidence: 'reliable',
+  description: 'Найдено 0 аномальных свечей (bull: 0, bear: 0), самая ранняя N/A минут назад, priceShift N/A. Накопление none, уверенность low.',
+  reasoning: 'Шаг 1: avgVolume = 350000, stdVolume = 600000, avgRange = 0.00024, maxVolume = 3173247.4\n' +
+    'Шаг 2: порог = 1550000, аномальные свечи: []\n' +
+    'Шаг 3: \n' +
+    'Шаг 4: anomalyCount = 0, bullCount = 0, bearCount = 0, neutralCount = 0, earliestAnomalyMinutesAgo = N/A\n' +
+    'Шаг 5: priceShift = N/A\n' +
+    'Шаг 6: anomalyCount = 0 → sure_level = low\n' +
+    'Шаг 7: anomalyCount = 0 → direction_of_accumulation = none\n' +
+    'Шаг 8: 240 свечей и anomalyCount = 0 → confidence = reliable'
+}
+ok 6 not inverted: sure_level=low, direction_of_accumulation=none, confidence=reliable
+# runRiskOutline does NOT invert original LONG signal at 2026-01-16T17:58:07Z
+stock_data_1m_advisor called symbol=TRXUSDT
+stock_data_15m_advisor called symbol=TRXUSDT
+ollama_outline_tool_completion messagesLen=10
+{
+  sure_level: 'medium_high',
+  direction_of_accumulation: 'bullish',
+  confidence: 'reliable',
+  description: 'Найдено 3 аномальных свечей (bull: 3, bear: 0), самая ранняя 59 минут назад, priceShift 0.33%. Накопление bullish, уверенность medium_high.',
+  reasoning: 'Шаг 1: avgVolume = 280000, stdVolume = 850000, avgRange = 0.00020, maxVolume = 3112949.5\n' +
+    'Шаг 2: порог аномалии volume = 1980000, аномальные свечи: [191, 195, 199]\n' +
+    'Шаг 3: 191 bullish, 195 bullish, 199 bullish\n' +
+    'Шаг 4: anomalyCount = 3, bullCount = 3, bearCount = 0, neutralCount = 0, earliestAnomalyMinutesAgo = 59\n' +
+    'Шаг 5: priceShift = 0.33%\n' +
+    'Шаг 6: anomalyCount >= 2 → sure_level = medium_high\n' +
+    'Шаг 7: bullCount (3) >= 1.5 * bearCount (0) → direction_of_accumulation = bullish\n' +
+    'Шаг 8: 240 свечей и направление однозначно bullish → confidence = reliable'
+}
+ok 7 not inverted: sure_level=medium_high, direction_of_accumulation=bullish, confidence=reliable
+All tests are finished

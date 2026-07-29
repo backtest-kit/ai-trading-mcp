@@ -1,0 +1,51 @@
+{
+  "name": "pro",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node ./node_modules/@backtest-kit/cli/build/index.mjs",
+    "start:debug": "node --inspect-brk ./node_modules/@backtest-kit/cli/build/index.mjs",
+    "build": "npm run build:x",
+    "build:win": "dotenv -e .env -- .\\scripts\\win\\build.bat",
+    "build:x": "dotenv -e .env -- sh ./scripts/linux/build.sh"
+  },
+  "dependencies": {
+    "@backtest-kit/cli": "17.0.0",
+    "@backtest-kit/graph": "17.0.0",
+    "@backtest-kit/mongo": "7.0.0",
+    "@backtest-kit/pinets": "17.0.0",
+    "@backtest-kit/signals": "17.0.0",
+    "@backtest-kit/ui": "17.0.0",
+    "di-factory": "1.0.9",
+    "functools-kit": "5.0.0",
+    "agent-swarm-kit": "6.0.0",
+    "backtest-kit": "17.0.0",
+    "dayjs": "1.11.20",
+    "get-moment-stamp": "3.0.0",
+    "mongoose": "8.23.0",
+    "ollama": "0.6.3",
+    "ioredis": "5.6.1",
+    "jsonrepair": "3.12.0",
+    "lodash": "4.18.1"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "22.9.0",
+    "@types/lodash": "4.17.24",
+    "cross-env": "10.1.0",
+    "dotenv-cli": "11.0.0",
+    "glob": "11.0.1",
+    "rimraf": "6.0.1",
+    "ts-morph": "27.0.2",
+    "tslib": "2.7.0",
+    "@rollup/plugin-typescript": "11.1.6",
+    "@rollup/plugin-replace": "6.0.3",
+    "rollup": "3.29.5",
+    "rollup-plugin-dts": "6.1.1",
+    "rollup-plugin-peer-deps-external": "2.2.4"
+  },
+  "workspaces": [
+    "./packages/*"
+  ]
+}

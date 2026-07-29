@@ -1,0 +1,1632 @@
+[{
+  "_id": {
+    "$oid": "6a1b23cff20d896ad61d54b8"
+  },
+  "parserItemId": "6a19c607f20d896ad6188c21",
+  "__v": 0,
+  "channel": "crypto_yoda_channel",
+  "content": {
+    "symbol": "SOL",
+    "direction": "long",
+    "entry": {
+      "from": 134.7,
+      "to": 136.2
+    },
+    "targets": [
+      137.3,
+      137.9,
+      139.1,
+      140.4,
+      142.5
+    ],
+    "stoploss": 130.3
+  },
+  "createDate": {
+    "$date": "2026-05-30T17:52:15.044Z"
+  },
+  "direction": "long",
+  "entryFrom": 134.7,
+  "entryTo": 136.2,
+  "note": "СИГНАЛ #SOL/USDT\n\n🔑 Откройте ЛОНГ в зоне $134.7 - $136.2 с плечом X25.\n\n🍒 Цели для фиксации прибыли:\n\n🔘 Закрыть ордер по цене $137.3\n🔘 Закрыть ордер по цене $137.9\n🔘 Закрыть ордер по цене $139.1\n🔘 Закрыть ордер по цене $140.4\n🔘 Закрыть ордер по цене $142.5\n\n❗️ СТОП-ЛОСС: $130.3\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+  "publishedAt": {
+    "$date": "2026-01-05T07:12:10.000Z"
+  },
+  "riskAction": "follow",
+  "riskConfidence": "reliable",
+  "riskDescription": "Action follow. LONG без срабатывания правил (momentum24hPct 1.06% > -1%). Sure_level medium, confidence reliable.",
+  "riskReasoning": "Шаг 1: avgRangePct=0.0862%, momentum24hPct=1.06%\nШаг 2: direction=LONG И avgRangePct < 0.07% → правило 1 не сработало\nШаг 3: direction=LONG И momentum24hPct < -1% → правило 2 не сработало\nШаг 4: ни одно правило не сработало → action=follow\nsure_level=medium, confidence=reliable (240 1‑м свечей доступны, метрики однозначны)",
+  "riskSureLevel": "medium",
+  "stoploss": 130.3,
+  "symbol": "SOLUSDT",
+  "targets": [
+    137.3,
+    137.9,
+    139.1,
+    140.4,
+    142.5
+  ],
+  "updatedDate": {
+    "$date": "2026-05-30T17:52:15.044Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a1b23d8f20d896ad61d54b9"
+  },
+  "parserItemId": "6a19c607f20d896ad6188c27",
+  "__v": 0,
+  "channel": "crypto_yoda_channel",
+  "content": {
+    "symbol": "HYPE",
+    "direction": "long",
+    "entry": {
+      "from": 26.2,
+      "to": 26.49
+    },
+    "targets": [
+      26.7,
+      26.8,
+      27.04,
+      27.3,
+      27.7
+    ],
+    "stoploss": 25.33
+  },
+  "createDate": {
+    "$date": "2026-05-30T17:52:24.595Z"
+  },
+  "direction": "long",
+  "entryFrom": 26.2,
+  "entryTo": 26.49,
+  "note": "СИГНАЛ #HYPE/USDT\n\n🔑 Откройте ЛОНГ в зоне $26.2 - $26.49 с кредитным плечом X25.\n\n🍒 Цели для фиксации прибыли:\n\n🔘 Закрыть ордер по цене $26.7\n🔘 Закрыть ордер по цене $26.8\n🔘 Закрыть ордер по цене $27.04\n🔘 Закрыть ордер по цене $27.3\n🔘 Закрыть ордер по цене $27.7\n\n❗️ СТОП-ЛОСС: $25.33\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+  "publishedAt": {
+    "$date": "2026-01-06T08:36:16.000Z"
+  },
+  "riskAction": "follow",
+  "riskConfidence": "reliable",
+  "riskDescription": "Action follow. LONG позиция (momentum24hPct 0.60% > -1%) — правило 2 не сработало; avgRangePct 0.2032% > 0.07% — правило 1 не применимо. Sure_level low_medium, confidence reliable.",
+  "riskReasoning": "Шаг 1: avgRangePct=0.2032%, momentum24hPct=0.60%\nШаг 2: direction=LONG И avgRangePct < 0.07% → правило 1 не сработало\nШаг 3: direction=LONG И momentum24hPct < -1% → правило 2 не сработало\nШаг 4: sure_level=low_medium, confidence=reliable (240 1m свечей доступны)",
+  "riskSureLevel": "low_medium",
+  "stoploss": 25.33,
+  "symbol": "HYPEUSDT",
+  "targets": [
+    26.7,
+    26.8,
+    27.04,
+    27.3,
+    27.7
+  ],
+  "updatedDate": {
+    "$date": "2026-05-30T17:52:24.595Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a1b23dff20d896ad61d54ba"
+  },
+  "parserItemId": "6a19c607f20d896ad6188c26",
+  "__v": 0,
+  "channel": "crypto_yoda_channel",
+  "content": {
+    "symbol": "NEAR",
+    "direction": "long",
+    "entry": {
+      "from": 1.746,
+      "to": 1.765
+    },
+    "targets": [
+      1.779,
+      1.786,
+      1.802,
+      1.819,
+      1.846
+    ],
+    "stoploss": 1.688
+  },
+  "createDate": {
+    "$date": "2026-05-30T17:52:31.984Z"
+  },
+  "direction": "long",
+  "entryFrom": 1.746,
+  "entryTo": 1.765,
+  "note": "СИГНАЛ #NEAR/USDT\n\n🔑 Откройте ЛОНГ в зоне $1.746 - $1.765 с кредитным плечом X25.\n\n🍒 Цели для фиксации прибыли:\n\n🔘 Закрыть ордер по цене $1.779\n🔘 Закрыть ордер по цене $1.786\n🔘 Закрыть ордер по цене $1.802\n🔘 Закрыть ордер по цене $1.819\n🔘 Закрыть ордер по цене $1.846\n\n❗️ СТОП-ЛОСС: $1.688\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+  "publishedAt": {
+    "$date": "2026-01-06T08:44:54.000Z"
+  },
+  "riskAction": "follow",
+  "riskConfidence": "reliable",
+  "riskDescription": "Action follow. LONG на растущем рынке (momentum24hPct 2.02% > -1%). Sure_level low_medium, confidence reliable.",
+  "riskReasoning": "Шаг 1: avgRangePct=0.1493%, momentum24hPct=2.02%\nШаг 2: direction=LONG И avgRangePct < 0.07% → правило 1 не сработало\nШаг 3: direction=LONG И momentum24hPct < -1% → правило 2 не сработало → action=follow\nШаг 4: sure_level=low_medium, confidence=reliable (240 1‑м свечей доступны)",
+  "riskSureLevel": "low_medium",
+  "stoploss": 1.688,
+  "symbol": "NEARUSDT",
+  "targets": [
+    1.779,
+    1.786,
+    1.802,
+    1.819,
+    1.846
+  ],
+  "updatedDate": {
+    "$date": "2026-05-30T17:52:31.984Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a1b23e7f20d896ad61d54bb"
+  },
+  "parserItemId": "6a19c607f20d896ad6188c25",
+  "__v": 0,
+  "channel": "crypto_yoda_channel",
+  "content": {
+    "symbol": "TRX",
+    "direction": "short",
+    "entry": {
+      "from": 0.2898,
+      "to": 0.293
+    },
+    "targets": [
+      0.2875,
+      0.2864,
+      0.2838,
+      0.2809,
+      0.2765
+    ],
+    "stoploss": 0.3027
+  },
+  "createDate": {
+    "$date": "2026-05-30T17:52:39.519Z"
+  },
+  "direction": "short",
+  "entryFrom": 0.2898,
+  "entryTo": 0.293,
+  "note": "СИГНАЛ #TRX/USDT\n\n🔑 Откройте ШОРТ в зоне $0.2898 - $0.293 с кредитным плечом X25.\n\n🍒 Цели для фиксации прибыли:\n\n🔘 Закрыть ордер по цене $0.2875\n🔘 Закрыть ордер по цене $0.2864\n🔘 Закрыть ордер по цене $0.2838\n🔘 Закрыть ордер по цене $0.2809\n🔘 Закрыть ордер по цене $0.2765\n\n❗️ СТОП-ЛОСС: $0.3027\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+  "publishedAt": {
+    "$date": "2026-01-06T10:16:16.000Z"
+  },
+  "riskAction": "skip",
+  "riskConfidence": "reliable",
+  "riskDescription": "Action skip. SHORT на спящем активе (avgRangePct 0.0429% < 0.07%) — stop-hunt мишень. Sure_level low, confidence reliable.",
+  "riskReasoning": "Шаг 1: avgRangePct=0.0429%, momentum24hPct=-0.17%\nШаг 2: direction=SHORT И avgRangePct < 0.07% → правило 1 сработало → action=skip\nШаг 3: sure_level=low (нет явных признаков накопления), confidence=reliable (240 1m свечей доступно, метрики однозначны)",
+  "riskSureLevel": "low",
+  "stoploss": 0.3027,
+  "symbol": "TRXUSDT",
+  "targets": [
+    0.2875,
+    0.2864,
+    0.2838,
+    0.2809,
+    0.2765
+  ],
+  "updatedDate": {
+    "$date": "2026-05-30T17:52:39.519Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a1b23eff20d896ad61d54bc"
+  },
+  "parserItemId": "6a19c607f20d896ad6188c24",
+  "__v": 0,
+  "channel": "crypto_yoda_channel",
+  "content": {
+    "symbol": "FARTCOIN",
+    "direction": "short",
+    "entry": {
+      "from": 0.44,
+      "to": 0.46
+    },
+    "targets": [
+      0.43,
+      0.39,
+      0.35,
+      0.32,
+      0.29
+    ],
+    "stoploss": 0.48
+  },
+  "createDate": {
+    "$date": "2026-05-30T17:52:47.153Z"
+  },
+  "direction": "short",
+  "entryFrom": 0.44,
+  "entryTo": 0.46,
+  "note": "СИГНАЛ #FARTCOIN/USDT\n\n📛 Риск сигнала: 8/10\n\n🔑 Откройте ШОРТ в зоне $0.44 - $0.46, используя 4% от депозита с кредитным плечом x10\n\n🉐 Цели для фиксации прибыли:\n\n🔘 Закрыть ордер по цене $0.43\n🔘 Закрыть ордер по цене $0.39\n🔘 Закрыть ордер по цене $0.35\n🔘 Закрыть ордер по цене $0.32\n🔘 Закрыть ордер по цене $0.29\n\n❗️ СТОП-ЛОСС: $0.48\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+  "publishedAt": {
+    "$date": "2026-01-06T10:42:18.000Z"
+  },
+  "riskAction": "follow",
+  "riskConfidence": "reliable",
+  "riskDescription": "Action follow. SHORT, avgRangePct 0.4147% >= 0.07% — правило 1 не сработало, правило 2 не применимо. Sure_level low_medium, confidence reliable.",
+  "riskReasoning": "Шаг 1: avgRangePct=0.4147%, momentum24hPct=14.64%\nШаг 2: direction=SHORT И avgRangePct < 0.07% → правило 1 не сработало → action=follow\nШаг 3: sure_level=low_medium, confidence=reliable",
+  "riskSureLevel": "low_medium",
+  "stoploss": 0.48,
+  "symbol": "FARTCOINUSDT",
+  "targets": [
+    0.43,
+    0.39,
+    0.35,
+    0.32,
+    0.29
+  ],
+  "updatedDate": {
+    "$date": "2026-05-30T17:52:47.153Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a1b23f4f20d896ad61d54bd"
+  },
+  "parserItemId": "6a19c607f20d896ad6188c23",
+  "__v": 0,
+  "channel": "crypto_yoda_channel",
+  "content": {
+    "symbol": "TRX",
+    "direction": "short",
+    "entry": {
+      "from": 0.2903,
+      "to": 0.2936
+    },
+    "targets": [
+      0.288,
+      0.2868,
+      0.2843,
+      0.2814,
+      0.2769
+    ],
+    "stoploss": 0.3032
+  },
+  "createDate": {
+    "$date": "2026-05-30T17:52:52.870Z"
+  },
+  "direction": "short",
+  "entryFrom": 0.2903,
+  "entryTo": 0.2936,
+  "note": "СИГНАЛ #TRX/USDT\n\n🔑 Откройте ШОРТ в зоне $0.2903 - $0.2936 с кредитным плечом X25.\n\n🍒 Цели для фиксации прибыли:\n\n🔘 Закрыть ордер по цене $0.288\n🔘 Закрыть ордер по цене $0.2868\n🔘 Закрыть ордер по цене $0.2843\n🔘 Закрыть ордер по цене $0.2814\n🔘 Закрыть ордер по цене $0.2769\n\n❗️ СТОП-ЛОСС: $0.3032\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+  "publishedAt": {
+    "$date": "2026-01-06T18:47:09.000Z"
+  },
+  "riskAction": "skip",
+  "riskConfidence": "reliable",
+  "riskDescription": "Action skip. SHORT на спящем активе (avgRangePct 0.0439% < 0.07%) — stop‑hunt мишень. Sure_level low_medium, confidence reliable.",
+  "riskReasoning": "Шаг 1: avgRangePct=0.0439%, momentum24hPct=-0.07%\nШаг 2: direction=SHORT И avgRangePct < 0.07% → правило 1 сработало → action=skip\nШаг 3: sure_level=low_medium, confidence=reliable (240 свечей доступны)",
+  "riskSureLevel": "low_medium",
+  "stoploss": 0.3032,
+  "symbol": "TRXUSDT",
+  "targets": [
+    0.288,
+    0.2868,
+    0.2843,
+    0.2814,
+    0.2769
+  ],
+  "updatedDate": {
+    "$date": "2026-05-30T17:52:52.870Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a1b23fef20d896ad61d54be"
+  },
+  "parserItemId": "6a19c607f20d896ad6188c22",
+  "__v": 0,
+  "channel": "crypto_yoda_channel",
+  "content": {
+    "symbol": "NEAR",
+    "direction": "long",
+    "entry": {
+      "from": 1.741,
+      "to": 1.76
+    },
+    "targets": [
+      1.774,
+      1.781,
+      1.796,
+      1.814,
+      1.841
+    ],
+    "stoploss": 1.683
+  },
+  "createDate": {
+    "$date": "2026-05-30T17:53:02.099Z"
+  },
+  "direction": "long",
+  "entryFrom": 1.741,
+  "entryTo": 1.76,
+  "note": "СИГНАЛ #NEAR/USDT\n\n🔑 Откройте ЛОНГ в зоне $1.741 - $1.76 с кредитным плечом X25.\n\n🍒 Цели для фиксации прибыли:\n\n🔘 Закрыть ордер по цене $1.774\n🔘 Закрыть ордер по цене $1.781\n🔘 Закрыть ордер по цене $1.796\n🔘 Закрыть ордер по цене $1.814\n🔘 Закрыть ордер по цене $1.841\n\n❗️ СТОП-ЛОСС: $1.683\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+  "publishedAt": {
+    "$date": "2026-01-06T19:09:16.000Z"
+  },
+  "riskAction": "follow",
+  "riskConfidence": "reliable",
+  "riskDescription": "Action follow. LONG сигнал, momentum24hPct -0.96% > -1% → правило 2 не сработало, avgRangePct 0.1586% > 0.07% (не подходит под правило 1) → действие follow. Sure_level low, confidence reliable.",
+  "riskReasoning": "Шаг 1: avgRangePct=0.1586%, momentum24hPct=-0.96%\nШаг 2: direction=LONG И avgRangePct < 0.07% → правило 1 не сработало\nШаг 3: direction=LONG И momentum24hPct < -1% → правило 2 не сработало\nШаг 4: ни одно правило не сработало → action=follow, sure_level=low, confidence=reliable",
+  "riskSureLevel": "low",
+  "stoploss": 1.683,
+  "symbol": "NEARUSDT",
+  "targets": [
+    1.774,
+    1.781,
+    1.796,
+    1.814,
+    1.841
+  ],
+  "updatedDate": {
+    "$date": "2026-05-30T17:53:02.099Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a1b2408f20d896ad61d54bf"
+  },
+  "parserItemId": "6a19c607f20d896ad6188c28",
+  "__v": 0,
+  "channel": "crypto_yoda_channel",
+  "content": {
+    "symbol": "NEAR",
+    "direction": "long",
+    "entry": {
+      "from": 1.75,
+      "to": 1.769
+    },
+    "targets": [
+      1.783,
+      1.79,
+      1.806,
+      1.823,
+      1.85
+    ],
+    "stoploss": 1.692
+  },
+  "createDate": {
+    "$date": "2026-05-30T17:53:12.307Z"
+  },
+  "direction": "long",
+  "entryFrom": 1.75,
+  "entryTo": 1.769,
+  "note": "СИГНАЛ #NEAR/USDT\n\n🔑 Откройте ЛОНГ в зоне $1.75 - $1.769 с плечом X25.\n\n🍒 Цели для фиксации прибыли:\n\n🔘 Закрыть ордер по цене $1.783\n🔘 Закрыть ордер по цене $1.79\n🔘 Закрыть ордер по цене $1.806\n🔘 Закрыть ордер по цене $1.823\n🔘 Закрыть ордер по цене $1.85\n\n❗️ СТОП-ЛОСС: $1.692\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+  "publishedAt": {
+    "$date": "2026-01-07T13:27:10.000Z"
+  },
+  "riskAction": "skip",
+  "riskConfidence": "reliable",
+  "riskDescription": "Action skip. LONG на падающем рынке (momentum24hPct -3.66% < -1%) — опасно. Sure_level low, confidence reliable.",
+  "riskReasoning": "Шаг 1: avgRangePct=0.1393%, momentum24hPct=-3.66%\nШаг 2: direction=LONG И momentum24hPct < -1% → правило 2 сработало → action=skip\nШаг 3: sure_level=low, confidence=reliable (240 1‑м свечей доступно)",
+  "riskSureLevel": "low",
+  "stoploss": 1.692,
+  "symbol": "NEARUSDT",
+  "targets": [
+    1.783,
+    1.79,
+    1.806,
+    1.823,
+    1.85
+  ],
+  "updatedDate": {
+    "$date": "2026-05-30T17:53:12.307Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a1b240ef20d896ad61d54c0"
+  },
+  "parserItemId": "6a19c607f20d896ad6188c29",
+  "__v": 0,
+  "channel": "crypto_yoda_channel",
+  "content": {
+    "symbol": "ETH",
+    "direction": "long",
+    "entry": {
+      "from": 3040,
+      "to": 3090
+    },
+    "targets": [
+      3150,
+      3250,
+      3350,
+      3450,
+      3600
+    ],
+    "stoploss": 2950
+  },
+  "createDate": {
+    "$date": "2026-05-30T17:53:18.530Z"
+  },
+  "direction": "long",
+  "entryFrom": 3040,
+  "entryTo": 3090,
+  "note": "СИГНАЛ #ETH/USDT\n\n📛 Риск сигнала: 8/10\n\n🔑 Откройте ЛОНГ в зоне $3040 - $3090, используя 4% от депозита с кредитным плечом x10\n\n🉐 Цели для фиксации прибыли:\n\n🔘 Закрыть ордер по цене $3150\n🔘 Закрыть ордер по цене $3250\n🔘 Закрыть ордер по цене $3350\n🔘 Закрыть ордер по цене $3450\n🔘 Закрыть ордер по цене $3600\n\n❗️ СТОП-ЛОСС: $2950\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+  "publishedAt": {
+    "$date": "2026-01-08T16:01:30.000Z"
+  },
+  "riskAction": "skip",
+  "riskConfidence": "reliable",
+  "riskDescription": "Action skip. LONG на падающем рынке (momentum24hPct -1.99% < -1%) — риск стоп-лосса. Sure_level low_medium, confidence reliable.",
+  "riskReasoning": "Шаг 1: avgRangePct=0.0878%, momentum24hPct=-1.99%\nШаг 2: direction=LONG И momentum24hPct < -1% → правило 2 сработало → action=skip\nШаг 3: sure_level=low_medium (одна свежая аномалия без смещения), confidence=reliable (240 1м свечей доступны)",
+  "riskSureLevel": "low_medium",
+  "stoploss": 2950,
+  "symbol": "ETHUSDT",
+  "targets": [
+    3150,
+    3250,
+    3350,
+    3450,
+    3600
+  ],
+  "updatedDate": {
+    "$date": "2026-05-30T17:53:18.530Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a1b2416f20d896ad61d54c1"
+  },
+  "parserItemId": "6a19c607f20d896ad6188c2b",
+  "__v": 0,
+  "channel": "crypto_yoda_channel",
+  "content": {
+    "symbol": "TRX",
+    "direction": "short",
+    "entry": {
+      "from": 0.2938,
+      "to": 0.2971
+    },
+    "targets": [
+      0.2915,
+      0.2903,
+      0.2877,
+      0.2848,
+      0.2803
+    ],
+    "stoploss": 0.3068
+  },
+  "createDate": {
+    "$date": "2026-05-30T17:53:26.211Z"
+  },
+  "direction": "short",
+  "entryFrom": 0.2938,
+  "entryTo": 0.2971,
+  "note": "СИГНАЛ #TRX/USDT\n\n🔑 Откройте ШОРТ в зоне $0.2938 - $0.2971 с кредитным плечом X25.\n\n🍒 Цели для фиксации прибыли:\n\n🔘 Закрыть ордер по цене $0.2915\n🔘 Закрыть ордер по цене $0.2903\n🔘 Закрыть ордер по цене $0.2877\n🔘 Закрыть ордер по цене $0.2848\n🔘 Закрыть ордер по цене $0.2803\n\n❗️ СТОП-ЛОСС: $0.3068\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+  "publishedAt": {
+    "$date": "2026-01-09T14:06:45.000Z"
+  },
+  "riskAction": "skip",
+  "riskConfidence": "reliable",
+  "riskDescription": "Action skip. SHORT на спящем активе (avgRangePct 0.0445% < 0.07%) — stop-hunt мишень. Sure_level low, confidence reliable.",
+  "riskReasoning": "Шаг 1: avgRangePct=0.0445%, momentum24hPct=-0.47%\nШаг 2: direction=SHORT И avgRangePct < 0.07% → правило 1 сработало → action=skip\nШаг 3: rule 2 не сработало, sure_level=low (нет явных признаков накопления), confidence=reliable (240 минутных свечей >=60, метрики однозначны)",
+  "riskSureLevel": "low",
+  "stoploss": 0.3068,
+  "symbol": "TRXUSDT",
+  "targets": [
+    0.2915,
+    0.2903,
+    0.2877,
+    0.2848,
+    0.2803
+  ],
+  "updatedDate": {
+    "$date": "2026-05-30T17:53:26.211Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a1b241ef20d896ad61d54c2"
+  },
+  "parserItemId": "6a19c607f20d896ad6188c2a",
+  "__v": 0,
+  "channel": "crypto_yoda_channel",
+  "content": {
+    "symbol": "NEAR",
+    "direction": "short",
+    "entry": {
+      "from": 1.697,
+      "to": 1.716
+    },
+    "targets": [
+      1.684,
+      1.677,
+      1.662,
+      1.645,
+      1.619
+    ],
+    "stoploss": 1.772
+  },
+  "createDate": {
+    "$date": "2026-05-30T17:53:34.159Z"
+  },
+  "direction": "short",
+  "entryFrom": 1.697,
+  "entryTo": 1.716,
+  "note": "СИГНАЛ #NEAR/USDT\n\n🔑 Откройте ШОРТ в зоне $1.697 - $1.716 с кредитным плечом X25.\n\n🍒 Цели для фиксации прибыли:\n\n🔘 Закрыть ордер по цене $1.684\n🔘 Закрыть ордер по цене $1.677\n🔘 Закрыть ордер по цене $1.662\n🔘 Закрыть ордер по цене $1.645\n🔘 Закрыть ордер по цене $1.619\n\n❗️ СТОП-ЛОСС: $1.772\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+  "publishedAt": {
+    "$date": "2026-01-09T14:10:57.000Z"
+  },
+  "riskAction": "follow",
+  "riskConfidence": "reliable",
+  "riskDescription": "Action follow. SHORT сигнал прошел проверку: avgRangePct 0.1168% > 0.07% (правило 1 не сработало), momentum24hPct 0.90% не менее -1% (правило 2 не применимо) → действие default = follow. Sure_level low, confidence reliable.",
+  "riskReasoning": "Шаг 1: avgRangePct=0.1168%, momentum24hPct=0.90%\nШаг 2: direction=SHORT И avgRangePct < 0.07% → правило 1 не сработало\nШаг 3: direction=LONG И momentum24hPct < -1% → правило 2 не сработало (не LONG)\nШаг 4: ни одно правило не сработало → action=follow",
+  "riskSureLevel": "low",
+  "stoploss": 1.772,
+  "symbol": "NEARUSDT",
+  "targets": [
+    1.684,
+    1.677,
+    1.662,
+    1.645,
+    1.619
+  ],
+  "updatedDate": {
+    "$date": "2026-05-30T17:53:34.159Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a1b2426f20d896ad61d54c3"
+  },
+  "parserItemId": "6a19c607f20d896ad6188c2c",
+  "__v": 0,
+  "channel": "crypto_yoda_channel",
+  "content": {
+    "symbol": "PUMP",
+    "direction": "long",
+    "entry": {
+      "from": 0.0023,
+      "to": 0.0024
+    },
+    "targets": [
+      0.00255,
+      0.00275,
+      0.00293,
+      0.00315,
+      0.00335
+    ],
+    "stoploss": 0.00215
+  },
+  "createDate": {
+    "$date": "2026-05-30T17:53:42.737Z"
+  },
+  "direction": "long",
+  "entryFrom": 0.0023,
+  "entryTo": 0.0024,
+  "note": "СИГНАЛ #PUMP/USDT\n\n📛 Риск сигнала: 6/10\n\n🔑 Откройте ЛОНГ в зоне $0.0023 - $0.0024, используя 4% от депозита с кредитным плечом x5\n\n🉐 Цели для фиксации прибыли:\n\n🔘 Закрыть ордер по цене $0.00255\n🔘 Закрыть ордер по цене $0.00275\n🔘 Закрыть ордер по цене $0.00293\n🔘 Закрыть ордер по цене $0.00315\n🔘 Закрыть ордер по цене $0.00335\n\n❗️ СТОП-ЛОСС: $0.00215\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+  "publishedAt": {
+    "$date": "2026-01-10T14:12:36.000Z"
+  },
+  "riskAction": "follow",
+  "riskConfidence": "reliable",
+  "riskDescription": "Action follow. LONG позиция, momentum24hPct 5.22% > -1% → правило 2 не сработало; avgRangePct 0.2962% > 0.07% → правило 1 не сработало. Sure_level medium, confidence reliable.",
+  "riskReasoning": "Шаг 1: avgRangePct=0.2962%, momentum24hPct=5.22%\nШаг 2: direction=LONG И avgRangePct < 0.07% → правило 1 не сработало\nШаг 3: direction=LONG И momentum24hPct < -1% → правило 2 не сработало\nШаг 4: ни одно правило не сработало → action=follow, sure_level=medium, confidence=reliable",
+  "riskSureLevel": "medium",
+  "stoploss": 0.00215,
+  "symbol": "PUMPUSDT",
+  "targets": [
+    0.00255,
+    0.00275,
+    0.00293,
+    0.00315,
+    0.00335
+  ],
+  "updatedDate": {
+    "$date": "2026-05-30T17:53:42.737Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a1b242df20d896ad61d54c4"
+  },
+  "parserItemId": "6a19c607f20d896ad6188c2d",
+  "__v": 0,
+  "channel": "crypto_yoda_channel",
+  "content": {
+    "symbol": "TRX",
+    "direction": "short",
+    "entry": {
+      "from": 0.2968,
+      "to": 0.3001
+    },
+    "targets": [
+      0.2944,
+      0.2932,
+      0.2906,
+      0.2876,
+      0.2831
+    ],
+    "stoploss": 0.3099
+  },
+  "createDate": {
+    "$date": "2026-05-30T17:53:49.667Z"
+  },
+  "direction": "short",
+  "entryFrom": 0.2968,
+  "entryTo": 0.3001,
+  "note": "СИГНАЛ #TRX/USDT\n\n🔑 Откройте ШОРТ в зоне $0.2968 - $0.3001 с плечом X25.\n\n🍒 Цели для фиксации прибыли:\n\n🔘 Закрыть ордер по цене $0.2944\n🔘 Закрыть ордер по цене $0.2932\n🔘 Закрыть ордер по цене $0.2906\n🔘 Закрыть ордер по цене $0.2876\n🔘 Закрыть ордер по цене $0.2831\n\n❗️ СТОП-ЛОСС: $0.3099\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+  "publishedAt": {
+    "$date": "2026-01-12T13:08:02.000Z"
+  },
+  "riskAction": "skip",
+  "riskConfidence": "reliable",
+  "riskDescription": "Action skip. SHORT на спящем активе (avgRangePct 0.0458% < 0.07%) — stop‑hunt мишень. Sure_level low, confidence reliable.",
+  "riskReasoning": "Шаг 1: avgRangePct=0.0458%, momentum24hPct=-0.30%\nШаг 2: direction=SHORT И avgRangePct < 0.07% → правило 1 сработало → action=skip\nШаг 3: sure_level=low (нет явных паттернов накопления), confidence=reliable (240 минутных свечей доступны)",
+  "riskSureLevel": "low",
+  "stoploss": 0.3099,
+  "symbol": "TRXUSDT",
+  "targets": [
+    0.2944,
+    0.2932,
+    0.2906,
+    0.2876,
+    0.2831
+  ],
+  "updatedDate": {
+    "$date": "2026-05-30T17:53:49.667Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a1b2434f20d896ad61d54c5"
+  },
+  "parserItemId": "6a19c607f20d896ad6188c30",
+  "__v": 0,
+  "channel": "crypto_yoda_channel",
+  "content": {
+    "symbol": "TRX",
+    "direction": "short",
+    "entry": {
+      "from": 0.2991,
+      "to": 0.3024
+    },
+    "targets": [
+      0.2967,
+      0.2955,
+      0.2929,
+      0.2899,
+      0.2853
+    ],
+    "stoploss": 0.3124
+  },
+  "createDate": {
+    "$date": "2026-05-30T17:53:56.009Z"
+  },
+  "direction": "short",
+  "entryFrom": 0.2991,
+  "entryTo": 0.3024,
+  "note": "СИГНАЛ #TRX/USDT\n\n🔑 Откройте ШОРТ в зоне $0.2991 - $0.3024 с плечом X25.\n\n🍒 Цели для фиксации прибыли:\n\n🔘 Закрыть ордер по цене $0.2967\n🔘 Закрыть ордер по цене $0.2955\n🔘 Закрыть ордер по цене $0.2929\n🔘 Закрыть ордер по цене $0.2899\n🔘 Закрыть ордер по цене $0.2853\n\n❗️ СТОП-ЛОСС: $0.3124\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+  "publishedAt": {
+    "$date": "2026-01-13T11:05:18.000Z"
+  },
+  "riskAction": "skip",
+  "riskConfidence": "reliable",
+  "riskDescription": "Action skip. SHORT на спящем активе (avgRangePct 0.0437% < 0.07%) — stop‑hunt мишень. Sure_level low_medium, confidence reliable.",
+  "riskReasoning": "Шаг 1: avgRangePct=0.0437%, momentum24hPct=0.40%\nШаг 2: direction=SHORT И avgRangePct < 0.07% → правило 1 сработало → action=skip\nШаг 3: sure_level=low_medium (одна свежая аномалия без смещения цены), confidence=reliable (240 1‑минутных свечей доступны и однозначны)",
+  "riskSureLevel": "low_medium",
+  "stoploss": 0.3124,
+  "symbol": "TRXUSDT",
+  "targets": [
+    0.2967,
+    0.2955,
+    0.2929,
+    0.2899,
+    0.2853
+  ],
+  "updatedDate": {
+    "$date": "2026-05-30T17:53:56.009Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a1b243ef20d896ad61d54c6"
+  },
+  "parserItemId": "6a19c607f20d896ad6188c2f",
+  "__v": 0,
+  "channel": "crypto_yoda_channel",
+  "content": {
+    "symbol": "BTC",
+    "direction": "long",
+    "entry": {
+      "from": 91400,
+      "to": 92200
+    },
+    "targets": [
+      92600,
+      93000,
+      93400,
+      93900,
+      94500
+    ],
+    "stoploss": 90700
+  },
+  "createDate": {
+    "$date": "2026-05-30T17:54:06.662Z"
+  },
+  "direction": "long",
+  "entryFrom": 91400,
+  "entryTo": 92200,
+  "note": "СИГНАЛ #BTC/USDT\n\n📛 Риск сигнала: 7/10\n\n🔑 Откройте ЛОНГ в зоне $91400 - $92200, используя 4% от депозита с плечом x25\n\n🉐 Цели для фиксации прибыли:\n\n🔘 Закрыть ордер по цене $92600\n🔘 Закрыть ордер по цене $93000\n🔘 Закрыть ордер по цене $93400\n🔘 Закрыть ордер по цене $93900\n🔘 Закрыть ордер по цене $94500\n\n❗️ СТОП-ЛОСС: $90700\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+  "publishedAt": {
+    "$date": "2026-01-13T11:30:03.000Z"
+  },
+  "riskAction": "follow",
+  "riskConfidence": "reliable",
+  "riskDescription": "Action follow. LONG позиция, momentum24hPct 1.67% > -1% и avgRangePct 0.0501% < 0.07% (но направление не SHORT), поэтому правило 1 не сработало, правило 2 не сработало → действие follow.",
+  "riskReasoning": "Шаг 1: avgRangePct=0.0501%, momentum24hPct=1.67%\nШаг 2: direction=LONG И avgRangePct < 0.07% → правило 1 не сработало (требуется SHORT)\nШаг 3: direction=LONG И momentum24hPct < -1% → правило 2 не сработало\nШаг 4: ни одно правило не сработало → action=follow",
+  "riskSureLevel": "medium",
+  "stoploss": 90700,
+  "symbol": "BTCUSDT",
+  "targets": [
+    92600,
+    93000,
+    93400,
+    93900,
+    94500
+  ],
+  "updatedDate": {
+    "$date": "2026-05-30T17:54:06.662Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a1b244bf20d896ad61d54c7"
+  },
+  "parserItemId": "6a19c607f20d896ad6188c2e",
+  "__v": 0,
+  "channel": "crypto_yoda_channel",
+  "content": {
+    "symbol": "HYPE",
+    "direction": "long",
+    "entry": {
+      "from": 24.41,
+      "to": 24.68
+    },
+    "targets": [
+      24.87,
+      24.97,
+      25.19,
+      25.43,
+      25.81
+    ],
+    "stoploss": 23.6
+  },
+  "createDate": {
+    "$date": "2026-05-30T17:54:19.484Z"
+  },
+  "direction": "long",
+  "entryFrom": 24.41,
+  "entryTo": 24.68,
+  "note": "СИГНАЛ #HYPE/USDT\n\n🔑 Откройте ЛОНГ в зоне $24.41 - $24.68 с плечом X25.\n\n🍒 Цели для фиксации прибыли:\n\n🔘 Закрыть ордер по цене $24.87\n🔘 Закрыть ордер по цене $24.97\n🔘 Закрыть ордер по цене $25.19\n🔘 Закрыть ордер по цене $25.43\n🔘 Закрыть ордер по цене $25.81\n\n❗️ СТОП-ЛОСС: $23.6\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+  "publishedAt": {
+    "$date": "2026-01-13T17:20:48.000Z"
+  },
+  "riskAction": "follow",
+  "riskConfidence": "reliable",
+  "riskDescription": "Action follow. LONG позиция, momentum24hPct 3.08% > -1% — правило 2 не сработало, avgRangePct 0.1464% > 0.07% — правило 1 не сработало, поэтому действие follow. Sure_level low_medium, confidence reliable.",
+  "riskReasoning": "Шаг 1: avgRangePct=0.1464%, momentum24hPct=3.08%\nШаг 2: direction=LONG И avgRangePct < 0.07% → правило 1 не сработало → action не skip\nШаг 3: direction=LONG И momentum24hPct < -1% → правило 2 не сработало → action не skip\nШаг 4: ни одно правило не сработало → action=follow, sure_level=low_medium, confidence=reliable",
+  "riskSureLevel": "low_medium",
+  "stoploss": 23.6,
+  "symbol": "HYPEUSDT",
+  "targets": [
+    24.87,
+    24.97,
+    25.19,
+    25.43,
+    25.81
+  ],
+  "updatedDate": {
+    "$date": "2026-05-30T17:54:19.484Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a1b2455f20d896ad61d54c8"
+  },
+  "parserItemId": "6a19c607f20d896ad6188c33",
+  "__v": 0,
+  "channel": "crypto_yoda_channel",
+  "content": {
+    "symbol": "TRX",
+    "direction": "long",
+    "entry": {
+      "from": 0.3027,
+      "to": 0.3061
+    },
+    "targets": [
+      0.3085,
+      0.3097,
+      0.3124,
+      0.3155,
+      0.3201
+    ],
+    "stoploss": 0.2927
+  },
+  "createDate": {
+    "$date": "2026-05-30T17:54:29.432Z"
+  },
+  "direction": "long",
+  "entryFrom": 0.3027,
+  "entryTo": 0.3061,
+  "note": "СИГНАЛ #TRX/USDT\n\n🔑 Откройте ЛОНГ в зоне $0.3027 - $0.3061 с плечом X25.\n\n🍒 Цели для фиксации прибыли:\n\n🔘 Закрыть ордер по цене $0.3085\n🔘 Закрыть ордер по цене $0.3097\n🔘 Закрыть ордер по цене $0.3124\n🔘 Закрыть ордер по цене $0.3155\n🔘 Закрыть ордер по цене $0.3201\n\n❗️ СТОП-ЛОСС: $0.2927\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+  "publishedAt": {
+    "$date": "2026-01-15T12:10:39.000Z"
+  },
+  "riskAction": "follow",
+  "riskConfidence": "reliable",
+  "riskDescription": "Action follow. LONG позиция, momentum24hPct 1.26% > -1% → правило 2 не сработало; direction != SHORT → правило 1 не применимо. Sure_level low_medium, confidence reliable.",
+  "riskReasoning": "Шаг 1: avgRangePct=0.0651%, momentum24hPct=1.26%\nШаг 2: direction=LONG И avgRangePct < 0.07% → правило 1 не сработало → action не skip\nШаг 3: direction=LONG И momentum24hPct < -1% → правило 2 не сработало → action не skip\nШаг 4: ни одно правило не сработало → action=follow, sure_level=low_medium, confidence=reliable",
+  "riskSureLevel": "low_medium",
+  "stoploss": 0.2927,
+  "symbol": "TRXUSDT",
+  "targets": [
+    0.3085,
+    0.3097,
+    0.3124,
+    0.3155,
+    0.3201
+  ],
+  "updatedDate": {
+    "$date": "2026-05-30T17:54:29.432Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a1b245ff20d896ad61d54c9"
+  },
+  "parserItemId": "6a19c607f20d896ad6188c32",
+  "__v": 0,
+  "channel": "crypto_yoda_channel",
+  "content": {
+    "symbol": "POL",
+    "direction": "short",
+    "entry": {
+      "from": 0.1574,
+      "to": 0.1591
+    },
+    "targets": [
+      0.1561,
+      0.1555,
+      0.1541,
+      0.1525,
+      0.1501
+    ],
+    "stoploss": 0.1643
+  },
+  "createDate": {
+    "$date": "2026-05-30T17:54:39.223Z"
+  },
+  "direction": "short",
+  "entryFrom": 0.1574,
+  "entryTo": 0.1591,
+  "note": "СИГНАЛ #POL/USDT\n\n🔑 Откройте ШОРТ в зоне $0.1574 - $0.1591 с плечом X25.\n\n🍒 Цели для фиксации прибыли:\n\n🔘 Закрыть ордер по цене $0.1561\n🔘 Закрыть ордер по цене $0.1555\n🔘 Закрыть ордер по цене $0.1541\n🔘 Закрыть ордер по цене $0.1525\n🔘 Закрыть ордер по цене $0.1501\n\n❗️ СТОП-ЛОСС: $0.1643\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+  "publishedAt": {
+    "$date": "2026-01-15T13:46:09.000Z"
+  },
+  "riskAction": "follow",
+  "riskConfidence": "reliable",
+  "riskDescription": "Action follow. No skip rule triggered; avgRangePct 0.1697% >= 0.07% for SHORT, momentum24hPct 0.32% > -1% for LONG. Sure_level low, confidence reliable.",
+  "riskReasoning": "Шаг 1: avgRangePct=0.1697%, momentum24hPct=0.32%\nШаг 2: direction=SHORT И avgRangePct < 0.07% → правило 1 не сработало\nШаг 3: direction=LONG И momentum24hPct < -1% → правило 2 не сработало\nШаг 4: действие=follow (правило 3 по умолчанию), sure_level=low, confidence=reliable",
+  "riskSureLevel": "low",
+  "stoploss": 0.1643,
+  "symbol": "POLUSDT",
+  "targets": [
+    0.1561,
+    0.1555,
+    0.1541,
+    0.1525,
+    0.1501
+  ],
+  "updatedDate": {
+    "$date": "2026-05-30T17:54:39.223Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a1b2469f20d896ad61d54ca"
+  },
+  "parserItemId": "6a19c607f20d896ad6188c31",
+  "__v": 0,
+  "channel": "crypto_yoda_channel",
+  "content": {
+    "symbol": "SOL",
+    "direction": "long",
+    "entry": {
+      "from": 143.9,
+      "to": 145.5
+    },
+    "targets": [
+      146.7,
+      147.2,
+      148.5,
+      150,
+      152.2
+    ],
+    "stoploss": 139.1
+  },
+  "createDate": {
+    "$date": "2026-05-30T17:54:49.085Z"
+  },
+  "direction": "long",
+  "entryFrom": 143.9,
+  "entryTo": 145.5,
+  "note": "СИГНАЛ #SOL/USDT\n\n🔑 Откройте ЛОНГ в зоне $143.9 - $145.5 с плечом X25.\n\n🍒 Цели для фиксации прибыли:\n\n🔘 Закрыть ордер по цене $146.7\n🔘 Закрыть ордер по цене $147.2\n🔘 Закрыть ордер по цене $148.5\n🔘 Закрыть ордер по цене $150\n🔘 Закрыть ордер по цене $152.2\n\n❗️ СТОП-ЛОСС: $139.1\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+  "publishedAt": {
+    "$date": "2026-01-15T13:54:36.000Z"
+  },
+  "riskAction": "follow",
+  "riskConfidence": "reliable",
+  "riskDescription": "Action follow. LONG на активе с положительным 24‑часовым моментумом (momentum24hPct 0.67% > -1%) — правило 2 не сработало, правило 1 не применимо, поэтому действие по умолчанию. Sure_level low_medium, confidence reliable.",
+  "riskReasoning": "Шаг 1: avgRangePct=0.0983%, momentum24hPct=0.67%\nШаг 2: direction=LONG И avgRangePct<0.07% → правило 1 не сработало → action не skip\nШаг 3: direction=LONG И momentum24hPct<-1% → правило 2 не сработало → action не skip\nШаг 4: ни одно правило не сработало → action=follow, confidence=reliable, sure_level=low_medium",
+  "riskSureLevel": "low_medium",
+  "stoploss": 139.1,
+  "symbol": "SOLUSDT",
+  "targets": [
+    146.7,
+    147.2,
+    148.5,
+    150,
+    152.2
+  ],
+  "updatedDate": {
+    "$date": "2026-05-30T17:54:49.085Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a1b2471f20d896ad61d54cb"
+  },
+  "parserItemId": "6a19c607f20d896ad6188c34",
+  "__v": 0,
+  "channel": "crypto_yoda_channel",
+  "content": {
+    "symbol": "TRX",
+    "direction": "long",
+    "entry": {
+      "from": 0.3046,
+      "to": 0.308
+    },
+    "targets": [
+      0.3105,
+      0.3117,
+      0.3144,
+      0.3174,
+      0.3221
+    ],
+    "stoploss": 0.2945
+  },
+  "createDate": {
+    "$date": "2026-05-30T17:54:57.038Z"
+  },
+  "direction": "long",
+  "entryFrom": 0.3046,
+  "entryTo": 0.308,
+  "note": "СИГНАЛ #TRX/USDT\n\n🔑 Откройте ЛОНГ в зоне $0.3046 - $0.308 с плечом X25.\n\n🍒 Цели для фиксации прибыли:\n\n🔘 Закрыть ордер по цене $0.3105\n🔘 Закрыть ордер по цене $0.3117\n🔘 Закрыть ордер по цене $0.3144\n🔘 Закрыть ордер по цене $0.3174\n🔘 Закрыть ордер по цене $0.3221\n\n❗️ СТОП-ЛОСС: $0.2945\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+  "publishedAt": {
+    "$date": "2026-01-16T17:58:07.000Z"
+  },
+  "riskAction": "follow",
+  "riskConfidence": "reliable",
+  "riskDescription": "Action follow. LONG on рынке без сильного падения (momentum24hPct -0.39% > -1%) — правило 2 не сработало. Sure_level low, confidence reliable.",
+  "riskReasoning": "Шаг 1: avgRangePct=0.0552%, momentum24hPct=-0.39%\nШаг 2: direction=SHORT И avgRangePct < 0.07% → правило 1 не сработало → action не skip\nШаг 3: direction=LONG И momentum24hPct < -1% → правило 2 не сработало → action не skip\nШаг 4: sure_level=low (мало сигнальных накоплений), confidence=reliable (240 минутных свечей доступны)",
+  "riskSureLevel": "low",
+  "stoploss": 0.2945,
+  "symbol": "TRXUSDT",
+  "targets": [
+    0.3105,
+    0.3117,
+    0.3144,
+    0.3174,
+    0.3221
+  ],
+  "updatedDate": {
+    "$date": "2026-05-30T17:54:57.038Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a1b2478f20d896ad61d54cc"
+  },
+  "parserItemId": "6a19c607f20d896ad6188c35",
+  "__v": 0,
+  "channel": "crypto_yoda_channel",
+  "content": {
+    "symbol": "SOL",
+    "direction": "short",
+    "entry": {
+      "from": 133.2,
+      "to": 134.6
+    },
+    "targets": [
+      132.1,
+      131.6,
+      130.4,
+      129.1,
+      127
+    ],
+    "stoploss": 139.1
+  },
+  "createDate": {
+    "$date": "2026-05-30T17:55:04.853Z"
+  },
+  "direction": "short",
+  "entryFrom": 133.2,
+  "entryTo": 134.6,
+  "note": "СИГНАЛ #SOL/USDT\n\n🔑 Откройте ШОРТ в зоне $133.2 - $134.6 с кредитным плечом X25.\n\n🍒 Цели для фиксации прибыли:\n\n🔘 Закрыть ордер по цене $132.1\n🔘 Закрыть ордер по цене $131.6\n🔘 Закрыть ордер по цене $130.4\n🔘 Закрыть ордер по цене $129.1\n🔘 Закрыть ордер по цене $127\n\n❗️ СТОП-ЛОСС: $139.1\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+  "publishedAt": {
+    "$date": "2026-01-19T05:25:24.000Z"
+  },
+  "riskAction": "follow",
+  "riskConfidence": "reliable",
+  "riskDescription": "Action follow. Нет срабатывания правила 1 (avgRangePct 0.0761% >= 0.07%) и правило 2 не применимо (direction=SHORT). Sure_level medium, confidence reliable.",
+  "riskReasoning": "Шаг 1: avgRangePct=0.0761%, momentum24hPct=-6.57%\nШаг 2: direction=SHORT И avgRangePct < 0.07% → правило 1 не сработало\nШаг 3: direction=LONG НЕ выполнено → правило 2 не сработало\nШаг 4: действие по умолчанию → action=follow",
+  "riskSureLevel": "medium",
+  "stoploss": 139.1,
+  "symbol": "SOLUSDT",
+  "targets": [
+    132.1,
+    131.6,
+    130.4,
+    129.1,
+    127
+  ],
+  "updatedDate": {
+    "$date": "2026-05-30T17:55:04.853Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a1b2481f20d896ad61d54cd"
+  },
+  "parserItemId": "6a19c607f20d896ad6188c36",
+  "__v": 0,
+  "channel": "crypto_yoda_channel",
+  "content": {
+    "symbol": "POL",
+    "direction": "long",
+    "entry": {
+      "from": 0.1334,
+      "to": 0.1348
+    },
+    "targets": [
+      0.1359,
+      0.1364,
+      0.1376,
+      0.139,
+      0.141
+    ],
+    "stoploss": 0.1289
+  },
+  "createDate": {
+    "$date": "2026-05-30T17:55:13.013Z"
+  },
+  "direction": "long",
+  "entryFrom": 0.1334,
+  "entryTo": 0.1348,
+  "note": "СИГНАЛ #POL/USDT\n\n🔑 Откройте ЛОНГ в зоне $0.1334 - $0.1348 с плечом X25.\n\n🍒 Цели для фиксации прибыли:\n\n🔘 Закрыть ордер по цене $0.1359\n🔘 Закрыть ордер по цене $0.1364\n🔘 Закрыть ордер по цене $0.1376\n🔘 Закрыть ордер по цене $0.139\n🔘 Закрыть ордер по цене $0.141\n\n❗️ СТОП-ЛОСС: $0.1289\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+  "publishedAt": {
+    "$date": "2026-01-21T17:30:01.000Z"
+  },
+  "riskAction": "follow",
+  "riskConfidence": "reliable",
+  "riskDescription": "Action follow. LONG, momentum24hPct 1.91% > -1% (Rule 2 not triggered) → default follow. Sure_level medium_high, confidence reliable.",
+  "riskReasoning": "Шаг 1: avgRangePct=0.1442%, momentum24hPct=1.91%\nШаг 2: direction=LONG И avgRangePct < 0.07% → правило 1 не сработало\nШаг 3: direction=LONG И momentum24hPct < -1% → правило 2 не сработало → action=follow\nШаг 4: sure_level=medium_high (повторяющееся накопление), confidence=reliable (240 1м свечей доступны)",
+  "riskSureLevel": "medium_high",
+  "stoploss": 0.1289,
+  "symbol": "POLUSDT",
+  "targets": [
+    0.1359,
+    0.1364,
+    0.1376,
+    0.139,
+    0.141
+  ],
+  "updatedDate": {
+    "$date": "2026-05-30T17:55:13.013Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a1b2486f20d896ad61d54ce"
+  },
+  "parserItemId": "6a19c607f20d896ad6188c39",
+  "__v": 0,
+  "channel": "crypto_yoda_channel",
+  "content": {
+    "symbol": "TRX",
+    "direction": "short",
+    "entry": {
+      "from": 0.2993,
+      "to": 0.3026
+    },
+    "targets": [
+      0.2969,
+      0.2957,
+      0.293,
+      0.29,
+      0.2854
+    ],
+    "stoploss": 0.3125
+  },
+  "createDate": {
+    "$date": "2026-05-30T17:55:18.647Z"
+  },
+  "direction": "short",
+  "entryFrom": 0.2993,
+  "entryTo": 0.3026,
+  "note": "СИГНАЛ #TRX/USDT\n\n🔑 Откройте ШОРТ в зоне $0.2993 - $0.3026 с плечом X25.\n\n🍒 Цели для фиксации прибыли:\n\n🔘 Закрыть ордер по цене $0.2969\n🔘 Закрыть ордер по цене $0.2957\n🔘 Закрыть ордер по цене $0.293\n🔘 Закрыть ордер по цене $0.29\n🔘 Закрыть ордер по цене $0.2854\n\n❗️ СТОП-ЛОСС: $0.3125\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+  "publishedAt": {
+    "$date": "2026-01-22T09:15:41.000Z"
+  },
+  "riskAction": "skip",
+  "riskConfidence": "reliable",
+  "riskDescription": "Action skip. SHORT на спящем активе (avgRangePct 0.0503% < 0.07%) — stop‑hunt мишень. Sure_level medium, confidence reliable.",
+  "riskReasoning": "Шаг 1: avgRangePct=0.0503%, momentum24hPct=1.18%\nШаг 2: direction=SHORT И avgRangePct < 0.07% → правило 1 сработало → action=skip\nШаг 3: sure_level=medium (средний уровень накопления в свечах), confidence=reliable (240 минутных свечей доступны)",
+  "riskSureLevel": "medium",
+  "stoploss": 0.3125,
+  "symbol": "TRXUSDT",
+  "targets": [
+    0.2969,
+    0.2957,
+    0.293,
+    0.29,
+    0.2854
+  ],
+  "updatedDate": {
+    "$date": "2026-05-30T17:55:18.647Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a1b248df20d896ad61d54cf"
+  },
+  "parserItemId": "6a19c607f20d896ad6188c38",
+  "__v": 0,
+  "channel": "crypto_yoda_channel",
+  "content": {
+    "symbol": "SOL",
+    "direction": "long",
+    "entry": {
+      "from": 129.4,
+      "to": 130.9
+    },
+    "targets": [
+      131.9,
+      132.4,
+      133.6,
+      134.9,
+      136.9
+    ],
+    "stoploss": 125.1
+  },
+  "createDate": {
+    "$date": "2026-05-30T17:55:25.553Z"
+  },
+  "direction": "long",
+  "entryFrom": 129.4,
+  "entryTo": 130.9,
+  "note": "СИГНАЛ #SOL/USDT\n\n🔑 Откройте ЛОНГ в зоне $129.4 - $130.9 с плечом X25.\n\n🍒 Цели для фиксации прибыли:\n\n🔘 Закрыть ордер по цене $131.9\n🔘 Закрыть ордер по цене $132.4\n🔘 Закрыть ордер по цене $133.6\n🔘 Закрыть ордер по цене $134.9\n🔘 Закрыть ордер по цене $136.9\n\n❗️ СТОП-ЛОСС: $125.1\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+  "publishedAt": {
+    "$date": "2026-01-22T09:31:11.000Z"
+  },
+  "riskAction": "follow",
+  "riskConfidence": "reliable",
+  "riskDescription": "Action follow. LONG с положительным импульсом (momentum24hPct 1.82% > -1%) — правила skip не сработали. Sure_level low, confidence reliable.",
+  "riskReasoning": "Шаг 1: avgRangePct=0.1138%, momentum24hPct=1.82%\nШаг 2: direction=LONG И avgRangePct < 0.07% → правило 1 не сработало\nШаг 3: direction=LONG И momentum24hPct < -1% → правило 2 не сработало\nШаг 4: ни одно правило не сработало → действие=follow, sure_level=low, confidence=reliable",
+  "riskSureLevel": "low",
+  "stoploss": 125.1,
+  "symbol": "SOLUSDT",
+  "targets": [
+    131.9,
+    132.4,
+    133.6,
+    134.9,
+    136.9
+  ],
+  "updatedDate": {
+    "$date": "2026-05-30T17:55:25.553Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a1b2497f20d896ad61d54d0"
+  },
+  "parserItemId": "6a19c607f20d896ad6188c37",
+  "__v": 0,
+  "channel": "crypto_yoda_channel",
+  "content": {
+    "symbol": "POL",
+    "direction": "long",
+    "entry": {
+      "from": 0.1335,
+      "to": 0.1349
+    },
+    "targets": [
+      0.136,
+      0.1366,
+      0.1377,
+      0.1391,
+      0.1411
+    ],
+    "stoploss": 0.129
+  },
+  "createDate": {
+    "$date": "2026-05-30T17:55:35.444Z"
+  },
+  "direction": "long",
+  "entryFrom": 0.1335,
+  "entryTo": 0.1349,
+  "note": "СИГНАЛ #POL/USDT\n\n🔑 Откройте ЛОНГ в зоне $0.1335 - $0.1349 с плечом X25.\n\n🍒 Цели для фиксации прибыли:\n\n🔘 Закрыть ордер по цене $0.136\n🔘 Закрыть ордер по цене $0.1366\n🔘 Закрыть ордер по цене $0.1377\n🔘 Закрыть ордер по цене $0.1391\n🔘 Закрыть ордер по цене $0.1411\n\n❗️ СТОП-ЛОСС: $0.129\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+  "publishedAt": {
+    "$date": "2026-01-22T12:25:13.000Z"
+  },
+  "riskAction": "follow",
+  "riskConfidence": "reliable",
+  "riskDescription": "Action follow. LONG позиция, momentum24hPct 1.83% > -1% — правило 2 не сработало; avgRangePct 0.1591% > 0.07% — правило 1 не сработало → action=follow. Sure_level medium_high, confidence reliable.",
+  "riskReasoning": "Шаг 1: avgRangePct=0.1591%, momentum24hPct=1.83%\nШаг 2: direction=LONG И avgRangePct < 0.07% → правило 1 не сработало\nШаг 3: direction=LONG И momentum24hPct < -1% → правило 2 не сработало → action=follow\nШаг 4: sure_level=medium_high, confidence=reliable",
+  "riskSureLevel": "medium_high",
+  "stoploss": 0.129,
+  "symbol": "POLUSDT",
+  "targets": [
+    0.136,
+    0.1366,
+    0.1377,
+    0.1391,
+    0.1411
+  ],
+  "updatedDate": {
+    "$date": "2026-05-30T17:55:35.444Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a1b24a1f20d896ad61d54d1"
+  },
+  "parserItemId": "6a19c607f20d896ad6188c3a",
+  "__v": 0,
+  "channel": "crypto_yoda_channel",
+  "content": {
+    "symbol": "ENA",
+    "direction": "short",
+    "entry": {
+      "from": 0.171,
+      "to": 0.19
+    },
+    "targets": [
+      0.165,
+      0.155,
+      0.145,
+      0.135,
+      0.125
+    ],
+    "stoploss": 0.205
+  },
+  "createDate": {
+    "$date": "2026-05-30T17:55:45.784Z"
+  },
+  "direction": "short",
+  "entryFrom": 0.171,
+  "entryTo": 0.19,
+  "note": "СИГНАЛ #ENA/USDT\n\n📛 Риск сигнала: 4/10\n\n🔑 Откройте ШОРТ в зоне $0.171 - $0.19, используя 4% от депозита с кредитным плечом x5\n\n🉐 Цели для фиксации:\n\n🔘 Закрыть ордер по цене $0.165\n🔘 Закрыть ордер по цене $0.155\n🔘 Закрыть ордер по цене $0.145\n🔘 Закрыть ордер по цене $0.135\n🔘 Закрыть ордер по цене $0.125\n\n❗️ СТОП-ЛОСС: $0.205\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+  "publishedAt": {
+    "$date": "2026-01-23T12:40:05.000Z"
+  },
+  "riskAction": "follow",
+  "riskConfidence": "reliable",
+  "riskDescription": "Action follow. SHORT на активе с avgRangePct 0.1084% (≥ 0.07%) → правило 1 не сработало; momentum24hPct -0.56% (>-1%) → правило 2 не применимо. По умолчанию действие follow. Sure_level low_medium, confidence reliable.",
+  "riskReasoning": "Шаг 1: avgRangePct=0.1084%, momentum24hPct=-0.56%\nШаг 2: direction=SHORT И avgRangePct < 0.07% → правило 1 не сработало\nШаг 3: direction=LONG И momentum24hPct < -1% → правило 2 не сработало (direction != LONG)\nШаг 4: действие=follow (правило по умолчанию)",
+  "riskSureLevel": "low_medium",
+  "stoploss": 0.205,
+  "symbol": "ENAUSDT",
+  "targets": [
+    0.165,
+    0.155,
+    0.145,
+    0.135,
+    0.125
+  ],
+  "updatedDate": {
+    "$date": "2026-05-30T17:55:45.784Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a1b24a9f20d896ad61d54d2"
+  },
+  "parserItemId": "6a19c607f20d896ad6188c3c",
+  "__v": 0,
+  "channel": "crypto_yoda_channel",
+  "content": {
+    "symbol": "TRX",
+    "direction": "short",
+    "entry": {
+      "from": 0.2941,
+      "to": 0.2973
+    },
+    "targets": [
+      0.2917,
+      0.2905,
+      0.2879,
+      0.285,
+      0.2805
+    ],
+    "stoploss": 0.3071
+  },
+  "createDate": {
+    "$date": "2026-05-30T17:55:53.491Z"
+  },
+  "direction": "short",
+  "entryFrom": 0.2941,
+  "entryTo": 0.2973,
+  "note": "СИГНАЛ #TRX/USDT\n\n🔑 Откройте ШОРТ в зоне $0.2941 - $0.2973 с плечом X25.\n\n🍒 Цели для фиксации прибыли:\n\n🔘 Закрыть ордер по цене $0.2917\n🔘 Закрыть ордер по цене $0.2905\n🔘 Закрыть ордер по цене $0.2879\n🔘 Закрыть ордер по цене $0.285\n🔘 Закрыть ордер по цене $0.2805\n\n❗️ СТОП-ЛОСС: $0.3071\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+  "publishedAt": {
+    "$date": "2026-01-26T10:50:41.000Z"
+  },
+  "riskAction": "skip",
+  "riskConfidence": "reliable",
+  "riskDescription": "Action skip. SHORT на спящем активе (avgRangePct 0.0468% < 0.07%) — stop-hunt мишень. Sure_level low_medium, confidence reliable.",
+  "riskReasoning": "Шаг 1: avgRangePct=0.0468%, momentum24hPct=-0.54%\nШаг 2: direction=SHORT И avgRangePct < 0.07% → правило 1 сработало → action=skip\nШаг 3: sure_level=low_medium, confidence=reliable",
+  "riskSureLevel": "low_medium",
+  "stoploss": 0.3071,
+  "symbol": "TRXUSDT",
+  "targets": [
+    0.2917,
+    0.2905,
+    0.2879,
+    0.285,
+    0.2805
+  ],
+  "updatedDate": {
+    "$date": "2026-05-30T17:55:53.491Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a1b24b0f20d896ad61d54d3"
+  },
+  "parserItemId": "6a19c607f20d896ad6188c3b",
+  "__v": 0,
+  "channel": "crypto_yoda_channel",
+  "content": {
+    "symbol": "FARTCOIN",
+    "direction": "short",
+    "entry": {
+      "from": 0.283,
+      "to": 0.31
+    },
+    "targets": [
+      0.27,
+      0.25,
+      0.23,
+      0.21,
+      0.19
+    ],
+    "stoploss": 0.335
+  },
+  "createDate": {
+    "$date": "2026-05-30T17:56:00.534Z"
+  },
+  "direction": "short",
+  "entryFrom": 0.283,
+  "entryTo": 0.31,
+  "note": "СИГНАЛ #FARTCOIN/USDT\n\n📛 Риск сигнала: 6/10\n\n🔑 Откройте ШОРТ в зоне $0.283 - $0.310, используя 4% от депозита с плечом x5\n\n🉐 Цели:\n\n🔘 Закрыть ордер по цене $0.27\n🔘 Закрыть ордер по цене $0.25\n🔘 Закрыть ордер по цене $0.23\n🔘 Закрыть ордер по цене $0.21\n🔘 Закрыть ордер по цене $0.19\n\n❗️ СТОП-ЛОСС: $0.335\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+  "publishedAt": {
+    "$date": "2026-01-26T16:19:25.000Z"
+  },
+  "riskAction": "follow",
+  "riskConfidence": "reliable",
+  "riskDescription": "Action follow. SHORT позиция, avgRangePct 0.2277% > 0.07% → правило 1 не сработало; правило 2 не применимо → действие follow. Sure_level medium_high, confidence reliable.",
+  "riskReasoning": "Шаг 1: avgRangePct=0.2277%, momentum24hPct=-0.56%\nШаг 2: direction=SHORT И avgRangePct < 0.07% → правило 1 не сработало\nШаг 3: правило 2 не применимо (direction != LONG)\nШаг 4: действие follow, sure_level=medium_high, confidence=reliable",
+  "riskSureLevel": "medium_high",
+  "stoploss": 0.335,
+  "symbol": "FARTCOINUSDT",
+  "targets": [
+    0.27,
+    0.25,
+    0.23,
+    0.21,
+    0.19
+  ],
+  "updatedDate": {
+    "$date": "2026-05-30T17:56:00.534Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a1b24b8f20d896ad61d54d4"
+  },
+  "parserItemId": "6a19c607f20d896ad6188c3d",
+  "__v": 0,
+  "channel": "crypto_yoda_channel",
+  "content": {
+    "symbol": "TRX",
+    "direction": "short",
+    "entry": {
+      "from": 0.2934,
+      "to": 0.2966
+    },
+    "targets": [
+      0.291,
+      0.2898,
+      0.2872,
+      0.2843,
+      0.2798
+    ],
+    "stoploss": 0.3063
+  },
+  "createDate": {
+    "$date": "2026-05-30T17:56:08.515Z"
+  },
+  "direction": "short",
+  "entryFrom": 0.2934,
+  "entryTo": 0.2966,
+  "note": "СИГНАЛ #TRX/USDT\n\n🔑 Откройте ШОРТ в зоне $0.2934 - $0.2966 с плечом X25.\n\n🍒 Цели:\n\n🔘 Закрыть ордер по цене $0.291\n🔘 Закрыть ордер по цене $0.2898\n🔘 Закрыть ордер по цене $0.2872\n🔘 Закрыть ордер по цене $0.2843\n🔘 Закрыть ордер по цене $0.2798\n\n❗️ СТОП-ЛОСС: $0.3063\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+  "publishedAt": {
+    "$date": "2026-01-27T09:09:23.000Z"
+  },
+  "riskAction": "skip",
+  "riskConfidence": "reliable",
+  "riskDescription": "Action skip. SHORT на спящем активе (avgRangePct 0.0434% < 0.07%) — stop-hunt мишень. Sure_level low, confidence reliable.",
+  "riskReasoning": "Шаг 1: avgRangePct=0.0434%, momentum24hPct=-0.20%\nШаг 2: direction=SHORT И avgRangePct < 0.07% → правило 1 сработало → action=skip\nШаг 3: sure_level=low (отсутствие накопления), confidence=reliable (240 candles доступны)",
+  "riskSureLevel": "low",
+  "stoploss": 0.3063,
+  "symbol": "TRXUSDT",
+  "targets": [
+    0.291,
+    0.2898,
+    0.2872,
+    0.2843,
+    0.2798
+  ],
+  "updatedDate": {
+    "$date": "2026-05-30T17:56:08.515Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a1b24bff20d896ad61d54d5"
+  },
+  "parserItemId": "6a19c607f20d896ad6188c3f",
+  "__v": 0,
+  "channel": "crypto_yoda_channel",
+  "content": {
+    "symbol": "POL",
+    "direction": "short",
+    "entry": {
+      "from": 0.1193,
+      "to": 0.1206
+    },
+    "targets": [
+      0.1184,
+      0.1179,
+      0.1168,
+      0.1156,
+      0.1138
+    ],
+    "stoploss": 0.1246
+  },
+  "createDate": {
+    "$date": "2026-05-30T17:56:15.688Z"
+  },
+  "direction": "short",
+  "entryFrom": 0.1193,
+  "entryTo": 0.1206,
+  "note": "СИГНАЛ #POL/USDT\n\n🔑 Откройте ШОРТ в зоне $0.1193 - $0.1206 с плечом X25.\n\n🍒 Цели:\n\n🔘 Закрыть ордер по цене $0.1184\n🔘 Закрыть ордер по цене $0.1179\n🔘 Закрыть ордер по цене $0.1168\n🔘 Закрыть ордер по цене $0.1156\n🔘 Закрыть ордер по цене $0.1138\n\n❗️ СТОП-ЛОСС: $0.1246\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+  "publishedAt": {
+    "$date": "2026-01-28T14:18:01.000Z"
+  },
+  "riskAction": "follow",
+  "riskConfidence": "reliable",
+  "riskDescription": "Action follow. SHORT позиция не подпадает под правило 1 (avgRangePct 0.1155% ≥ 0.07%) и правило 2 не применимо (direction SHORT). Sure_level low, confidence reliable.",
+  "riskReasoning": "Шаг 1: avgRangePct=0.1155%, momentum24hPct=1.71%\nШаг 2: direction=SHORT И avgRangePct < 0.07% → правило 1 не сработало → действие сохраняется\nШаг 3: direction=LONG? Нет → правило 2 не сработало\nШаг 4: действие по умолчанию = follow, sure_level=low, confidence=reliable",
+  "riskSureLevel": "low",
+  "stoploss": 0.1246,
+  "symbol": "POLUSDT",
+  "targets": [
+    0.1184,
+    0.1179,
+    0.1168,
+    0.1156,
+    0.1138
+  ],
+  "updatedDate": {
+    "$date": "2026-05-30T17:56:15.688Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a1b24c5f20d896ad61d54d6"
+  },
+  "parserItemId": "6a19c607f20d896ad6188c3e",
+  "__v": 0,
+  "channel": "crypto_yoda_channel",
+  "content": {
+    "symbol": "SOL",
+    "direction": "long",
+    "entry": {
+      "from": 124.6,
+      "to": 126
+    },
+    "targets": [
+      127,
+      127.5,
+      128.6,
+      129.9,
+      131.8
+    ],
+    "stoploss": 120.5
+  },
+  "createDate": {
+    "$date": "2026-05-30T17:56:21.914Z"
+  },
+  "direction": "long",
+  "entryFrom": 124.6,
+  "entryTo": 126,
+  "note": "СИГНАЛ #SOL/USDT\n\n🔑 Откройте ЛОНГ в зоне $124.6 - $126 с плечом X25.\n\n🍒 Цели:\n\n🔘 Закрыть ордер по цене $127\n🔘 Закрыть ордер по цене $127.5\n🔘 Закрыть ордер по цене $128.6\n🔘 Закрыть ордер по цене $129.9\n🔘 Закрыть ордер по цене $131.8\n\n❗️ СТОП-ЛОСС: $120.5\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+  "publishedAt": {
+    "$date": "2026-01-28T22:14:02.000Z"
+  },
+  "riskAction": "skip",
+  "riskConfidence": "reliable",
+  "riskDescription": "Action skip. LONG на падающем рынке (momentum24hPct -1.45% < -1%) — правило 2 сработало. Sure_level medium, confidence reliable.",
+  "riskReasoning": "Шаг 1: avgRangePct=0.0909%, momentum24hPct=-1.45%\nШаг 2: direction=LONG И momentum24hPct < -1% → правило 2 сработало → action=skip\nШаг 3: sure_level=medium (несколько свечных аномалий без явного смещения), confidence=reliable (240 1‑минутных свечей доступны)",
+  "riskSureLevel": "medium",
+  "stoploss": 120.5,
+  "symbol": "SOLUSDT",
+  "targets": [
+    127,
+    127.5,
+    128.6,
+    129.9,
+    131.8
+  ],
+  "updatedDate": {
+    "$date": "2026-05-30T17:56:21.914Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a1b24cbf20d896ad61d54d7"
+  },
+  "parserItemId": "6a19c607f20d896ad6188c40",
+  "__v": 0,
+  "channel": "crypto_yoda_channel",
+  "content": {
+    "symbol": "TRX",
+    "direction": "short",
+    "entry": {
+      "from": 0.2886,
+      "to": 0.2918
+    },
+    "targets": [
+      0.2863,
+      0.2851,
+      0.2825,
+      0.2796,
+      0.2752
+    ],
+    "stoploss": 0.3013
+  },
+  "createDate": {
+    "$date": "2026-05-30T17:56:27.119Z"
+  },
+  "direction": "short",
+  "entryFrom": 0.2886,
+  "entryTo": 0.2918,
+  "note": "СИГНАЛ #TRX/USDT\n\n🔑 Откройте ШОРТ в зоне $0.2886 - $0.2918 с плечом X25.\n\n🍒 Цели:\n\n🔘 Закрыть ордер по цене $0.2863\n🔘 Закрыть ордер по цене $0.2851\n🔘 Закрыть ордер по цене $0.2825\n🔘 Закрыть ордер по цене $0.2796\n🔘 Закрыть ордер по цене $0.2752\n\n❗️ СТОП-ЛОСС: $0.3013\n➖➖➖➖➖➖➖\nТоргуем тут | Вступить в VIP канал",
+  "publishedAt": {
+    "$date": "2026-01-30T12:18:51.000Z"
+  },
+  "riskAction": "skip",
+  "riskConfidence": "reliable",
+  "riskDescription": "Action skip. SHORT на спящем активе (avgRangePct 0.0510% < 0.07%) — stop-hunt мишень. Sure_level medium, confidence reliable.",
+  "riskReasoning": "Шаг 1: avgRangePct=0.0510%, momentum24hPct=-1.87%\nШаг 2: direction=SHORT И avgRangePct < 0.07% → правило 1 сработало → action=skip\nШаг 3: sure_level=medium (умеренное накопление), confidence=reliable (240 минутных свечей доступны)",
+  "riskSureLevel": "medium",
+  "stoploss": 0.3013,
+  "symbol": "TRXUSDT",
+  "targets": [
+    0.2863,
+    0.2851,
+    0.2825,
+    0.2796,
+    0.2752
+  ],
+  "updatedDate": {
+    "$date": "2026-05-30T17:56:27.119Z"
+  }
+}]
