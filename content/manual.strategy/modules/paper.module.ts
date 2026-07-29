@@ -1,11 +1,6 @@
-import { addExchangeSchema, addFrameSchema, roundTicks, setConfig } from "backtest-kit";
+import { addExchangeSchema, roundTicks, setConfig } from "backtest-kit";
 import { singleshot } from "functools-kit";
 import ccxt from "ccxt";
-
-setConfig({
-  CC_MAX_STOPLOSS_DISTANCE_PERCENT: 100,
-  CC_BREAKEVEN_THRESHOLD: 0,
-});
 
 const getExchange = singleshot(async () => {
   const exchange = new ccxt.binance({
@@ -92,12 +87,4 @@ addExchangeSchema({
     }
     return exchange.amountToPrecision(symbol, quantity);
   },
-});
-
-addFrameSchema({
-  frameName: "jan_2026_frame",
-  interval: "1m",
-  startDate: new Date("2026-01-01T00:00:00Z"),
-  endDate: new Date("2026-01-31T23:59:59Z"),
-  note: "January 2026",
 });
