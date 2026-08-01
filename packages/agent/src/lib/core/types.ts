@@ -1,5 +1,6 @@
 const baseServices = {
     loggerService: Symbol('loggerService'),
+    scraperService: Symbol('scraperService'),
 };
 
 const controllerServices = {

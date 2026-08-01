@@ -15,6 +15,23 @@ declare class LoggerService implements ILogger {
     setLogger: (logger: ILogger) => void;
 }
 
+interface ScraperMessage {
+    id: number;
+    channel: string;
+    content: string;
+    date: Date;
+}
+
+declare class ScraperService {
+    private readonly loggerService;
+    scrapeDay: (dto: {
+        channel: string;
+        date: Date;
+        limit: number;
+        offset: number;
+    }) => Promise<ScraperMessage[]>;
+}
+
 declare class StatusControllerService {
     private readonly loggerService;
     getStatus: (context: IMCPContext, when: Date, mcpName: string) => Promise<IMCPMessage[]>;
@@ -23,6 +40,7 @@ declare class StatusControllerService {
 declare const ioc: {
     statusControllerService: StatusControllerService;
     loggerService: LoggerService;
+    scraperService: ScraperService;
 };
 declare global {
     var agent: typeof ioc;

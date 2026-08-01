@@ -3,10 +3,13 @@ import { inject, init } from "./core/di";
 import TYPES from "./core/types";
 
 import LoggerService from "./services/base/LoggerService";
+import ScraperService from "./services/base/ScraperService";
+
 import StatusControllerService from "./services/controller/StatusControllerService";
 
 const baseServices = {
   loggerService: inject<LoggerService>(TYPES.loggerService),
+  scraperService: inject<ScraperService>(TYPES.scraperService),
 };
 
 const controllerServices = {

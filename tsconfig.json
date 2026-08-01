@@ -9,7 +9,7 @@
       "node"
     ],
     "paths": {
-      "@pro/core": ["./packages/core/types.d.ts"],
+      "@pro/agent": ["./packages/agent/types.d.ts"],
       "@pro/main": ["./packages/main/types.d.ts"]
     }
   },

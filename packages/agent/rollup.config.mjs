@@ -23,6 +23,7 @@ export default [
       }),
       replace({
         __BUILD_VERSION__: JSON.stringify(version),
+        preventAssignment: true,
       }),
       typescript({
         tsconfig: "./tsconfig.json",
