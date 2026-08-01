@@ -3,4 +3,5 @@ export interface ScraperMessage {
     channel: string;
     content: string;
     date: Date;
+    photo: string | null;
 }

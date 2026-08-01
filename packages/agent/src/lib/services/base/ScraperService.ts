@@ -8,12 +8,10 @@ import { pickDocuments } from "functools-kit";
 export class ScraperService {
   private readonly loggerService = inject<LoggerService>(TYPES.loggerService);
 
-  public scrapeDay = async (dto: {
+  public scrapeDay = async (dto: { 
     channel: string;
     date: Date;
-    limit: number;
-    offset: number;
-  }): Promise<ScraperMessage[]> => {
+   }): Promise<ScraperMessage[]> => {
     this.loggerService.log("scraperService scrapeDay", {
       dto,
     });
@@ -25,7 +23,7 @@ export class ScraperService {
     const dayEnd = new Date(dto.date);
     dayEnd.setUTCHours(23, 59, 59, 999);
 
-    const iter = pickDocuments<ScraperMessage>(dto.limit, dto.offset);
+    const rows: ScraperMessage[] = [];
 
     for await (const message of client.iterMessages(dto.channel, {
       offsetDate: Math.floor(dayEnd.getTime() / 1000) + 1,
@@ -38,14 +36,59 @@ export class ScraperService {
       if (ts < dayStart.getTime()) {
         break;
       }
+      let photo: string | null = null;
+      if (message.photo) {
+        const media = await client.downloadMedia(message);
+        photo = media ? Buffer.from(media).toString("base64") : null;
+      }
+      rows.push({
+        id: message.id,
+        content: message.message,
+        channel: dto.channel,
+        photo,
+        date: new Date(ts),
+      });
+    }
+    return rows;
+  };
+
+  public scrapeLast = async (dto: {
+    channel: string;
+    limit: number;
+    offset: number;
+    date: Date;
+  }): Promise<ScraperMessage[]> => {
+    this.loggerService.log("scraperService scrapeLast", {
+      dto,
+    });
+    const client = await getTelegram();
+
+    const iter = pickDocuments<ScraperMessage>(dto.limit, dto.offset);
+
+    for await (const message of client.iterMessages(dto.channel, {
+      offsetDate: Math.floor(dto.date.getTime() / 1000),
+      reverse: false,
+    })) {
+      if (!message.message && !message.photo) {
+        continue;
+      }
+      const ts = message.date * 1000;
+
+      let photo: string | null = null;
+
+      if (message.photo) {
+        const media = await client.downloadMedia(message);
+        photo = media ? Buffer.from(media).toString("base64") : null;
+      }
 
       const chunk: ScraperMessage[] = [];
 
       chunk.push({
         id: message.id,
-        content: message.message,
+        content: message.message || "",
         channel: dto.channel,
         date: new Date(ts),
+        photo,
       });
 
       if (iter(chunk).done) {
