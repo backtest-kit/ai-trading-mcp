@@ -83,6 +83,9 @@ export class StatusControllerService {
 
       if (messages.includes(TIMEOUT_SYMBOL)) {
         await RESTART_TELEGRAM_FN();
+      }
+
+      if (messages.includes(TIMEOUT_SYMBOL)) {
         throw new Error(
           `StatusControllerService.getStatus: timeout fetching feed messages`,
         );
