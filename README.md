@@ -1,6 +1,6 @@
 <img src="https://github.com/tripolskypetr/backtest-kit/raw/refs/heads/master/assets/consciousness.svg" height="45px" align="right">
 
-# 🤖 ai-trading-mcp
+# 👾 ai-trading-mcp
 
 > An AI news-trading rig built on [backtest-kit](https://github.com/tripolskypetr/backtest-kit): a GramJS scraper pipes a live Telegram channel — text **and chart screenshots** — straight into the MCP `get_status` feed, Claude decides *when and which way* through three guarded tools, and the trading engine owns every level, limit and validation — from paper fills to a crash-safe Binance spot broker adapter.
 
