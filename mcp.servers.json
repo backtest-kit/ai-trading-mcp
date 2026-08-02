@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "backtest-kit-mcp": {
+      "command": "npx",
+      "args": ["-y", "@backtest-kit/mcp@latest"]
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import { setup } from "@backtest-kit/mongo";
+import { serve } from '@backtest-kit/mcp';
 
 import {
   Markdown,
@@ -62,4 +62,4 @@ import {
   Log.useJsonl();
 }
 
-setup();
+serve();

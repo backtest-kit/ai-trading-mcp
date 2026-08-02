@@ -4,6 +4,52 @@ import TYPES from "../../core/types";
 import { getTelegram } from "../../../config/telegram";
 import { ScraperMessage } from "../../../model/ScraperMessage.model";
 import { pickDocuments } from "functools-kit";
+import { Api } from "telegram";
+
+// Целевая ширина превью: карточки канала с крупным текстом читаемы и при
+// 320px, а вес падает на порядок (детальных графиков в ленте нет).
+const PHOTO_THUMB_WIDTH = 320;
+
+// Выбирает наименьший реальный размер фото шириной >= PHOTO_THUMB_WIDTH,
+// иначе наибольший доступный. Возвращает инстанс из photo.sizes — ровно то,
+// что downloadMedia принимает в thumb по типам, без кастов.
+const GET_PHOTO_THUMB_FN = (message: Api.Message): Api.TypePhotoSize | null => {
+  if (!(message.photo instanceof Api.Photo)) {
+    return null;
+  }
+  const candidates = message.photo.sizes.flatMap(
+    (size): { size: Api.TypePhotoSize; width: number }[] => {
+      if (size instanceof Api.PhotoSize) {
+        return [{ size, width: size.w }];
+      }
+      if (size instanceof Api.PhotoSizeProgressive) {
+        return [{ size, width: size.w }];
+      }
+      return [];
+    },
+  );
+  if (!candidates.length) {
+    return null;
+  }
+  candidates.sort((a, b) => a.width - b.width);
+  const fit = candidates.find(({ width }) => width >= PHOTO_THUMB_WIDTH);
+  return (fit ?? candidates[candidates.length - 1]).size;
+};
+
+const DOWNLOAD_MEDIA_FN = async (message: Api.Message) => {
+  const client = await getTelegram();
+  const thumb = GET_PHOTO_THUMB_FN(message);
+  if (!thumb) {
+    console.warn("ScraperService download size list failed")
+    return await client.downloadMedia(message);
+  }
+  let media: string | Buffer | undefined;
+  if (media = await client.downloadMedia(message, { thumb })) {
+    return media;
+  }
+  console.warn("ScraperService download thumbnail failed")
+  return await client.downloadMedia(message);
+}
 
 export class ScraperService {
   private readonly loggerService = inject<LoggerService>(TYPES.loggerService);
@@ -38,7 +84,7 @@ export class ScraperService {
       }
       let photo: string | null = null;
       if (message.photo) {
-        const media = await client.downloadMedia(message);
+        const media = await DOWNLOAD_MEDIA_FN(message);
         photo = media ? Buffer.from(media).toString("base64") : null;
       }
       rows.push({
@@ -77,7 +123,7 @@ export class ScraperService {
       let photo: string | null = null;
 
       if (message.photo) {
-        const media = await client.downloadMedia(message);
+        const media = await DOWNLOAD_MEDIA_FN(message);
         photo = media ? Buffer.from(media).toString("base64") : null;
       }
 
