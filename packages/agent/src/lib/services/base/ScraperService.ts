@@ -10,17 +10,17 @@ export class ScraperService {
 
   public scrapeDay = async (dto: { 
     channel: string;
-    date: Date;
+    when: Date;
    }): Promise<ScraperMessage[]> => {
     this.loggerService.log("scraperService scrapeDay", {
       dto,
     });
     const client = await getTelegram();
 
-    const dayStart = new Date(dto.date);
+    const dayStart = new Date(dto.when);
     dayStart.setUTCHours(0, 0, 0, 0);
 
-    const dayEnd = new Date(dto.date);
+    const dayEnd = new Date(dto.when);
     dayEnd.setUTCHours(23, 59, 59, 999);
 
     const rows: ScraperMessage[] = [];
@@ -56,7 +56,7 @@ export class ScraperService {
     channel: string;
     limit: number;
     offset: number;
-    date: Date;
+    when: Date;
   }): Promise<ScraperMessage[]> => {
     this.loggerService.log("scraperService scrapeLast", {
       dto,
@@ -66,7 +66,7 @@ export class ScraperService {
     const iter = pickDocuments<ScraperMessage>(dto.limit, dto.offset);
 
     for await (const message of client.iterMessages(dto.channel, {
-      offsetDate: Math.floor(dto.date.getTime() / 1000),
+      offsetDate: Math.floor(dto.when.getTime() / 1000),
       reverse: false,
     })) {
       if (!message.message && !message.photo) {

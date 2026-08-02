@@ -6,6 +6,7 @@ import LoggerService from "./services/base/LoggerService";
 import ScraperService from "./services/base/ScraperService";
 
 import StatusControllerService from "./services/controller/StatusControllerService";
+import StatusMarkdownService from "./services/markdown/StatusMarkdownService";
 
 const baseServices = {
   loggerService: inject<LoggerService>(TYPES.loggerService),
@@ -13,12 +14,17 @@ const baseServices = {
 };
 
 const controllerServices = {
-    statusControllerService: inject<StatusControllerService>(TYPES.statusControllerService)
+  statusControllerService: inject<StatusControllerService>(TYPES.statusControllerService),
+};
+
+const markdownServices = {
+  statusMarkdownService: inject<StatusMarkdownService>(TYPES.statusMarkdownService),
 };
 
 export const ioc = {
   ...baseServices,
   ...controllerServices,
+  ...markdownServices,
 };
 
 init();

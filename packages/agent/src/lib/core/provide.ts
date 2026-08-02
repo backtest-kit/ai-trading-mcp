@@ -5,6 +5,7 @@ import LoggerService from "../services/base/LoggerService";
 import ScraperService from "../services/base/ScraperService";
 
 import StatusControllerService from "../services/controller/StatusControllerService";
+import StatusMarkdownService from "../services/markdown/StatusMarkdownService";
 
 {
     provide(TYPES.loggerService, () => new LoggerService());
@@ -13,4 +14,8 @@ import StatusControllerService from "../services/controller/StatusControllerServ
 
 {
     provide(TYPES.statusControllerService, () => new StatusControllerService());
+}
+
+{
+    provide(TYPES.statusMarkdownService, () => new StatusMarkdownService());
 }

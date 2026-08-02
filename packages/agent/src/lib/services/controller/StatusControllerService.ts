@@ -1,11 +1,12 @@
-import { inject } from "src/lib/core/di";
+import { inject } from "../../../lib/core/di";
 import LoggerService from "../base/LoggerService";
 import ScraperService from "../base/ScraperService";
-import TYPES from "src/lib/core/types";
+import TYPES from "../../../lib/core/types";
 import { IMCPContext, IMCPMessage, MCP } from "backtest-kit";
-import { CC_TELEGRAM_CHANNEL } from "src/config/params";
-import { queued, timeout, TIMEOUT_SYMBOL } from "functools-kit";
-import { getTelegram } from "src/config/telegram";
+import { CC_TELEGRAM_CHANNEL } from "../../../config/params";
+import { queued, randomString, timeout, TIMEOUT_SYMBOL } from "functools-kit";
+import { getTelegram } from "../../../config/telegram";
+import StatusMarkdownService from "../markdown/StatusMarkdownService";
 
 const FEED_MESSAGES_LIMIT = 15;
 const FEED_FETCH_TIMEOUT = 90_000;
@@ -22,7 +23,7 @@ const FETCH_TELEGRAM_HISTORY_FN = timeout(
     const feed = await self.scraperService.scrapeLast({
       channel: CC_TELEGRAM_CHANNEL,
       limit: FEED_MESSAGES_LIMIT,
-      date: when,
+      when,
       offset: 0,
     });
     if (!feed.length) {
@@ -30,6 +31,7 @@ const FETCH_TELEGRAM_HISTORY_FN = timeout(
       return [];
     }
     messages.push({
+      id: randomString(),
       type: "text",
       text: `Telegram feed ${CC_TELEGRAM_CHANNEL} (last ${feed.length} message${feed.length === 1 ? "" : "s"}, newest first):`,
     });
@@ -38,11 +40,13 @@ const FETCH_TELEGRAM_HISTORY_FN = timeout(
         ? `\n${post.content}`
         : "\n(photo post, image attached below)";
       messages.push({
+        id: post.id,
         type: "text",
         text: `[${post.date.toISOString()}]${caption}`,
       });
       if (post.photo) {
         messages.push({
+          id: `${post.id}-photo`,
           type: "image",
           mimeType: "image/jpeg",
           data: post.photo,
@@ -60,40 +64,60 @@ const RESTART_TELEGRAM_FN = async () => {
   getTelegram.clear();
 };
 
+const GET_STATUS_FN = queued(
+  async (
+    self: StatusControllerService,
+    dto: { context: IMCPContext; when: Date; mcpName: string },
+  ) => {
+    let messages: Message[] = [];
+
+    {
+      messages = messages.concat(
+        await MCP.getDefaultMessages(dto.context, dto.when, dto.mcpName),
+      );
+      messages = messages.concat(await MCP.getHistoryMessages(dto.mcpName));
+      messages = messages.concat(
+        await FETCH_TELEGRAM_HISTORY_FN(self, dto.when),
+      );
+    }
+
+    if (messages.includes(TIMEOUT_SYMBOL)) {
+      await RESTART_TELEGRAM_FN();
+    }
+
+    if (messages.includes(TIMEOUT_SYMBOL)) {
+      throw new Error(
+        `StatusControllerService.getStatus: timeout fetching feed messages`,
+      );
+    }
+
+    const result = <IMCPMessage[]>messages;
+
+    await self.statusMarkdownService.dumpStatus(result, dto.context, dto.when);
+
+    return result;
+  },
+);
+
 export class StatusControllerService {
   readonly loggerService = inject<LoggerService>(TYPES.loggerService);
   readonly scraperService = inject<ScraperService>(TYPES.scraperService);
-
-  public getStatus = queued(
-    async (
-      context: IMCPContext,
-      when: Date,
-      mcpName: string,
-    ): Promise<IMCPMessage[]> => {
-      this.loggerService.log("statusControllerService getStatus");
-      let messages: Message[] = [];
-
-      {
-        messages = messages.concat(
-          await MCP.getDefaultMessages(context, when, mcpName),
-        );
-        messages = messages.concat(await MCP.getHistoryMessages(mcpName));
-        messages = messages.concat(await FETCH_TELEGRAM_HISTORY_FN(this, when));
-      }
-
-      if (messages.includes(TIMEOUT_SYMBOL)) {
-        await RESTART_TELEGRAM_FN();
-      }
-
-      if (messages.includes(TIMEOUT_SYMBOL)) {
-        throw new Error(
-          `StatusControllerService.getStatus: timeout fetching feed messages`,
-        );
-      }
-
-      return <IMCPMessage[]>messages;
-    },
+  readonly statusMarkdownService = inject<StatusMarkdownService>(
+    TYPES.statusMarkdownService,
   );
+
+  public getStatus = async (
+    context: IMCPContext,
+    when: Date,
+    mcpName: string,
+  ) => {
+    this.loggerService.log("statusControllerService getStatus", {
+      context,
+      when,
+      mcpName,
+    });
+    return <IMCPMessage[]>await GET_STATUS_FN(this, { context, when, mcpName });
+  };
 }
 
 export default StatusControllerService;
