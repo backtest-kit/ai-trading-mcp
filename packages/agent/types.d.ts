@@ -39,7 +39,7 @@ declare class ScraperService {
 
 declare class StatusMarkdownService {
     readonly loggerService: LoggerService;
-    dumpStatus: (messages: IMCPMessage[]) => Promise<void>;
+    dumpStatus: (messages: IMCPMessage[], context: IMCPContext, when: Date) => Promise<void>;
 }
 
 declare class StatusControllerService {
