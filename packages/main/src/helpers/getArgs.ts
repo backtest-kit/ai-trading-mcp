@@ -9,10 +9,6 @@ export const getArgs = singleshot(() => {
         type: "boolean",
         default: false,
       },
-      backtest: {
-        type: "boolean",
-        default: false,
-      },
       live: {
         type: "boolean",
         default: false,
@@ -22,10 +18,6 @@ export const getArgs = singleshot(() => {
         default: false,
       },
       session: {
-        type: "boolean",
-        default: false,
-      },
-      cache: {
         type: "boolean",
         default: false,
       },
