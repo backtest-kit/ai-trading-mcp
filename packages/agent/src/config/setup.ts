@@ -6,4 +6,10 @@ addMCPSchema({
   async getMessages(context, when, mcpName) {
     return await ioc.statusControllerService.getStatus(context, when, mcpName);
   },
+  permissions: [
+    "commitPositionClose",
+    "commitPositionOpen",
+    "commitSignalNotify",
+    "getStatus",
+  ]
 });
