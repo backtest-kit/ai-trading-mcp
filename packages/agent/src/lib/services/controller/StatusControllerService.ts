@@ -75,8 +75,9 @@ const GET_STATUS_FN = queued(
       messages = messages.concat(
         await MCP.getDefaultMessages(dto.context, dto.when, dto.mcpName),
       );
-      messages = messages.concat(await MCP.getHistoryMessages(dto.mcpName));
-      messages = messages.concat(await MCP.getNotificationMessages(dto.context, dto.when, dto.mcpName));
+      messages = messages.concat(await MCP.getHistoryMessages(dto.when, dto.mcpName));
+      messages = messages.concat(await MCP.getNotificationMessages(dto.when, dto.mcpName));
+      messages = messages.concat(await MCP.getAgentMessages(dto.when, dto.mcpName));
       messages = messages.concat(
         await FETCH_TELEGRAM_HISTORY_FN(self, dto.when),
       );
