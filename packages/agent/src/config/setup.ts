@@ -10,6 +10,7 @@ addMCPSchema({
     "commitPositionClose",
     "commitPositionOpen",
     "commitSignalNotify",
+    "commitAverageBuy",
     "getStatus",
   ]
 });
