@@ -36,7 +36,7 @@ Scan the QR code from the terminal (Telegram → Settings → Devices → Link D
 **2. Paper trading** — real Binance market data via `ccxt`, simulated fills in the engine:
 
 ```bash
-npm start -- --paper --entry ./content/manual.strategy/manual.strategy.ts --ui
+npm start -- --paper --entry ./content/manual.strategy/manual.strategy.ts --ui --noFlush
 ```
 
 This spawns `Live.background()` for every symbol in the 13-symbol whitelist and serves the dashboard on `:60050`. The MCP HTTP bridge starts on `127.0.0.1:60051` ([config/setup.config.ts](config/setup.config.ts) calls `serve()`).
