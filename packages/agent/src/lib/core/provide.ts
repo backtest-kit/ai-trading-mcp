@@ -6,6 +6,7 @@ import ScraperService from "../services/base/ScraperService";
 
 import StatusControllerService from "../services/controller/StatusControllerService";
 import StatusMarkdownService from "../services/markdown/StatusMarkdownService";
+import TelegramHistoryService from "../services/history/TelegramHistoryService";
 
 {
     provide(TYPES.loggerService, () => new LoggerService());
@@ -18,4 +19,8 @@ import StatusMarkdownService from "../services/markdown/StatusMarkdownService";
 
 {
     provide(TYPES.statusMarkdownService, () => new StatusMarkdownService());
+}
+
+{
+    provide(TYPES.telegramHistoryService, () => new TelegramHistoryService());
 }

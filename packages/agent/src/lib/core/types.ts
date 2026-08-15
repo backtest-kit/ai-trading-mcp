@@ -11,10 +11,15 @@ const markdownServices = {
     statusMarkdownService: Symbol('statusMarkdownService'),
 }
 
+const historyServices = {
+    telegramHistoryService: Symbol('telegramHistoryService'),
+}
+
 export const TYPES = {
     ...baseServices,
     ...controllerServices,
     ...markdownServices,
+    ...historyServices,
 }
 
 export default TYPES;

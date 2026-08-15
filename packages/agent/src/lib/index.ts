@@ -7,6 +7,7 @@ import ScraperService from "./services/base/ScraperService";
 
 import StatusControllerService from "./services/controller/StatusControllerService";
 import StatusMarkdownService from "./services/markdown/StatusMarkdownService";
+import TelegramHistoryService from "./services/history/TelegramHistoryService";
 
 const baseServices = {
   loggerService: inject<LoggerService>(TYPES.loggerService),
@@ -21,10 +22,15 @@ const markdownServices = {
   statusMarkdownService: inject<StatusMarkdownService>(TYPES.statusMarkdownService),
 };
 
+const historyServices = {
+  telegramHistoryService: inject<TelegramHistoryService>(TYPES.telegramHistoryService),
+}
+
 export const ioc = {
   ...baseServices,
   ...controllerServices,
   ...markdownServices,
+  ...historyServices,
 };
 
 init();
