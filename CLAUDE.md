@@ -167,6 +167,40 @@ Same message, same level, still-warm exit → skip. New message, new level → t
 it, and say in the description that it is a repeat entry on the same symbol,
 citing the earlier close and what makes this one different.
 
+## Entries expire after four hours. Exits never do
+
+The loop is not guaranteed to run continuously — restarts, crashes and idle
+stretches happen. After one, the feed holds messages that were never acted on.
+`get_status` exposes the gap: an open position whose age far exceeds the newest
+note on it, or a feed whose oldest unprocessed message predates the last recorded
+event.
+
+**The entry window is four hours from the message timestamp.** Compare the post's
+time against the current snapshot time — nothing else. Price is not the test: a
+call may still sit at the author's level after two days and it is still expired,
+because a follower reading the channel live would have acted within hours, not
+days.
+
+- **Inside four hours** → open it. Note the delay in the description if it was
+  not immediate.
+- **Older than four hours** → do **not** open. Record it as skipped: which
+  message, its timestamp, how long ago that was, and that the window had closed.
+
+A missed entry is a **clean** data point — the author gets neither credit nor
+blame for a trade that was never taken. A late entry is a **poisoned** one: its
+result reflects the downtime, not the call, and afterwards it cannot be told
+apart from the honest trades.
+
+**Exits have no window.** If the author closed a position during the downtime,
+close it too — hours or days late, it does not matter. Leaving a position open
+after the author exited keeps accruing a result the author never had: a long held
+past their flip to short attributes to them a loss they did not take. That
+corrupts the evaluation exactly as much as hiding a real one. Say in the exit
+description when the author called it and when this close actually executed.
+
+Record every skip with `notify_user` on a related open position, or in the
+description of the next legitimate trade on that symbol.
+
 ## Loop discipline
 
 Each cycle, in order:
@@ -175,11 +209,14 @@ Each cycle, in order:
    history, and any trading system messages. Note the signal id of every open
    position: it is what ties a trade together across the whole output.
 2. Read the channel for anything new since the last cycle.
-3. For each open position with news or material change → `notify_user`.
-4. For any trading system message whose symbol and time window match → act.
-5. For any new author call → check the log for a matching recent close, then
+3. **Check message age**: for every actionable post, compare its timestamp against
+   the snapshot time. Entries older than four hours are skipped and recorded;
+   exits are executed no matter how late.
+4. For each open position with news or material change → `notify_user`.
+5. For any trading system message whose symbol and time window match → act.
+6. For any new author call → check the log for a matching recent close, then
    `open_position` if it is genuinely new.
-6. For any position the author has exited, or whose thesis has broken →
+7. For any position the author has exited, or whose thesis has broken →
    `close_position` with the reason stated.
 
 Never issue two commands for the same symbol in one cycle without a `get_status`
