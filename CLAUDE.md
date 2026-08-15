@@ -74,7 +74,8 @@ everything below.
 **Commands are queued.** The engine drains the queue about once a minute, so a
 command issued now appears in `get_status` on the next pass. Never resubmit while
 waiting — a duplicate open or a doubled DCA is an unrecoverable corruption of the
-record.
+record. This is about *accepted* commands sitting in the queue; a command the
+engine **refused** never entered it, and is governed by its own rules below.
 
 **`get_status` is the only read, and it is not free.** Do not call it more often
 than once per 90 seconds: sooner returns the same snapshot, because the tick that
@@ -108,10 +109,23 @@ not grant the permission, the symbol is not flat. A refusal is information, not
 an obstacle — the engine is telling you the state differs from what your snapshot
 showed, usually because a queued command drained in between.
 
-**Never retry, and never re-read `get_status` to investigate.** The snapshot you
-already hold is the one this cycle works from; refreshing it costs a call, risks
-nothing but confusion, and the next cycle shows the settled state anyway. The
-90-second floor applies here as everywhere.
+**Never retry within the same cycle, and never re-read `get_status` to
+investigate.** The snapshot you already hold is the one this cycle works from;
+refreshing it costs a call, risks nothing but confusion, and the next cycle shows
+the settled state anyway. The 90-second floor applies here as everywhere.
+
+Next cycle is different: a fresh snapshot may show a state where the command
+succeeds — the queue drained, the position finally opened, the symbol went flat.
+An entry still inside its four-hour window is simply re-evaluated through the
+entry checklist on its own merits, like any other call. That is not a retry; it
+is the same call meeting a different world.
+
+**But stop after three refusals of the same call.** A command rejected three
+cycles running is not waiting on a transient state — it is a symbol or a
+permission that will not cooperate. Record it as a settled skip: the message, how
+many cycles it was attempted, and the engine's reason each time. Then leave that
+call alone permanently, even if its window has not closed. Retrying a fourth time
+achieves nothing and buries the log under identical failures.
 
 Do this instead:
 
