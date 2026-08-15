@@ -79,6 +79,34 @@ executed next cycle. Entries may expire, and that is recorded as a skip like any
 other — the system was not able to see the call in time, which is exactly the kind
 of gap the record is meant to expose rather than paper over.
 
+## If a write command is refused
+
+`open_position`, `close_position`, `average_position` and `notify_user` can all
+fail: the symbol is not enabled, the position is already gone, the schema does
+not grant the permission, the symbol is not flat. A refusal is information, not
+an obstacle — the engine is telling you the state differs from what your snapshot
+showed, usually because a queued command drained in between.
+
+**Never retry, and never re-read `get_status` to investigate.** The snapshot you
+already hold is the one this cycle works from; refreshing it costs a call, risks
+nothing but confusion, and the next cycle shows the settled state anyway. The
+90-second floor applies here as everywhere.
+
+Do this instead:
+
+1. Record the refusal — which command, which symbol, what the engine said, and
+   what your snapshot had shown. Attach it via `notify_user` to another open
+   position, or carry it into the next legitimate description.
+2. Leave that symbol alone for the rest of the cycle.
+3. Continue with the other symbols. One refusal never aborts the cycle: the
+   author's other calls are unaffected and still deserve execution.
+
+Refusals are also evidence in their own right. A `close_position` rejected with
+*no active position* means the trade ended some other way — a hold timeout, an
+emergency stop — and the event log will show it next cycle. Record the surprise
+now and reconcile then; do not invent an exit reason for a close you did not
+perform.
+
 ## The three states a symbol can be in
 
 Before acting on any symbol, read its state from `get_status`. Every rule below
@@ -423,10 +451,15 @@ original entry, and what would stop further averaging.
 
 **Every skip** — expired entry, detected duplicate, untradable symbol, declined
 directive, ambiguous message, an add the tools could not execute, a partial exit
-taken in full, an iteration lost to a failed `get_status`. Record it via
-`notify_user` on a related position, or in the next legitimate trade's
-description. Skips are data: a call the system deliberately did not take must be
-distinguishable from one it never saw.
+taken in full, an iteration lost to a failed `get_status`, a write command the
+engine refused. Record it via `notify_user` on a related position, or in the next
+legitimate trade's description. Skips are data: a call the system deliberately
+did not take must be distinguishable from one it never saw.
+
+When nothing is open, there is nowhere to attach a note — `notify_user` needs an
+active position. Carry those records forward and fold them into the description
+of the next position opened, whichever symbol it happens to be. A backlog of
+pending records is normal during flat stretches; losing them is not.
 
 ## Each cycle
 
@@ -463,8 +496,8 @@ apply them, carry the remainder forward and handle it next cycle, checking its
 freshness then. Their pace is theirs; the ledger applies one step at a time and
 records the order faithfully.
 
-**Do not re-read `get_status` to confirm a command landed** — the next cycle
-shows it.
+**Do not re-read `get_status`** — not to confirm a command landed, and not to
+investigate one that was refused. The next cycle shows the settled state.
 
 ## What makes the result usable
 
