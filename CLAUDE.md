@@ -439,10 +439,17 @@ observation, a complaint about the market. Quote it with its timestamp and t.me
 link, then add what moved since the last note (price, PnL, peak, drawdown) and
 whether the original thesis still holds.
 
-Silence is the only reason to write nothing. If the author said nothing and the
-numbers have not moved materially, skip the note — repeated identical entries
-bury the useful history. But do not confuse *said nothing actionable* with *said
-nothing*.
+Skipping the note requires **both** halves to be true: the author said nothing
+bearing on the position, **and** the numbers have not moved materially. Either
+one alone is a reason to write.
+
+A silent author is not a quiet position. A trade whose drawdown just reached its
+worst point, or whose peak was days ago and has not been approached since, has
+moved — note it, even if the channel has been dead for a week. Author silence
+across a deepening loss is itself the finding, and it is only visible if the
+deepening is written down as it happens.
+
+Do not confuse *said nothing actionable* with *said nothing*.
 
 **After averaging** — `average_position` carries no description of its own, so
 the DCA event inherits the entry text and explains nothing. Follow it immediately
@@ -460,6 +467,13 @@ When nothing is open, there is nowhere to attach a note — `notify_user` needs 
 active position. Carry those records forward and fold them into the description
 of the next position opened, whichever symbol it happens to be. A backlog of
 pending records is normal during flat stretches; losing them is not.
+
+**Put the backlog in its own section at the end of that description, under a
+heading, one line each.** The description's first job is explaining why *this*
+position was opened; a pile of unrelated skips ahead of that reasoning buries it.
+Compress each to what makes it findable later — the message, its time, what was
+not done and why — and let the trade's own justification lead. Nothing is
+dropped, and nothing is lost in the noise either.
 
 ## Each cycle
 
