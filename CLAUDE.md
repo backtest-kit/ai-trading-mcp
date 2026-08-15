@@ -42,7 +42,7 @@ back to the message that caused it.
 | Tool | Effect | Requires |
 |---|---|---|
 | `get_status` | reads everything; writes nothing | — |
-| `open_position` | opens, storing the entry reason | symbol free |
+| `open_position` | opens, storing the entry reason | symbol flat |
 | `close_position` | closes, storing the exit reason separately | active position |
 | `average_position` | adds a DCA entry, **carries no description** | active position |
 | `notify_user` | attaches a note to a position | active position |
@@ -66,26 +66,35 @@ cannot be evaluated afterwards. The description is the evidence, not decoration.
 symbol, including flat ones. A symbol absent from that list cannot be traded, no
 matter what the author says about it.
 
+## If `get_status` fails
+
+The read can error — a disconnected engine, a strategy fault, a timeout fetching
+the feed. When it does, **skip the iteration entirely**. Do not issue any command
+without a fresh snapshot: every rule here depends on knowing each symbol's state,
+and acting blind risks opening a duplicate, closing something already closed, or
+averaging a position that no longer exists.
+
+Nothing is lost by skipping. Exits never expire, so a missed close is still
+executed next cycle. Entries may expire, and that is recorded as a skip like any
+other — the system was not able to see the call in time, which is exactly the
+kind of gap the record is meant to expose rather than paper over.
+
 ## The three states a symbol can be in
 
 Before acting on any symbol, read its state from `get_status`. Every rule below
-depends on it, and the states are mutually exclusive:
+depends on it, and the states are mutually exclusive.
 
 **Flat** — no position, empty queues. `open_position` works; the other three
 tools refuse.
 
 **Queued** — a command was issued and has not drained yet. `get_status` shows it
-under *Entry queue* or *Close queue* with no active position, or with a position
-still awaiting its close. Nothing can be done here: `open_position` would
-duplicate, `notify_user` and `average_position` refuse for lack of an active
-position. **Wait for the next cycle.** Do not reissue, do not work around it.
+under *Entry queue* or *Close queue*, with no active position or with one still
+awaiting its close. Nothing can be done here: `open_position` would duplicate,
+`notify_user` and `average_position` refuse for lack of an active position.
+**Wait for the next cycle.** Do not reissue, do not work around it.
 
 **Active** — a live position with a signal id. `close_position`, `notify_user`
 and `average_position` work; `open_position` refuses.
-
-An author message that cannot be acted on because of the current state is not
-lost — it is either handled next cycle (queued) or recorded as a skip (anything
-else).
 
 ## Reading the channel
 
@@ -183,39 +192,43 @@ the description — the author took some risk off and the ledger took all of it
 off, which flatters or penalizes them depending on what price did next. A stated
 divergence can be reasoned about; a silent one cannot.
 
-### Entries — four hours from the message timestamp
+### Entries — four hours from the message to first sight
 
-Compare the post's time against the snapshot time. Nothing else — **price is not
-the test**. A call may still sit at the author's level two days later and is
-still expired, because a follower reading the channel live would have acted
-within hours.
+An entry is live for **four hours after the author posted it**, measured against
+the moment the message first appeared in a snapshot you read — not the moment a
+command is finally issued.
 
-- **Inside four hours** → open it, noting any delay in the description.
-- **Older than four hours** → skip it. Record which message, its timestamp, how
-  long ago that was, and that the window had closed.
+That distinction matters because some entries legitimately take an extra cycle:
+a reversal has to close the old position first, and the symbol is not free until
+that drains. Such an entry is **not** expired by the wait it caused. What expires
+is a call that was already old when first seen — because the system was down, or
+because it scrolled past unread.
+
+Price is not the test. A call may still sit at the author's level two days later
+and is still expired: a follower reading the channel live would have acted within
+hours.
+
+- **Fresh when first seen** → open it, noting any delay in the description.
+- **Already older than four hours when first seen** → skip. Record which message,
+  its timestamp, how long ago that was, and that the window had closed.
 
 A missed entry is a **clean** data point: the author gets neither credit nor
 blame for a trade never taken. A late entry is **poisoned** — its result reflects
 the delay rather than the call, and afterwards it cannot be told apart from the
 honest trades.
 
-This applies to a counter-trend entry too, independently of the exit it implies.
-A reversal older than four hours means **close the old side, skip the new one.**
-That is the correct outcome, not a half-done job: the author's exit is real and
-must be honoured, while their new entry is a call the system was not present for.
+### When the symbol is not flat
 
-### When the symbol already holds a position
+`open_position` refuses anything but a flat symbol, so decide by direction before
+calling:
 
-`open_position` refuses a symbol that is not flat, so decide by direction before
-calling anything:
-
-- **Same direction** → this is an add, not a new entry. See *Averaging*.
-- **Opposite direction** → this is a reversal. Close the existing position first,
-  citing the counter-trend call as the exit; the new entry then waits for the
-  next cycle, because the close has to drain from the queue before the symbol is
-  free. Apply the four-hour rule to that entry when the next cycle comes — by
-  then it may have expired, and that is a legitimate outcome.
-- **Queued, not active** → do nothing this cycle. The symbol is mid-command.
+- **Same direction as the open position** → this is an add, not a new entry. See
+  *Averaging*.
+- **Opposite direction** → a reversal. Close the existing position this cycle,
+  citing the counter-trend call as the exit reason; open the new side on the next
+  cycle, once the close has drained. The entry keeps the freshness it had when
+  first seen — the cycle it spent waiting does not count against it.
+- **Queued** → do nothing this cycle. The symbol is mid-command.
 
 ### Before any entry: check for whipsaw
 
@@ -223,27 +236,36 @@ The dangerous mistake is re-entering a position just closed, because the message
 that opened it still sits in the feed and reads like a fresh call. Check the
 event log in `get_status`:
 
-- Is there a recent close on this symbol?
-- Does its exit reason point at the same message you are about to act on?
+- Is there a close on this symbol whose exit reason cites the same message you
+  are about to act on?
 - If yes → **skip**, and record the duplicate detection.
 
 The test is causal, not chronological: **is this the same call, or a new one?**
-Same message, same level, still-warm exit → skip. A genuinely new call at a
-different level → take it, and say in the description that it is a repeat entry
-on this symbol, citing the earlier close and what makes this one different.
-Refusing legitimate repeats distorts the evaluation as much as taking duplicates.
+No time limit makes it safe — a message already acted on stays acted on however
+long ago that was. What makes an entry legitimate is that the author issued it
+*after* the previous position closed, as a distinct call. Then take it, and say
+in the description that it is a repeat entry on this symbol, citing the earlier
+close and what makes this one different. Refusing legitimate repeats distorts the
+evaluation as much as taking duplicates.
+
+**A repeat of an unchanged call is not an add.** If the author restates a
+position they already hold without saying they added — *"BTC в шорт, держим"* —
+that is a *Position update*, not an entry and not an averaging. Note it and move
+on. Only an explicit add creates a DCA.
 
 ### Averaging
 
 The author adds to a position when they say so — *"добрал"*, *"докупил"*,
-*"усреднил"*, or a fresh call on a symbol already open in the same direction.
-Intent to add later (*"еще ниже хочу и там фиксироваться"*) is not an
-instruction; wait until they state they did it.
+*"усреднил"*, or a fresh call on a symbol already open in the same direction that
+states a new entry rather than restating the old one. Intent to add later (*"еще
+ниже хочу и там фиксироваться"*) is not an instruction; wait until they state
+they did it.
 
 Never average on your own initiative, however attractive the level looks. The
 ledger records the author's decisions, and a DCA they never made inflates or
-deflates their result with capital they never committed. The four-hour window
-applies as to any entry: an add older than that is skipped and recorded.
+deflates their result with capital they never committed. The four-hour rule
+applies as to any entry: an add already stale when first seen is skipped and
+recorded.
 
 **`average_position` may be unavailable** — absent from the tool list when not
 registered, or failing with a permission error when the MCP schema does not grant
@@ -284,11 +306,11 @@ start, orient before acting:
 2. Read the feed. Everything older than four hours is history, not a queue of
    work: do not replay it. The only backlog worth processing is **exits** for
    positions still open, because exits never expire.
-3. Anything else stale is skipped in bulk. One note stating the gap — from when
-   to when, roughly how many messages went unprocessed — is enough; do not write
-   one note per missed post.
+3. Skip the rest in bulk. One note stating the gap — roughly from when to when,
+   how many messages went unprocessed — is enough; do not write a note per missed
+   post.
 
-The asymmetry is the point: after downtime, the author's exits must still be
+The asymmetry is the point: after downtime the author's exits must still be
 honoured, while their entries are simply gone. Closing a stale long and skipping
 the expired short that replaced it is the correct outcome.
 
@@ -331,31 +353,33 @@ original entry, and what would stop further averaging.
 
 **Every skip** — expired entry, detected whipsaw, untradable symbol, declined
 directive, ambiguous message, an add the tools could not execute, a partial exit
-taken in full. Record it via `notify_user` on a related position, or in the next
-legitimate trade's description. Skips are data: a call the system deliberately
-did not take must be distinguishable from one it never saw.
+taken in full, an iteration lost to a failed `get_status`. Record it via
+`notify_user` on a related position, or in the next legitimate trade's
+description. Skips are data: a call the system deliberately did not take must be
+distinguishable from one it never saw.
 
 ## Each cycle
 
 1. `get_status` once — portfolio, queues, event log, trade history, system
-   messages. Note each open position's signal id, each symbol's state (flat,
-   queued, active), and which symbols are tradable at all.
-2. Read the channel; sort new messages into entry / exit / update / commentary /
-   noise.
-3. Classify each open position against the feed: holding, exited, or reversed.
+   messages. If it fails, **stop here and skip the iteration.**
+2. Note each open position's signal id, each symbol's state (flat, queued,
+   active), and which symbols are tradable at all.
+3. Read the channel; sort new messages into entry / exit / update / commentary /
+   noise. For anything actionable, note when it was posted — that timestamp
+   starts its four-hour window.
 4. Close everything the author exited or reversed, citing the message.
 5. `notify_user` on every remaining position the author touched — reaffirmation,
    commentary, observation, anything bearing on it.
 6. Act on system messages whose symbol and situation still match.
-7. Open only calls inside their four-hour window, on symbols that are flat, after
-   the whipsaw check. Average only where the author added — and if that tool is
-   unavailable or refused, record the add via `notify_user` instead.
+7. Open only calls still fresh from first sight, on symbols that are flat, after
+   the whipsaw check. Average only where the author explicitly added — and if
+   that tool is unavailable or refused, record the add via `notify_user` instead.
 8. Record every skip.
 
 Two constraints on ordering. **One command per symbol per cycle**: the first has
 not drained from the queue, so a second would be rejected or duplicated — a
 reversal therefore takes two cycles, close then open. And **do not re-read
-`get_status` to check whether a command landed**; the next cycle shows it.
+`get_status` to confirm a command landed**; the next cycle shows it.
 
 ## What makes the result usable
 
