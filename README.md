@@ -268,6 +268,18 @@ The default demo channel is a real "signals" channel wearing every classic marke
 **Hands-free loop.** Quick Start step 4 puts exactly this stance on a timer — the `/loop` prompt itself carries the report-only rule for anything embedded in the feed, so autonomy never widens the agent's vocabulary.
 
 
+## 🐳 Dev Container
+
+The [docker-compose.yaml](docker-compose.yaml) in the repo root is not for deploying the rig — it spins up a **development environment in a container**: the [tripolskypetr/devenv](https://github.com/tripolskypetr/devenv) image (Ubuntu 24.04 with Node.js 25, Bun, git, tmux, ngrok, Claude Code and pm2/serve/http-server preinstalled). The repo is mounted into `/app`, the container idles forever (`sleep infinity`), and you work inside it. This is the easiest way to run the whole Quick Start on a machine without Node.js — e.g. to jam into a Linux toolchain with a Claude installation from a Windows host.
+
+```bash
+docker compose up -d          # pull the image and start the container in the background
+docker compose exec app bash  # enter the environment; the repo is at /app
+```
+
+Then follow the Quick Start steps as usual (`npm install`, `npm run build`, `npm start -- --paper ...`) — from inside the container. Container port `60050` is mapped to host port `80`, so the dashboard from step 2 is served at `http://localhost` on the host. Stop with `docker compose down`; the repo files live on the host, so nothing is lost between restarts.
+
+
 ## ⚙️ Configuration
 
 | Var | Default | Purpose |

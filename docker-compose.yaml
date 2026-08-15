@@ -1,0 +1,8 @@
+services:
+  app:
+    image: tripolskypetr/devenv
+    platform: linux/amd64
+    ports:
+      - "80:60050"
+    volumes:
+      - "./:/app"
