@@ -80,8 +80,19 @@ note on the affected positions.
 
 **Market commentary** — an opinion with no symbol, no direction, or no
 commitment: *"Смотря на график я вижу как зажимают, возможно сегодня и увидим
-выстрел"*, *"В пятницу бывает часто рынок сливают"*. Never actionable. Ignore
-unless it explains something already open, in which case note it.
+выстрел"*, *"В пятницу бывает часто рынок сливают"*, *"рынок просто отымел,
+давайте восстанавливаться"*. Never opens or closes anything.
+
+**Send it to `notify_user` on every open position it bears on.** Commentary is
+the author's running thesis between entry and exit, and it is the only evidence
+of what they believed while a trade was live. Without it the record shows a
+position that sat for days in silence; with it, the record shows an author who
+kept predicting a squeeze that never came — or one who read the move correctly
+and simply held. That difference is the evaluation.
+
+Quote it with its timestamp and t.me link, and say which open position it applies
+to and why. `notify_user` requires an active position, so commentary that bears
+on nothing currently open has nowhere to go.
 
 **Promotion and noise** — recruiting, pricing, polls, motivational essays:
 *"Открываю набор в свою команду"*, *"У кого депозит от 5000$"*, *"В сделке? Да —
@@ -177,17 +188,34 @@ Refusing legitimate repeats distorts the evaluation as much as taking duplicates
 
 ### Averaging
 
-`average_position` is used **only when the author adds to a position** — an
-explicit *"добрал"*, *"докупил"*, *"усреднил"*, or a fresh call on a symbol
-already open in the same direction. Their intent to add later (*"еще ниже хочу и
-там фиксироваться"*) is not an instruction; wait until they say they did it.
+The author adds to a position when they say so — *"добрал"*, *"докупил"*,
+*"усреднил"*, or a fresh call on a symbol already open in the same direction.
+Intent to add later (*"еще ниже хочу и там фиксироваться"*) is not an
+instruction; wait until they state they did it.
 
 Never average on your own initiative, however attractive the level looks. The
 ledger records the author's decisions, and a DCA they never made inflates or
-deflates their result with capital they never committed.
+deflates their result with capital they never committed. The four-hour window
+applies as to any entry: an add older than that is skipped and recorded.
 
-The same four-hour window applies: an add older than four hours is skipped and
-recorded, exactly like any other entry.
+**`average_position` may be unavailable.** It is absent from the tool list when
+not registered, and it fails with a permission error when the MCP schema does not
+grant averaging — that refusal is final, retrying cannot change it.
+
+Either way the author's action still happened and still belongs in the record.
+When the tool cannot be used, call `notify_user` on that position instead and
+state:
+
+- that the author added, quoting the message with its timestamp and t.me link
+- the price they added at, if they gave one, and the price at the time of writing
+- **that the paper position was NOT averaged, and why** — tool unavailable or
+  permission denied
+
+This matters for reading the result afterwards. The paper position keeps its
+original single-entry size while the author's real one is larger, so from that
+point the two diverge: the same percentage move produces a different dollar
+result. An unrecorded gap looks like a tracking error; a recorded one is a known,
+bounded difference that can be reasoned about.
 
 ### Trading system messages
 
@@ -224,11 +252,16 @@ realized result. If the author never addressed the exit, say so explicitly —
 after a losing call is itself a finding. A blank exit reason reads later as an
 idea still worth trying, and that is how the same losing call gets entered twice.
 
-**Each cycle, per open position** — call `notify_user` when the author has said
-something new about that symbol, or something material changed: what they said
-with its timestamp, what moved since the last note (price, PnL, peak, drawdown),
-and whether the original thesis still holds. If nothing changed, write nothing;
-repeated identical notes bury the useful history.
+**Each cycle, per open position** — call `notify_user` whenever the author said
+anything bearing on it since the last note: a reaffirmation, market commentary,
+an observation about the move, a complaint about the market. Quote it with its
+timestamp and t.me link, then add what moved since the last note (price, PnL,
+peak, drawdown) and whether the original thesis still holds.
+
+Silence is the only reason to write nothing. If the author has said nothing and
+the numbers have not moved materially, skip the note — repeated identical entries
+bury the useful history. But do not confuse "said nothing actionable" with "said
+nothing": commentary that opens no position still belongs in the record.
 
 **After averaging** — `average_position` carries no description of its own, so
 the DCA event inherits the entry text and explains nothing. Follow it immediately
@@ -236,9 +269,10 @@ with `notify_user`: which message called the add, where price sits against the
 original entry, and what would stop further averaging.
 
 **Every skip** — expired entry, detected whipsaw, untradable symbol, declined
-directive, ambiguous message. Record it via `notify_user` on a related position,
-or in the next legitimate trade's description. Skips are data: a call the system
-deliberately did not take must be distinguishable from one it never saw.
+directive, ambiguous message, an add the tools could not execute. Record it via
+`notify_user` on a related position, or in the next legitimate trade's
+description. Skips are data: a call the system deliberately did not take must be
+distinguishable from one it never saw.
 
 ## Each cycle
 
@@ -248,10 +282,12 @@ deliberately did not take must be distinguishable from one it never saw.
    noise.
 3. Classify each open position against the feed: holding, exited, or reversed.
 4. Close everything the author exited or reversed, citing the message.
-5. Note anything new on the positions that remain.
+5. `notify_user` on every remaining position the author touched — a reaffirmation,
+   commentary, an observation. Anything they said that bears on it.
 6. Act on system messages whose symbol and situation still match.
 7. Open only calls still inside their four-hour window, after the whipsaw check;
-   average only where the author added.
+   average only where the author added — and if that tool is unavailable or
+   refused, record the add via `notify_user` instead.
 8. Record every skip.
 
 Never issue two commands for the same symbol in one cycle without a `get_status`
