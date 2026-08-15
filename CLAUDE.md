@@ -310,7 +310,17 @@ Never average on your own initiative, however attractive the level looks. The
 ledger records the author's decisions, and a DCA they never made inflates or
 deflates their result with capital they never committed. The four-hour rule
 applies as to any entry: an add already stale when first seen is skipped and
-recorded.
+recorded — a *"добрал"* first seen five hours after it was posted is skipped even
+though the position is still open and averaging is still technically possible.
+
+**Several adds in a row take several cycles.** Authors ladder into positions —
+*"добрал"*, then *"и ещё раз добрал"* twenty minutes later — and both may land in
+the same snapshot. Issue one `average_position` this cycle and carry the rest
+forward, one per cycle, checking freshness for each as you go. The engine queues
+commands, so a second add sent before the first drains cannot be verified and may
+duplicate. Note in the description how many adds the author called and which one
+this is, so the ladder is reconstructible even though the ledger applied it more
+slowly than the author did.
 
 **`average_position` may be unavailable** — absent from the tool list when not
 registered, or failing with a permission error when the MCP schema does not grant
@@ -437,10 +447,24 @@ distinguishable from one it never saw.
    instead.
 8. Record every skip.
 
-Two constraints on ordering. **One command per symbol per cycle**: the first has
-not drained from the queue, so a second would be rejected or duplicated — a
-reversal therefore takes two cycles, close then open. And **do not re-read
-`get_status` to confirm a command landed**; the next cycle shows it.
+Two constraints on ordering.
+
+**One command per symbol per cycle — any command, not just a close followed by an
+open.** Everything is queued, and until the queue drains you cannot see whether
+the first command applied. A second command issued blind is either rejected or,
+worse, silently duplicated. This covers every combination:
+
+- close then open (a reversal) → two cycles
+- two adds the author called in quick succession → two cycles, one each
+- an add and then a close → two cycles
+
+When the author does several things to one symbol faster than the engine can
+apply them, carry the remainder forward and handle it next cycle, checking its
+freshness then. Their pace is theirs; the ledger applies one step at a time and
+records the order faithfully.
+
+**Do not re-read `get_status` to confirm a command landed** — the next cycle
+shows it.
 
 ## What makes the result usable
 
