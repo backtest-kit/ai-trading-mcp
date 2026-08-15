@@ -1,236 +1,197 @@
 # Paper trading via `backtest-kit-mcp`
 
-## `backtest-kit-mcp` IS PAPER TRADING ONLY — NOT REAL MONEY
+## Paper only — there is no real money here
 
-Every tool exposed by `backtest-kit-mcp` operates on a **simulated portfolio**.
-This is not a wrapper around a brokerage account and it cannot become one by
-configuration:
+`backtest-kit-mcp` operates a **simulated portfolio**. No exchange account is
+connected, no API key is used, no order reaches any venue. Balances, invested
+amounts and PnL are bookkeeping entries. Nothing here can gain or lose a real
+dollar.
 
-- the capital is **virtual** — the balances, the invested amounts and the PnL are
-  bookkeeping entries, not funds
-- **no exchange account is connected**, no API key is used, no order is ever sent
-  to any venue
-- nothing here can gain or lose a single real dollar, and no result needs to be
-  withdrawn, settled or paid out
+The **prices are real**: fills are priced against the live market with real fees
+and slippage. That is what makes the numbers worth reading — a simulated loss
+corresponds to a real one.
 
-What *is* real: the **prices**. Every fill is priced against the live market, and
-fees and slippage are applied as they would be in production. That is what makes
-the numbers worth reading — a simulated loss here corresponds to a real loss
-there.
+Two rules follow, pulling in opposite directions:
 
-Two consequences follow, and they pull in opposite directions:
+- **Do not hesitate out of fear of losing money.** There is none. Take the entry
+  the author called even when it looks bad — refusing the bad calls is exactly
+  how a scam author ends up looking profitable.
+- **Do not treat it casually because it is fake.** A careless paper trade
+  produces a careless record, and the record is the entire deliverable.
 
-1. **Never hesitate out of fear of losing money.** There is none at stake. Take
-   the entry the author called, even when it looks bad; refusing the bad calls is
-   exactly how a scam author ends up looking profitable.
-2. **Never treat it casually because it is fake.** A careless paper trade
-   produces a careless record, and the record is the entire deliverable. Same
-   discipline as real capital, for a different reason.
+## The question being answered
 
-## What this is
+> **Does this Telegram signal author actually perform, or is it a scam?**
 
-The point is not to make money — there is no money. The point is to answer one
-question about a Telegram signal author, with evidence instead of impression:
-
-> **Does this author actually perform, or is it a scam?**
-
-Channels advertise wins and stay silent about losses. Screenshots are trivially
+Channels advertise wins and stay silent about losses; screenshots are trivially
 faked. The only honest test is to follow the author mechanically for a while and
-let the arithmetic settle it: every call executed the same way, wins and losses
-recorded alike, results attributable to specific messages at specific times.
+let the arithmetic settle it — every call executed the same way, wins and losses
+recorded alike, each result traceable to a specific message at a specific time.
 
-That means the log of a trade matters as much as the trade. A position with no
-recorded reasoning proves nothing later — it becomes an anonymous number that
-cannot be traced back to the message that caused it.
+So the written record matters as much as the trade. A position with no recorded
+reasoning proves nothing later: it is an anonymous number that cannot be tied
+back to the message that caused it.
 
-## The five tools
+## The tools
 
-| Tool | Writes | Requires |
+| Tool | Effect | Requires |
 |---|---|---|
-| `get_status` | nothing — the only read path | — |
-| `open_position` | opens a position, records the entry reason | symbol free |
-| `close_position` | closes a position, records the exit reason | active position |
-| `average_position` | adds a DCA entry, **no description of its own** | active position |
-| `notify_user` | records a note against a position | active position |
+| `get_status` | reads everything; writes nothing | — |
+| `open_position` | opens, storing the entry reason | symbol free |
+| `close_position` | closes, storing the exit reason separately | active position |
+| `average_position` | adds a DCA entry, **carries no description** | active position |
+| `notify_user` | attaches a note to a position | active position |
 
-Read each tool's own description before first use; this document does not repeat
-them. Two properties matter for everything below:
+Each tool documents itself; this file does not repeat that. Two properties drive
+everything below:
 
-- **Commands are queued.** The engine drains the queue about once a minute. A
-  command issued now shows up in `get_status` on the next pass. Never resubmit
-  while waiting — a duplicate open or a doubled DCA is a real, unrecoverable
-  mistake in the record.
-- **A position with no description is invisible.** Undescribed events do not
-  reach the log at all, so a trade without a written reason cannot be evaluated
-  afterwards. Description is not decoration; it is the evidence.
+- **Commands are queued** and drain about once a minute. A command issued now
+  appears in `get_status` on the next pass. Never resubmit while waiting — a
+  duplicate open or doubled DCA is an unrecoverable corruption of the record.
+- **Undescribed events never reach the log.** A trade without a written reason
+  cannot be evaluated afterwards. The description is the evidence, not decoration.
 
-## What to write, and when
+## Deciding what to do with a message
 
-Three moments, three kinds of record. All of them accept full markdown, and all
-of them are read later by a call that remembers nothing.
+Every actionable post is either an **entry** or an **exit**, and the two are
+governed by different rules. Classify first, then apply.
 
-### Every loop cycle: a note per open position
+### Exits — always executed, no time limit
 
-On **each** cycle, for **each** open position, call `notify_user` — provided the
-author has said something new about that symbol since the last note. Record:
+An exit is established by either marker, and one is enough:
 
-- what the author said, verbatim or closely paraphrased, with its timestamp
-- what changed since the previous note: price movement, PnL, whether the peak or
-  the drawdown moved
-- whether the author's original thesis still holds, and what would break it
+1. **An explicit close**: *"прикрыл"*, *"закрыл"*, *"фиксирую"*, *"вышел"* —
+   naming the symbol or the whole book.
+2. **A counter-trend call on the same symbol**: the author was long and now calls
+   a short, or the reverse. Nobody runs both sides of one symbol at once, so a
+   counter-trend call is an implicit exit even without an exit message.
 
-If the author has said nothing new about a symbol and nothing material changed,
-skip the note for that symbol. Repeating an unchanged note buries the useful
-history under noise.
+Close the position, however old the message is. A position left open after the
+author exited keeps accruing a result they never had — a long held past their
+flip to short attributes to them a loss they did not take, which corrupts the
+evaluation exactly as much as hiding a real loss. In the exit description, state
+when the author called it and when this close actually executed.
 
-### On open: the author's argument, in full
+**Reaffirmation is not an exit.** *"позиции продолжаю удерживать"*, *"продолжаю
+держать"*, *"еще ниже хочу"* mean the trade is alive. Do not close on age alone:
+if the author holds for a week, the paper position holds for a week, and that
+duration is part of what is being measured. Record the reaffirmation with
+`notify_user`.
 
-`open_position` — the description must let a later reader reconstruct the call
-without access to the channel:
+**Ambiguity means hold and log.** *"Позиции прикрыл"* with no symbol, when three
+are open, does not say which. Do not guess — record the ambiguity via
+`notify_user` and wait for the next message. An unjustified close damages the
+record as much as an unjustified open, and vagueness is itself a finding about
+the author.
 
-- the exact message that triggered the entry, with its timestamp
-- the author's stated reasoning, in the author's terms, not summarized to death
-- the entry price the author named, versus the price actually available now
-- what the author said would invalidate the idea, if anything
-- any leverage, sizing or staging the author mentioned — recorded even though
-  the engine ignores it, because the author's discipline is itself under test
+### Entries — four hours from the message timestamp
 
-### On close: the author's reason, or its absence
+Compare the post's time against the snapshot time. Nothing else — **price is not
+the test**. A call may still sit at the author's level two days later and is
+still expired, because a follower reading the channel live would have acted
+within hours.
 
-`close_position` — the exit reason is stored **separately** from the entry
-reason, and this is the whole point:
+- **Inside four hours** → open it, noting any delay in the description.
+- **Older than four hours** → skip it. Record which message, its timestamp, how
+  long ago that was, and that the window had closed.
 
-- what the author said about exiting, with its timestamp
-- if the author never mentioned the exit, say so explicitly: *"author has not
-  addressed this position since the entry"* — silence after a losing call is
-  itself a finding about the author
-- how price actually behaved versus what the author predicted
-- the realized result
+A missed entry is a **clean** data point: the author gets neither credit nor
+blame for a trade never taken. A late entry is **poisoned** — its result reflects
+the downtime rather than the call, and afterwards it cannot be told apart from
+the honest trades.
 
-A closed trade whose exit reason is blank reads later as an idea still worth
-trying. That is how the same losing call gets entered twice.
+This applies to the counter-trend entry too, independently of the exit it
+implies. A reversal older than four hours means: **close the old side, skip the
+new one.** That is the correct outcome, not a half-done job — the author's exit
+is real and must be honoured, while their new entry is a call the system was not
+present for.
 
-### After averaging
+### Before any entry: check for whipsaw
 
-`average_position` carries no description, so the DCA event inherits the entry
-text and explains nothing. Immediately follow it with `notify_user`: what the
-author said that justified adding, where price sits relative to the original
-entry, and what would stop further averaging.
-
-## Acting on trading system messages
-
-`get_status` may include messages from the trading system itself — directives
-raised by the strategy, such as a position stagnating for hours.
-
-**Execute them**, but only when both conditions hold:
-
-1. **The symbol matches.** A directive about one symbol says nothing about
-   another. Never generalize it into a portfolio-wide action.
-2. **The time window still applies.** A directive is about the situation when it
-   was raised. If the price has since moved through the level, the position has
-   already been closed, or the directive is stale relative to what `get_status`
-   now shows, it has expired — record why it was not followed via `notify_user`
-   and move on.
-
-If either condition fails, do not act. State the mismatch in a note instead;
-a directive skipped for a stated reason is a record, a directive skipped
-silently is a gap.
-
-## Whipsaw: the failure mode to avoid
-
-The dangerous mistake here is re-entering a position that was just closed,
-because the channel message that opened it is still sitting in the feed and
-reads like a fresh call.
-
-**Before every `open_position`, check the event log in `get_status`:**
+The dangerous mistake is re-entering a position just closed, because the message
+that opened it still sits in the feed and reads like a fresh call. Check the
+event log in `get_status`:
 
 - Is there a recent close on this symbol?
-- Does its exit reason point at the same author message you are about to act on?
-- If yes — **do not re-enter.** The idea was already tested and is finished. Note
-  the duplicate detection and skip.
-
-This is precisely why exit reasons are written down. Without them, a closed trade
-and an untried idea look identical.
-
-**But do not freeze.** A repeat entry on the same symbol is legitimate when:
-
-- the author issued a **new** call, at a **different** price, after the previous
-  position closed — a second attempt at a different level is a new data point
-  about the author, and refusing it distorts the evaluation
-- the previous close was time-driven (hold timeout, stagnation) rather than
-  thesis-driven, and the author has since restated the idea
-- enough time has passed that the previous message is no longer plausibly the
-  cause of this entry
+- Does its exit reason point at the same message you are about to act on?
+- If yes → **skip**, and record the duplicate detection.
 
 The test is causal, not chronological: **is this the same call, or a new one?**
-Same message, same level, still-warm exit → skip. New message, new level → take
-it, and say in the description that it is a repeat entry on the same symbol,
-citing the earlier close and what makes this one different.
+Same message, same level, still-warm exit → skip. A genuinely new call at a
+different level → take it, and say in the description that it is a repeat entry
+on this symbol, citing the earlier close and what makes this one different.
+Refusing legitimate repeats distorts the evaluation as much as taking duplicates.
 
-## Entries expire after four hours. Exits never do
+### Trading system messages
 
-The loop is not guaranteed to run continuously — restarts, crashes and idle
-stretches happen. After one, the feed holds messages that were never acted on.
-`get_status` exposes the gap: an open position whose age far exceeds the newest
-note on it, or a feed whose oldest unprocessed message predates the last recorded
-event.
+`get_status` may carry directives raised by the strategy itself — a position
+stagnating for hours, for instance. Execute them only when **both** hold:
 
-**The entry window is four hours from the message timestamp.** Compare the post's
-time against the current snapshot time — nothing else. Price is not the test: a
-call may still sit at the author's level after two days and it is still expired,
-because a follower reading the channel live would have acted within hours, not
-days.
+1. **The symbol matches.** A directive about one symbol says nothing about
+   another; never generalize it portfolio-wide.
+2. **The situation still stands.** If price has moved through the level, the
+   position is already closed, or the directive is stale against what
+   `get_status` now shows, it has expired.
 
-- **Inside four hours** → open it. Note the delay in the description if it was
-  not immediate.
-- **Older than four hours** → do **not** open. Record it as skipped: which
-  message, its timestamp, how long ago that was, and that the window had closed.
+If either fails, do not act — state the mismatch in a note. A directive declined
+for a stated reason is a record; one skipped silently is a gap.
 
-A missed entry is a **clean** data point — the author gets neither credit nor
-blame for a trade that was never taken. A late entry is a **poisoned** one: its
-result reflects the downtime, not the call, and afterwards it cannot be told
-apart from the honest trades.
+## What to write
 
-**Exits have no window.** If the author closed a position during the downtime,
-close it too — hours or days late, it does not matter. Leaving a position open
-after the author exited keeps accruing a result the author never had: a long held
-past their flip to short attributes to them a loss they did not take. That
-corrupts the evaluation exactly as much as hiding a real one. Say in the exit
-description when the author called it and when this close actually executed.
+All descriptions render markdown, and all are read later by a call that
+remembers nothing of this moment. Write for that reader.
 
-Record every skip with `notify_user` on a related open position, or in the
-description of the next legitimate trade on that symbol.
+**Opening** — enough for someone to reconstruct the call without the channel:
+the triggering message with its timestamp, the author's reasoning in their own
+terms, the entry price they named versus what was actually available, whatever
+they said would invalidate the idea, and any leverage or sizing they mentioned
+(the engine ignores it, but their risk discipline is under test too).
 
-## Loop discipline
+**Closing** — the exit reason is stored separately from the entry reason, which
+is the whole point: what the author said about exiting and when, how price
+behaved versus what they predicted, and the realized result. If the author never
+addressed the exit, say so explicitly — *"author has not addressed this position
+since the entry"* — because silence after a losing call is itself a finding. A
+blank exit reason reads later as an idea still worth trying, and that is how the
+same losing call gets entered twice.
 
-Each cycle, in order:
+**Each cycle, per open position** — call `notify_user` when the author has said
+something new about that symbol, or something material changed: what they said
+with its timestamp, what moved since the last note (price, PnL, peak, drawdown),
+and whether the original thesis still holds. If nothing changed, write nothing;
+repeated identical notes bury the useful history.
 
-1. `get_status` — read the portfolio, the queues, the event log, the trade
-   history, and any trading system messages. Note the signal id of every open
-   position: it is what ties a trade together across the whole output.
-2. Read the channel for anything new since the last cycle.
-3. **Check message age**: for every actionable post, compare its timestamp against
-   the snapshot time. Entries older than four hours are skipped and recorded;
-   exits are executed no matter how late.
-4. For each open position with news or material change → `notify_user`.
-5. For any trading system message whose symbol and time window match → act.
-6. For any new author call → check the log for a matching recent close, then
-   `open_position` if it is genuinely new.
-7. For any position the author has exited, or whose thesis has broken →
-   `close_position` with the reason stated.
+**After averaging** — `average_position` carries no description of its own, so
+the DCA event inherits the entry text and explains nothing. Follow it immediately
+with `notify_user`: what justified adding, where price sits against the original
+entry, and what would stop further averaging.
+
+**Every skip** — expired entry, detected whipsaw, declined directive, ambiguous
+message. Record it via `notify_user` on a related position, or in the next
+legitimate trade's description on that symbol.
+
+## Each cycle
+
+1. `get_status` — portfolio, queues, event log, trade history, system messages.
+   Note the signal id of every open position; it ties a trade together across the
+   whole output.
+2. Read the channel for anything new.
+3. Classify each open position against the feed: holding, exited, or reversed.
+4. Close everything the author exited or reversed, citing the message.
+5. Note anything new on the positions that remain.
+6. Act on system messages whose symbol and situation still match.
+7. Open only calls still inside their four-hour window, after the whipsaw check.
 
 Never issue two commands for the same symbol in one cycle without a `get_status`
-between them: the first has not drained from the queue yet, and the second will
-be rejected or duplicated.
+between them — the first has not drained from the queue, and the second will be
+rejected or duplicated.
 
-## What makes the evaluation usable
+## What makes the result usable
 
-At the end of the trial, the record should answer, per author message:
-
-- was it acted on, and if not, why not
-- what it cost or made, net of fees and slippage
-- whether the author acknowledged the outcome or went quiet
+Per author message, the record should answer: was it acted on and if not why,
+what it cost or made net of fees and slippage, and whether the author
+acknowledged the outcome or went quiet.
 
 Every position closed with a stated reason, every skip recorded, every directive
-either followed or explicitly declined. Gaps in that record are what let a bad
-author look good in hindsight.
+followed or explicitly declined. Gaps in that record are what let a bad author
+look good in hindsight.
