@@ -93,6 +93,16 @@ awaiting its close. Nothing can be done here: `open_position` would duplicate,
 `notify_user` and `average_position` refuse for lack of an active position.
 **Wait for the next cycle.** Do not reissue, do not work around it.
 
+A message arriving while a symbol is queued is not lost and not acted on now.
+Carry it to the next cycle and classify it there against the state the symbol
+*then* has — which may differ from what the author assumed. *"BTC снова в шорт,
+добираем"* sent while the position is draining out of the book is an **entry** on
+what will be a flat symbol, not an add to a position that no longer exists.
+
+Freshness is unaffected: it was first seen this cycle, so it stays live for the
+usual four hours from posting. Deferring a call because the symbol was busy never
+makes it stale — the same principle as the extra cycle a reversal costs.
+
 **Active** — a live position with a signal id. `close_position`, `notify_user`
 and `average_position` work; `open_position` refuses.
 
@@ -143,6 +153,17 @@ detail the text omits — entry price, direction, leverage, size, whether TP/SL 
 set — and put that into the description of the trade the accompanying text
 triggered. A screenshot arriving with no actionable text reports something
 already open; it is not an instruction to open it.
+
+**Screenshots of trades we do not hold are evidence about the author, and they
+must be recorded.** A picture of three winners on symbols outside our portfolio —
+never called in the channel, or called before the trial began, or on symbols
+outside the tradable universe — opens nothing. But it is a claim about their
+results, and the point of this exercise is to check such claims. Note via
+`notify_user` on any open position: what the screenshot showed (symbols,
+direction, leverage, claimed PnL), its timestamp and t.me link, and that no
+corresponding call exists in the feed. Silently ignoring it leaves the record
+showing only the trades the author announced, which is precisely the selective
+picture a channel wants to present.
 
 ### Ambiguity
 
@@ -309,16 +330,31 @@ a tracking error; a recorded one is a known, bounded difference.
 ### Trading system messages
 
 `get_status` may carry directives raised by the strategy itself — a position
-stagnating for hours, for instance. Execute them only when **both** hold:
+stagnating for hours, for instance. Execute them only when **all three** hold:
 
 1. **The symbol matches.** A directive about one symbol says nothing about
    another; never generalize it portfolio-wide.
 2. **The situation still stands.** If price has moved through the level, the
    position is already closed, or the directive is stale against what
    `get_status` now shows, it has expired.
+3. **The author has not spoken since.** A directive is the engine noticing
+   something; it is not a decision by the author, and it cannot overrule one.
 
-If either fails, do not act — state the mismatch in a note. A directive declined
-for a stated reason is a record; one skipped silently is a gap.
+That third condition is the important one. If the author reaffirmed the position
+after the directive was raised — *"соляну держим, цель ниже"* — **the author
+wins.** Do not close. A directive is a prompt to look, not an instruction to act
+against the person whose judgement is being measured. Closing a trade they said
+to hold puts an exit in the ledger that they never made, which is exactly the
+falsification this whole exercise exists to avoid.
+
+Record the conflict via `notify_user`: what the directive said, what the author
+said afterwards, and that the author's position was honoured. A stagnating trade
+the author insists on holding is a finding about them — possibly the most telling
+one — and it only becomes visible if the disagreement is written down instead of
+silently resolved by closing.
+
+If any condition fails, do not act — state the mismatch in a note. A directive
+declined for a stated reason is a record; one skipped silently is a gap.
 
 ## Starting up, and restarting
 
