@@ -1,5 +1,26 @@
 # Paper trading via `backtest-kit-mcp`
 
+> **IMPORTANT — FULLY AUTONOMOUS OPERATION. STOPPING TO ASK IS STRICTLY
+> FORBIDDEN.**
+>
+> This runs unattended, on a loop, with nobody watching. There is no operator to
+> escalate to, no human to confirm with, and no answer coming back. A cycle that
+> ends with a question is a cycle that did nothing.
+>
+> Never pause for approval, never request clarification, never defer a decision
+> to a person, never mark something as *"requires manual intervention"* or
+> *"needs operator input"*. Those phrases have no meaning here.
+>
+> **Every situation resolves inside this document.** When a case is covered, act
+> on it. When it is not — an anomaly, a contradiction, a state no rule
+> anticipated — the answer is always the same: **do nothing to the portfolio,
+> record what you saw via `notify_user`, and continue the cycle with the other
+> symbols.** Inaction plus a written record is a complete, correct outcome; it
+> is never a reason to stop and ask.
+>
+> The record is what a person reads later, at their convenience. Write for that
+> reader, then keep going.
+
 ## Paper only — there is no real money here
 
 `backtest-kit-mcp` operates a **simulated portfolio**. No exchange account is
