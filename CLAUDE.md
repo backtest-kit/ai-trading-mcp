@@ -76,8 +76,8 @@ averaging a position that no longer exists.
 
 Nothing is lost by skipping. Exits never expire, so a missed close is still
 executed next cycle. Entries may expire, and that is recorded as a skip like any
-other — the system was not able to see the call in time, which is exactly the
-kind of gap the record is meant to expose rather than paper over.
+other — the system was not able to see the call in time, which is exactly the kind
+of gap the record is meant to expose rather than paper over.
 
 ## The three states a symbol can be in
 
@@ -185,6 +185,8 @@ when the author called it and when this close actually executed.
 **Reaffirmation is not an exit.** If the author says they are still holding, the
 trade is alive. Do not close on age alone: if the author holds for a week, the
 paper position holds for a week, and that duration is part of what is measured.
+Losses do not expire either — a position deep in the red with the author still
+behind it stays open.
 
 **Partial exits close the whole position.** `close_position` has no partial form,
 so *"прикрыл половину"* or *"зафиксировал часть"* becomes a full close. Say so in
@@ -217,41 +219,63 @@ blame for a trade never taken. A late entry is **poisoned** — its result refle
 the delay rather than the call, and afterwards it cannot be told apart from the
 honest trades.
 
-### When the symbol is not flat
+### The entry checklist
 
-`open_position` refuses anything but a flat symbol, so decide by direction before
-calling:
+Before every `open_position`, walk these in order. Each has one correct answer;
+stop at the first that applies.
 
-- **Same direction as the open position** → this is an add, not a new entry. See
+**1. Is the symbol in the tradable universe?** Not listed by `get_status` → skip
+and record. Nothing else matters.
+
+**2. What state is the symbol in?**
+
+- *Queued* → do nothing this cycle. Wait.
+- *Active, same direction as the call* → this is an add, not an entry. Go to
   *Averaging*.
-- **Opposite direction** → a reversal. Close the existing position this cycle,
-  citing the counter-trend call as the exit reason; open the new side on the next
-  cycle, once the close has drained. The entry keeps the freshness it had when
-  first seen — the cycle it spent waiting does not count against it.
-- **Queued** → do nothing this cycle. The symbol is mid-command.
+- *Active, opposite direction* → this is a **reversal**. Close this cycle, open
+  next cycle. Go to step 4.
+- *Flat* → continue.
 
-### Before any entry: check for whipsaw
+**3. Was the call already stale when first seen?** Older than four hours at first
+sight → skip and record. A cycle spent waiting for a reversal to drain does not
+count as staleness.
+
+**4. Is this a repeat of a call already acted on?** — the whipsaw check, below.
+
+### The whipsaw check, and the one case that looks like it but is not
 
 The dangerous mistake is re-entering a position just closed, because the message
-that opened it still sits in the feed and reads like a fresh call. Check the
-event log in `get_status`:
+that opened it still sits in the feed and reads like a fresh call. So: **is there
+a close on this symbol whose exit reason cites the same message you are about to
+act on?**
 
-- Is there a close on this symbol whose exit reason cites the same message you
-  are about to act on?
-- If yes → **skip**, and record the duplicate detection.
+If no → not a whipsaw, proceed.
 
-The test is causal, not chronological: **is this the same call, or a new one?**
-No time limit makes it safe — a message already acted on stays acted on however
-long ago that was. What makes an entry legitimate is that the author issued it
-*after* the previous position closed, as a distinct call. Then take it, and say
-in the description that it is a repeat entry on this symbol, citing the earlier
-close and what makes this one different. Refusing legitimate repeats distorts the
-evaluation as much as taking duplicates.
+If yes → exactly one of two things is happening, and they demand opposite
+responses. Distinguish by **direction**:
 
-**A repeat of an unchanged call is not an add.** If the author restates a
-position they already hold without saying they added — *"BTC в шорт, держим"* —
-that is a *Position update*, not an entry and not an averaging. Note it and move
-on. Only an explicit add creates a DCA.
+**The new entry is in the SAME direction as the position that was closed.** A
+genuine duplicate: the trade already ran and finished, and the feed is simply
+showing you its trigger again. **Skip**, and record the duplicate detection.
+
+**The new entry is in the OPPOSITE direction.** This is the second half of a
+**reversal**, not a duplicate. One counter-trend message means two things — exit
+the old side, enter the new one — and the close you are looking at is the first
+half, executed last cycle by this very message. Refusing here would leave the
+reversal half-done forever: the old position closed, the new one never opened,
+and the author credited with an exit they made but not the entry they made
+alongside it. **Open it**, and say in the description that it completes the
+reversal, citing the close that preceded it.
+
+The test throughout is causal, not chronological: **is this the same call, or a
+new one?** A genuinely new call at a different level, issued after the previous
+position closed, is a new one — take it, note that it is a repeat entry on this
+symbol, cite the earlier close and say what makes this one different. Refusing
+legitimate repeats distorts the evaluation as much as taking duplicates.
+
+**A restatement is neither.** If the author mentions a position they already hold
+without saying they added — *"BTC в шорт, держим"* — that is a *Position update*.
+Note it, open nothing, average nothing.
 
 ### Averaging
 
@@ -324,8 +348,8 @@ message with its timestamp and t.me link, the author's reasoning in their own
 terms, the entry price they named versus what was actually available, whatever
 they said would invalidate the idea, and any leverage or sizing they mentioned
 (the engine ignores it, but their risk discipline is under test too). State the
-whipsaw check result explicitly — first entry on this symbol, or a repeat with
-the earlier close cited.
+whipsaw check result explicitly — first entry on this symbol, a repeat with the
+earlier close cited, or the second half of a reversal.
 
 **Closing** — the exit reason is stored separately from the entry reason, which
 is the whole point: what the author said about exiting, when they said it, when
@@ -351,7 +375,7 @@ the DCA event inherits the entry text and explains nothing. Follow it immediatel
 with `notify_user`: which message called the add, where price sits against the
 original entry, and what would stop further averaging.
 
-**Every skip** — expired entry, detected whipsaw, untradable symbol, declined
+**Every skip** — expired entry, detected duplicate, untradable symbol, declined
 directive, ambiguous message, an add the tools could not execute, a partial exit
 taken in full, an iteration lost to a failed `get_status`. Record it via
 `notify_user` on a related position, or in the next legitimate trade's
@@ -371,9 +395,10 @@ distinguishable from one it never saw.
 5. `notify_user` on every remaining position the author touched — reaffirmation,
    commentary, observation, anything bearing on it.
 6. Act on system messages whose symbol and situation still match.
-7. Open only calls still fresh from first sight, on symbols that are flat, after
-   the whipsaw check. Average only where the author explicitly added — and if
-   that tool is unavailable or refused, record the add via `notify_user` instead.
+7. Run the entry checklist for every entry signal, including reversals whose
+   close drained last cycle. Average only where the author explicitly added — and
+   if that tool is unavailable or refused, record the add via `notify_user`
+   instead.
 8. Record every skip.
 
 Two constraints on ordering. **One command per symbol per cycle**: the first has
