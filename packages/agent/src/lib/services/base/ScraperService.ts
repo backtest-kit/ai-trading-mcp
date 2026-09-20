@@ -92,7 +92,7 @@ export class ScraperService {
       offsetDate: Math.floor(dayEnd.getTime() / 1000) + 1,
       reverse: false,
     })) {
-      if (!message.message) {
+      if (!message.message && !message.photo) {
         continue;
       }
       const ts = message.date * 1000;
@@ -106,7 +106,7 @@ export class ScraperService {
       }
       rows.push({
         id: message.id,
-        content: message.message,
+        content: message.message || "",
         channel: dto.channel,
         photo,
         date: new Date(ts),
